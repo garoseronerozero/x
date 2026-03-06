@@ -348,6 +348,8 @@ async function startCheck(){
 
         result[url] = s
 
+        await new Promise(r => setTimeout(r, 1200)) // 1.2초 대기
+
     }
 
     saveCache(result)
