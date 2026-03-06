@@ -1,42 +1,40 @@
 const tweets = [
 
-"https://x.com/Happipupper/status/1904039868633923775",
-"https://x.com/Happipupper/status/2027934857834491951",
-"https://x.com/Happipupper/status/2028728552477302793",
-"https://x.com/Happipupper/status/2028732629236027816",
-"https://x.com/Happipupper/status/2029019940074991771",
-
-"https://x.com/sn7__________/status/2028470859539853704",
-
-"https://x.com/iamshipduck1/status/1902988231752536282",
-"https://x.com/iamshipduck1/status/2014818262438314047",
-"https://x.com/iamshipduck1/status/2028030577170067660",
-"https://x.com/iamshipduck1/status/2028329047038824503",
-"https://x.com/iamshipduck1/status/2029170145806160329",
-"https://x.com/iamshipduck1/status/2029520506404418017",
-"https://x.com/iamshipduck1/status/2029525640308027515",
-
-"https://x.com/0825_0717/status/1899834629798211946",
-"https://x.com/0825_0717/status/1900181165513855129",
-"https://x.com/0825_0717/status/1902056012544405987",
-"https://x.com/0825_0717/status/1902393348390056010",
-"https://x.com/0825_0717/status/1902404597525967232",
-"https://x.com/0825_0717/status/1902708116652994697",
-"https://x.com/0825_0717/status/1902708477589639415",
-"https://x.com/0825_0717/status/1903140407103590850",
-"https://x.com/0825_0717/status/1903141999374635500",
-"https://x.com/0825_0717/status/1905131537160700000",
-"https://x.com/0825_0717/status/1907295338148540508",
-"https://x.com/0825_0717/status/1915013361148002772",
-"https://x.com/0825_0717/status/1933336742968627620",
-"https://x.com/0825_0717/status/1980943385486819346",
-"https://x.com/0825_0717/status/1980916788725739775",
-"https://x.com/0825_0717/status/1983421563434406239",
-"https://x.com/0825_0717/status/1983549974391714128",
-"https://x.com/0825_0717/status/2029441007067250770",
-
-"https://x.com/feministsuhyun/status/1983547051968516239",
+  "https://x.com/Happipupper/status/1904039868633923775",
+  "https://x.com/Happipupper/status/2027934857834491951",
+  "https://x.com/Happipupper/status/2028728552477302793",
+  "https://x.com/Happipupper/status/2028732629236027816",
+  "https://x.com/Happipupper/status/2029019940074991771",
+  
+  "https://x.com/sn7__________/status/2028470859539853704",
+  
+  "https://x.com/iamshipduck1/status/1902988231752536282",
+  "https://x.com/iamshipduck1/status/2014818262438314047",
+  "https://x.com/iamshipduck1/status/2028030577170067660",
+  "https://x.com/iamshipduck1/status/2028329047038824503",
+  "https://x.com/iamshipduck1/status/2029170145806160329",
+  "https://x.com/iamshipduck1/status/2029520506404418017",
+  "https://x.com/iamshipduck1/status/2029525640308027515",
+  
+  "https://x.com/0825_0717/status/1899834629798211946",
+  "https://x.com/0825_0717/status/1900181165513855129",
+  "https://x.com/0825_0717/status/1902056012544405987",
+  "https://x.com/0825_0717/status/1902393348390056010",
+  "https://x.com/0825_0717/status/1902404597525967232",
+  "https://x.com/0825_0717/status/1902708116652994697",
+  "https://x.com/0825_0717/status/1902708477589639415",
+  "https://x.com/0825_0717/status/1903140407103590850",
+  "https://x.com/0825_0717/status/1903141999374635500",
+  "https://x.com/0825_0717/status/1905131537160700000",
+  "https://x.com/0825_0717/status/1907295338148540508",
+  "https://x.com/0825_0717/status/1915013361148002772",
+  "https://x.com/0825_0717/status/1933336742968627620",
+  "https://x.com/0825_0717/status/1980943385486819346",
+  "https://x.com/0825_0717/status/1980916788725739775",
+  "https://x.com/0825_0717/status/1983421563434406239",
+  "https://x.com/0825_0717/status/1983549974391714128",
+  "https://x.com/0825_0717/status/2029441007067250770",
+  
+  "https://x.com/feministsuhyun/status/1983547051968516239",
 
 ];
-
-export default tweets;
