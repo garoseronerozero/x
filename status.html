@@ -28,6 +28,7 @@ h1{
 }
 
 .notice{
+    font-size:13px;
     margin-bottom:16px;
     color:#555;
 }
@@ -113,7 +114,6 @@ td a:hover{
 
 <div id="lastUpdate">
 Last update: -
-(상태 확인은 약 3시간 간격으로 다시 수행됩니다)
 </div>
 
 <table id="statusTable">
@@ -334,7 +334,7 @@ async function startCheck(){
         .innerText =
         "Last update: " +
         t.toLocaleString() +
-        " (3시간 캐시)"
+        " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
 
         return
 
@@ -362,7 +362,7 @@ async function startCheck(){
     .innerText =
     "Last update: " +
     now.toLocaleString() +
-    " (3시간 캐시)"
+    " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
 
 }
 
