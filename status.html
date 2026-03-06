@@ -29,15 +29,6 @@
       margin-bottom: 20px;
     }
 
-    .controls {
-      margin-bottom: 20px;
-    }
-
-    button {
-      padding: 6px 12px;
-      cursor: pointer;
-    }
-
     table {
       border-collapse: collapse;
       width: 100%;
@@ -74,6 +65,13 @@
       font-size: 18px;
       font-weight: bold;
     }
+
+    #lastUpdate {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 20px;
+      display: block;
+    }
   </style>
 </head>
 
@@ -81,21 +79,16 @@
 
   <h1>Tweet Status</h1>
   <p class="description">
-    이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
-    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있습니다. 🐾
+    이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 페이지입니다.<br>
+    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다. 🐾
   </p>
 
-  <div class="controls">
-    <button id="refreshBtn">Refresh</button>
-    <span id="lastUpdate"></span>
-  </div>
+  <span id="lastUpdate"></span>
 
   <div id="content"></div>
 
   <script>
-    const REFRESH_INTERVAL = 3 * 60 * 60 * 1000;
-    const MANUAL_LOCK = 5 * 60 * 1000;
-    let lastManualRefresh = 0;
+    const REFRESH_INTERVAL = 3 * 60 * 60 * 1000; // 3시간
 
     function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
@@ -132,7 +125,6 @@
       if (cached) return cached;
 
       const oembed = "https://publish.twitter.com/oembed?url=" + encodeURIComponent(url);
-
       try {
         const res = await fetch(oembed);
         const status = res.status === 404 ? "DELETED" : "OK";
@@ -171,13 +163,9 @@
 
       for (const username in groups) {
         const alias = getAlias(username);
+        const group = groups[username];
 
-        // OK 게시물 수 계산
-        let okCount = 0;
-        for (const url of groups[username]) {
-          const status = getCachedStatus(url) || "OK";
-          if (status === "OK") okCount++;
-        }
+        const okCount = group.filter(url => (getCachedStatus(url) || "OK") === "OK").length;
 
         const title = document.createElement("div");
         title.className = "group-title";
@@ -189,7 +177,7 @@
         const tbody = document.createElement("tbody");
         table.appendChild(tbody);
 
-        for (const url of groups[username]) {
+        for (const url of group) {
           await sleep(1200);
           const status = await checkTweet(url);
 
@@ -204,11 +192,9 @@
 
           const statusCell = document.createElement("td");
           statusCell.className = "status-cell";
-          if (status === "DELETED") {
-            statusCell.innerHTML = "<span class='deleted'>DELETED</span>";
-          } else {
-            statusCell.innerHTML = "<span class='ok'>OK</span>";
-          }
+          statusCell.innerHTML = status === "DELETED"
+            ? "<span class='deleted'>DELETED</span>"
+            : "<span class='ok'>OK</span>";
 
           tr.appendChild(linkCell);
           tr.appendChild(statusCell);
@@ -220,23 +206,6 @@
 
       updateTime();
     }
-
-    function refresh() {
-      const now = Date.now();
-      if (now - lastManualRefresh < MANUAL_LOCK) {
-        alert("5분 후 다시 시도하세요.");
-        return;
-      }
-
-      lastManualRefresh = now;
-      const btn = document.getElementById("refreshBtn");
-      btn.disabled = true;
-      setTimeout(() => { btn.disabled = false; }, MANUAL_LOCK);
-
-      render();
-    }
-
-    document.getElementById("refreshBtn").addEventListener("click", refresh);
 
     render();
     setInterval(render, REFRESH_INTERVAL);
