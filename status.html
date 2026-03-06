@@ -1,212 +1,250 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<link rel="icon" href="favicon.ico">
-<meta name="referrer" content="no-referrer">
-<meta name="robots" content="noindex,nofollow">  
-  
-<title>Status</title>
 
-<style>
+    <meta charset="UTF-8">
+    <title>Status</title>
 
-body{
-font-family: system-ui, sans-serif;
-margin:40px;
-}
+    <script src="./data/tweets.js"></script>
+    <script src="./data/username_aliases.js"></script>
 
-h1{
-margin-bottom:10px;
-}
+    <style>
 
-.controls{
-margin-bottom:20px;
-}
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+        }
 
-button{
-padding:6px 12px;
-cursor:pointer;
-}
+        h1 {
+            margin-bottom: 8px;
+        }
 
-.status-table{
-border-collapse:collapse;
-width:100%;
-font-size:14px;
-}
+        #info {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 14px;
+        }
 
-.status-table th,
-.status-table td{
-border-bottom:1px solid #eee;
-padding:8px 10px;
-text-align:left;
-}
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
 
-.status.ok{
-color:#2e7d32;
-font-weight:600;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-.status.deleted{
-color:#c62828;
-font-weight:600;
-}
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            text-align: left;
+        }
 
-.status.loading{
-color:#888;
-}
+        th {
+            background: #f7f7f7;
+        }
 
-.meta{
-color:#666;
-font-size:13px;
-margin-bottom:10px;
-}
+        .status {
+            font-weight: bold;
+        }
 
-</style>
+        .ok {
+            color: #2a7a2a;
+        }
+
+        .deleted {
+            color: #c33;
+        }
+
+        .checking {
+            color: #999;
+        }
+
+        .user {
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<h1>Status</h1>
+    <h1>Status</h1>
 
-<div class="meta">
-Last checked: <span id="last-check">-</span>  
-Auto refresh: every 3 hours
-</div>
+    <div id="info">
+        Last check: <span id="lastCheck">-</span>
+        <br><br>
+        <button id="refreshBtn">Refresh</button>
+    </div>
 
-<div class="controls">
-<button id="refresh-btn">Refresh</button>
-<span id="cooldown"></span>
-</div>
+    <table>
 
-<table class="status-table">
-<thead>
-<tr>
-<th>Alias</th>
-<th>Tweet</th>
-<th>Status</th>
-</tr>
-</thead>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Tweet</th>
+                <th>Status</th>
+            </tr>
+        </thead>
 
-<tbody id="tweet-table"></tbody>
-</table>
+        <tbody id="tableBody"></tbody>
 
-<script src="./data/tweets.js"></script>
-<script src="./data/aliases.js"></script>
+    </table>
 
-<script>
+    <script>
 
-const table = document.getElementById("tweet-table");
-const lastCheckEl = document.getElementById("last-check");
-const refreshBtn = document.getElementById("refresh-btn");
-const cooldownEl = document.getElementById("cooldown");
+        const tableBody = document.getElementById("tableBody")
+        const lastCheckEl = document.getElementById("lastCheck")
+        const refreshBtn = document.getElementById("refreshBtn")
 
-const REFRESH_INTERVAL = 3 * 60 * 60 * 1000;
-const BUTTON_COOLDOWN = 5 * 60 * 1000;
+        const AUTO_REFRESH = 3 * 60 * 60 * 1000
+        const BUTTON_COOLDOWN = 5 * 60 * 1000
 
-let cooldownTimer = null;
+        function formatTime(d) {
 
-function formatTime(date){
-return date.toLocaleString("ko-KR",{
-year:"numeric",
-month:"2-digit",
-day:"2-digit",
-hour:"2-digit",
-minute:"2-digit"
-});
-}
+            return d.getFullYear() + "-" +
+                String(d.getMonth() + 1).padStart(2, "0") + "-" +
+                String(d.getDate()).padStart(2, "0") + " " +
+                String(d.getHours()).padStart(2, "0") + ":" +
+                String(d.getMinutes()).padStart(2, "0")
 
-async function checkTweets(){
+        }
 
-table.innerHTML="";
+        function groupTweets() {
 
-for(const tweet of tweets){
+            const grouped = {}
 
-const alias =
-aliases?.[tweet.username]?.display || tweet.username;
+            for (const url of tweets) {
 
-const row = document.createElement("tr");
+                const username = url.split("/")[3]
 
-row.innerHTML = `
-<td>${alias}</td>
-<td><a href="${tweet.url}" target="_blank">link</a></td>
-<td class="status loading">CHECKING</td>
-`;
+                if (!grouped[username]) {
+                    grouped[username] = []
+                }
 
-table.appendChild(row);
+                grouped[username].push(url)
 
-try{
+            }
 
-const res = await fetch(
-"https://publish.twitter.com/oembed?url=" + tweet.url
-);
+            return grouped
 
-if(res.ok){
+        }
 
-row.children[2].textContent="OK";
-row.children[2].className="status ok";
+        async function checkTweets() {
 
-}else{
+            tableBody.innerHTML = ""
 
-throw new Error();
+            const grouped = groupTweets()
 
-}
+            for (const username in grouped) {
 
-}catch{
+                const urls = grouped[username]
 
-row.children[2].textContent="DELETED";
-row.children[2].className="status deleted";
+                const alias =
+                    username_aliases?.[username]?.label || username
 
-}
+                let first = true
+                let rows = []
 
-}
+                for (const url of urls) {
 
-const now = new Date();
-lastCheckEl.textContent = formatTime(now);
+                    const tr = document.createElement("tr")
 
-}
+                    if (first) {
 
-function startCooldown(){
+                        tr.innerHTML = `
+                            <td class="user" rowspan="${urls.length}">
+                                ${alias} (${urls.length})
+                            </td>
+                            <td>
+                                <a href="${url}" target="_blank">link</a>
+                            </td>
+                            <td class="status checking">CHECKING</td>
+                        `
 
-refreshBtn.disabled = true;
+                        first = false
 
-let remaining = BUTTON_COOLDOWN / 1000;
+                    } else {
 
-cooldownEl.textContent =
-` (${Math.floor(remaining/60)}:${remaining%60})`;
+                        tr.innerHTML = `
+                            <td>
+                                <a href="${url}" target="_blank">link</a>
+                            </td>
+                            <td class="status checking">CHECKING</td>
+                        `
 
-cooldownTimer = setInterval(()=>{
+                    }
 
-remaining--;
+                    tableBody.appendChild(tr)
 
-const m = Math.floor(remaining/60);
-const s = String(remaining%60).padStart(2,"0");
+                    rows.push({
+                        row: tr,
+                        url
+                    })
 
-cooldownEl.textContent = ` (${m}:${s})`;
+                }
 
-if(remaining<=0){
+                for (const item of rows) {
 
-clearInterval(cooldownTimer);
-cooldownEl.textContent="";
-refreshBtn.disabled=false;
+                    const cell =
+                        item.row.children[item.row.children.length - 1]
 
-}
+                    try {
 
-},1000);
+                        const res = await fetch(
+                            "https://publish.twitter.com/oembed?url=" + item.url
+                        )
 
-}
+                        if (res.ok) {
 
-refreshBtn.addEventListener("click",()=>{
+                            cell.textContent = "OK"
+                            cell.className = "status ok"
 
-checkTweets();
-startCooldown();
+                        } else {
 
-});
+                            throw "fail"
 
-checkTweets();
+                        }
 
-setInterval(checkTweets, REFRESH_INTERVAL);
+                    } catch {
 
-</script>
+                        cell.textContent = "DELETED"
+                        cell.className = "status deleted"
+
+                    }
+
+                }
+
+            }
+
+            lastCheckEl.textContent = formatTime(new Date())
+
+        }
+
+        refreshBtn.onclick = () => {
+
+            checkTweets()
+
+            refreshBtn.disabled = true
+
+            setTimeout(() => {
+                refreshBtn.disabled = false
+            }, BUTTON_COOLDOWN)
+
+        }
+
+        checkTweets()
+
+        setInterval(checkTweets, AUTO_REFRESH)
+
+    </script>
 
 </body>
+
 </html>
