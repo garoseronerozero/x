@@ -1,215 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <title>Status</title>
-
   <link rel="icon" href="favicon.ico">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex,nofollow">
-
   <script src="./data/tweets.js"></script>
   <script src="./data/username_aliases.js"></script>
-
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-    }
-
-    p.description {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-bottom: 30px;
-    }
-
-    th,
-    td {
-      border-bottom: 1px solid #ddd;
-      padding: 8px;
-      font-size: 14px;
-    }
-
-    th {
-      background: #f5f5f5;
-      text-align: center;
-    }
-
-    td.status-cell {
-      text-align: center;
-    }
-
-    .deleted {
-      color: red;
-      font-weight: bold;
-    }
-
-    .ok {
-      color: #333;
-    }
-
-    .group-title {
-      margin-top: 40px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    #lastUpdate {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 20px;
-      display: block;
-    }
+    body { font-family: system-ui, sans-serif; margin: 40px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
+    th { text-align: center; background: #f5f5f5; }
+    td.status-cell { text-align: center; }
+    .deleted { color: red; font-weight: bold; }
+    .ok { color: #333; }
+    #lastUpdate { font-size: 13px; color: #555; margin-bottom: 20px; display: block; }
   </style>
 </head>
-
 <body>
 
-  <h1>Tweet Status</h1>
-  <p class="description">
-    이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 페이지입니다.<br>
-    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다. 🐾
-  </p>
+<h1>Tweet Status</h1>
+<span id="lastUpdate"></span>
+<table id="statusTable">
+  <thead>
+    <tr>
+      <th>User (OK)</th>
+      <th>Tweet & Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
-  <span id="lastUpdate"></span>
+<script>
+const REFRESH_INTERVAL = 3*60*60*1000;
 
-  <div id="content"></div>
+function sleep(ms){return new Promise(r=>setTimeout(r, ms));}
+function extractUsername(url){return url.split("/")[3];}
+function getAlias(username){return username_aliases[username]?.label || username;}
+function cacheKey(url){return "tweet_status_"+url;}
+function getCachedStatus(url){const data = localStorage.getItem(cacheKey(url)); if(!data) return null; const parsed = JSON.parse(data); return (Date.now()-parsed.time>REFRESH_INTERVAL)?null:parsed.status;}
+function saveStatus(url,status){localStorage.setItem(cacheKey(url),JSON.stringify({status,time:Date.now()}));}
+async function checkTweet(url){const cached=getCachedStatus(url); if(cached) return cached; try{const res=await fetch("https://publish.twitter.com/oembed?url="+encodeURIComponent(url)); const status=res.status===404?"DELETED":"OK"; saveStatus(url,status); return status;}catch{return "CHECK_FAIL";}}
+function updateTime(){const now=new Date(); const formatted=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0")+" "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0"); document.getElementById("lastUpdate").textContent="Last update: "+formatted;}
+function groupTweets(){const groups={};tweets.forEach(url=>{const u=extractUsername(url); if(!groups[u]) groups[u]=[]; groups[u].push(url);}); return groups;}
 
-  <script>
-    const REFRESH_INTERVAL = 3 * 60 * 60 * 1000; // 3시간
+async function render(){
+  const tbody=document.querySelector("#statusTable tbody");
+  tbody.innerHTML="";
+  const groups=groupTweets();
+  for(const username in groups){
+    const alias=getAlias(username);
+    const group=groups[username];
+    const okCount=group.filter(url=>(getCachedStatus(url)||"OK")==="OK").length;
 
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    const tr=document.createElement("tr");
+    const userTd=document.createElement("td");
+    userTd.rowSpan=group.length;
+    userTd.textContent=`${alias} (${okCount})`;
+    tr.appendChild(userTd);
 
-    function extractUsername(url) {
-      const parts = url.split("/");
-      return parts[3];
+    const firstUrl=group[0];
+    const firstStatus=await checkTweet(firstUrl);
+    const firstTd=document.createElement("td");
+    firstTd.innerHTML=`<a href="${firstUrl}" target="_blank">${firstUrl}</a> <span class="${firstStatus==="DELETED"?"deleted":"ok"}">${firstStatus}</span>`;
+    firstTd.className="status-cell";
+    tr.appendChild(firstTd);
+    tbody.appendChild(tr);
+
+    for(let i=1;i<group.length;i++){
+      const url=group[i];
+      const status=await checkTweet(url);
+      const tr2=document.createElement("tr");
+      const td=document.createElement("td");
+      td.innerHTML=`<a href="${url}" target="_blank">${url}</a> <span class="${status==="DELETED"?"deleted":"ok"}">${status}</span>`;
+      td.className="status-cell";
+      tr2.appendChild(td);
+      tbody.appendChild(tr2);
+      await sleep(1200);
     }
+  }
+  updateTime();
+}
 
-    function getAlias(username) {
-      if (username_aliases && username_aliases[username]) {
-        return username_aliases[username].label;
-      }
-      return username;
-    }
-
-    function cacheKey(url) {
-      return "tweet_status_" + url;
-    }
-
-    function getCachedStatus(url) {
-      const data = localStorage.getItem(cacheKey(url));
-      if (!data) return null;
-      const parsed = JSON.parse(data);
-      if (Date.now() - parsed.time > REFRESH_INTERVAL) return null;
-      return parsed.status;
-    }
-
-    function saveStatus(url, status) {
-      localStorage.setItem(cacheKey(url), JSON.stringify({ status, time: Date.now() }));
-    }
-
-    async function checkTweet(url) {
-      const cached = getCachedStatus(url);
-      if (cached) return cached;
-
-      const oembed = "https://publish.twitter.com/oembed?url=" + encodeURIComponent(url);
-      try {
-        const res = await fetch(oembed);
-        const status = res.status === 404 ? "DELETED" : "OK";
-        saveStatus(url, status);
-        return status;
-      } catch {
-        return "CHECK_FAIL";
-      }
-    }
-
-    function groupTweets() {
-      const groups = {};
-      tweets.forEach(url => {
-        const username = extractUsername(url);
-        if (!groups[username]) groups[username] = [];
-        groups[username].push(url);
-      });
-      return groups;
-    }
-
-    function updateTime() {
-      const now = new Date();
-      const formatted = now.getFullYear() + "-" +
-        String(now.getMonth() + 1).padStart(2, "0") + "-" +
-        String(now.getDate()).padStart(2, "0") + " " +
-        String(now.getHours()).padStart(2, "0") + ":" +
-        String(now.getMinutes()).padStart(2, "0");
-      document.getElementById("lastUpdate").textContent = "Last update: " + formatted;
-    }
-
-    async function render() {
-      const content = document.getElementById("content");
-      content.innerHTML = "";
-
-      const groups = groupTweets();
-
-      for (const username in groups) {
-        const alias = getAlias(username);
-        const group = groups[username];
-
-        const okCount = group.filter(url => (getCachedStatus(url) || "OK") === "OK").length;
-
-        const title = document.createElement("div");
-        title.className = "group-title";
-        title.textContent = `${alias} (${username}) – ${okCount}`;
-        content.appendChild(title);
-
-        const table = document.createElement("table");
-        table.innerHTML = "<thead><tr><th>Tweet</th><th>Status</th></tr></thead>";
-        const tbody = document.createElement("tbody");
-        table.appendChild(tbody);
-
-        for (const url of group) {
-          await sleep(1200);
-          const status = await checkTweet(url);
-
-          const tr = document.createElement("tr");
-
-          const linkCell = document.createElement("td");
-          const link = document.createElement("a");
-          link.href = url;
-          link.target = "_blank";
-          link.textContent = url;
-          linkCell.appendChild(link);
-
-          const statusCell = document.createElement("td");
-          statusCell.className = "status-cell";
-          statusCell.innerHTML = status === "DELETED"
-            ? "<span class='deleted'>DELETED</span>"
-            : "<span class='ok'>OK</span>";
-
-          tr.appendChild(linkCell);
-          tr.appendChild(statusCell);
-          tbody.appendChild(tr);
-        }
-
-        content.appendChild(table);
-      }
-
-      updateTime();
-    }
-
-    render();
-    setInterval(render, REFRESH_INTERVAL);
-  </script>
+render();
+setInterval(render, REFRESH_INTERVAL);
+</script>
 
 </body>
 </html>
