@@ -184,29 +184,41 @@ function saveCache(data){
 
 async function checkTweet(url){
 
-    const idMatch = url.match(/status\/(\d+)/)
-    if(!idMatch) return "UNKNOWN"
-
-    const id = idMatch[1]
-
     const api =
-        "https://cdn.syndication.twimg.com/tweet-result?id=" + id
+        "https://publish.twitter.com/oembed?url=" +
+        encodeURIComponent(url)
 
     try{
+
         const res = await fetch(api)
-
-        if(res.status === 200){
-            const json = await res.json()
-
-            if(json && json.id_str) return "OK"
-        }
 
         if(res.status === 404) return "DELETED"
 
+        if(res.status === 200){
+
+            const json = await res.json()
+
+            const html = json.html || ""
+
+            if(
+                html.includes("doesn’t exist") ||
+                html.includes("doesn't exist") ||
+                html.includes("page doesn")
+            ){
+                return "DELETED"
+            }
+
+            return "OK"
+        }
+
         return "UNKNOWN"
+
     }catch{
+
         return "UNKNOWN"
+
     }
+
 }
 
 
