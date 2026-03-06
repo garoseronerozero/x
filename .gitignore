@@ -38,3 +38,6 @@ build/
 
 # OS generated
 Thumbs.db
+
+#Utility
+tools/
