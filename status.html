@@ -1,105 +1,263 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+
   <meta charset="UTF-8">
-  <title>Tweet Status</title>
+
+  <title>Status</title>
+
   <link rel="icon" href="favicon.ico">
+
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex,nofollow">
+
   <style>
-    body { font-family: system-ui, sans-serif; margin: 40px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
-    th { text-align: center; background: #f5f5f5; }
-    td.status-cell { text-align: center; }
-    .deleted { color: red; font-weight: bold; }
-    .ok { color: #333; }
-    #lastUpdate { font-size: 13px; color: #555; margin-bottom: 20px; display: block; }
+
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      max-width: 900px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    .notice{
+      font-size:13px;
+      color:#666;
+      margin-bottom:5px;
+    }
+    
+    .update {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+    
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    th {
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    .user {
+      text-align: center;
+      font-weight: bold;
+      width: 180px;
+    }
+
+    .status {
+      text-align: center;
+      width: 120px;
+      font-weight: bold;
+    }
+
+    .deleted {
+      color: red;
+    }
+
   </style>
-  <script src="./data/tweets.js"></script>
-  <script src="./data/username_aliases.js"></script>
+
 </head>
+
 <body>
 
-<h1>Tweet Status</h1>
-<p class="description">
-  이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 페이지입니다.<br>
-  일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다. 🐾
-</p>
-<span id="lastUpdate"></span>
+  <h1>Status</h1>
 
-<table id="statusTable">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Tweet URL</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- 테이블 row는 JS에서 미리 채움 -->
-  </tbody>
-</table>
+  <div class="notice">
+    이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
+    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있을 수 있습니다.
+  </div>
+
+  <div class="update" id="updateTime"></div>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Tweet</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody id="tableBody"></tbody>
+
+  </table>
+
+<script src="data/username_aliases.js"></script>
+<script src="data/tweets.js"></script>
 
 <script>
-function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
-function extractUsername(url){ return url.split("/")[3]; }
-function getAlias(username){ return username_aliases[username]?.label || username; }
-function updateTime(){ 
-  const now = new Date();
-  const formatted = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0")
-    +" "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0");
-  document.getElementById("lastUpdate").textContent = "Last update: " + formatted;
+
+const CACHE_KEY = "tweet_status_cache";
+const CACHE_TIME = 3 * 60 * 60 * 1000;
+
+function extractUsername(url) {
+
+  const match = url.match(/x\.com\/([^\/]+)/);
+
+  if (match) return match[1];
+
+  return null;
+
 }
 
-// 테이블 미리 채우기
-function buildTable() {
-  const tbody = document.querySelector("#statusTable tbody");
-  tbody.innerHTML = "";
-  tweets.forEach(url => {
-    const username = extractUsername(url);
-    const alias = getAlias(username);
-    const tr = document.createElement("tr");
+function formatTime(date) {
 
-    const tdUser = document.createElement("td");
-    tdUser.textContent = alias;
-    tr.appendChild(tdUser);
+  const y = date.getFullYear();
+  const m = String(date.getMonth()+1).padStart(2,'0');
+  const d = String(date.getDate()).padStart(2,'0');
 
-    const tdUrl = document.createElement("td");
-    tdUrl.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
-    tr.appendChild(tdUrl);
+  const h = String(date.getHours()).padStart(2,'0');
+  const min = String(date.getMinutes()).padStart(2,'0');
 
-    const tdStatus = document.createElement("td");
-    tdStatus.className = "status-cell";
-    tdStatus.textContent = "Loading...";
-    tr.appendChild(tdStatus);
+  return `${y}-${m}-${d} ${h}:${min}`;
 
-    tbody.appendChild(tr);
-  });
 }
 
-// 상태 업데이트 (순차적)
-async function updateStatus() {
-  const rows = document.querySelectorAll("#statusTable tbody tr");
-  for(const tr of rows) {
-    const url = tr.querySelector("td:nth-child(2) a").href;
-    const td = tr.querySelector(".status-cell");
-    try {
-      const res = await fetch("https://publish.twitter.com/oembed?url="+encodeURIComponent(url));
-      const status = res.status === 404 ? "DELETED" : "OK";
-      td.textContent = status;
-      td.className = "status-cell " + (status==="DELETED"?"deleted":"ok");
-    } catch {
-      td.textContent = "CHECK_FAIL";
-    }
-    await sleep(1200); // 순차 딜레이
+async function checkTweet(url) {
+
+  try {
+
+    const res = await fetch(url, {
+      method: "HEAD",
+      mode: "no-cors"
+    });
+
+    return "OK";
+
+  } catch {
+
+    return "DELETED";
+
   }
+
 }
 
-// 초기 실행
-updateTime();
-buildTable();
-updateStatus();
+async function run() {
+
+  const table = document.getElementById("tableBody");
+
+  const cached = localStorage.getItem(CACHE_KEY);
+
+  let cacheData = null;
+
+  if (cached) {
+
+    cacheData = JSON.parse(cached);
+
+  }
+
+  const now = Date.now();
+
+  if (cacheData && (now - cacheData.time < CACHE_TIME)) {
+
+    render(cacheData.data);
+
+    return;
+
+  }
+
+  const results = [];
+
+  for (const url of tweets) {
+
+    const status = await checkTweet(url);
+
+    results.push({
+      url,
+      status
+    });
+
+    await new Promise(r => setTimeout(r,1200));
+
+  }
+
+  const data = {
+    time: now,
+    data: results
+  };
+
+  localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+
+  render(results);
+
+}
+
+function render(results) {
+
+  const table = document.getElementById("tableBody");
+
+  const groups = {};
+
+  results.forEach(r => {
+
+    const user = extractUsername(r.url);
+
+    if (!groups[user]) groups[user] = [];
+
+    groups[user].push(r);
+
+  });
+
+  let html = "";
+
+  Object.keys(groups).forEach(user => {
+
+    const alias = username_aliases[user]?.label || user;
+
+    const list = groups[user];
+
+    list.forEach((item, i) => {
+
+      html += "<tr>";
+
+      if (i === 0) {
+
+        html += `<td class="user" rowspan="${list.length}">${alias}</td>`;
+
+      }
+
+      html += `<td><a href="${item.url}" target="_blank">${item.url}</a></td>`;
+
+      const cls = item.status === "DELETED" ? "status deleted" : "status";
+
+      html += `<td class="${cls}">${item.status}</td>`;
+
+      html += "</tr>";
+
+    });
+
+  });
+
+  table.innerHTML = html;
+
+  document.getElementById("updateTime").innerHTML =
+    `Last updated: ${formatTime(new Date())} <br>※ 상태 정보는 약 3시간 주기로 갱신됩니다.`;
+
+}
+
+run();
+
 </script>
 
 </body>
