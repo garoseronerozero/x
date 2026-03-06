@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 
 <meta charset="utf-8">
-<title>Tweet Status</title>
+
+<title>X Post Status</title>
 
 <link rel="icon" href="favicon.ico">
 
@@ -14,79 +15,85 @@
 <style>
 
 body{
-  font-family: system-ui;
-  margin:40px;
+    font-family:sans-serif;
+    margin:40px;
+    line-height:1.6;
 }
 
 h1{
-  margin-bottom:10px;
+    font-size:22px;
 }
 
 .description{
-  color:#444;
-  margin-bottom:30px;
+    margin-bottom:25px;
+    color:#444;
 }
 
-.meta{
-  margin-bottom:20px;
-  font-size:14px;
-  color:#666;
+#lastUpdate{
+    margin-bottom:20px;
+    font-size:13px;
+    color:#666;
 }
 
 table{
-  border-collapse:collapse;
-  font-size: 13px;
-  width:100%;
+    border-collapse:collapse;
+    width:100%;
+    font-size:13px;
 }
 
 th,td{
-  border:1px solid #ddd;
-  padding:8px;
-  text-align:center;
+    border-bottom:1px solid #ddd;
+    padding:6px 8px;
 }
 
 th{
-  background:#f5f5f5;
+    text-align:center;
+}
+
+td.status{
+    text-align:center;
+    width:110px;
 }
 
 .status-ok{
-  color:green;
-  font-weight:600;
+    color:#2e7d32;
 }
 
 .status-deleted{
-  color:red;
-  font-weight:600;
+    color:#c62828;
 }
 
-.user-cell{
-  font-weight:600;
+.user{
+    background:#f7f7f7;
+    font-weight:600;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<h1>Status</h1>
+<h1>X Post Status</h1>
 
 <div class="description">
 이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
-일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다.🐾
+일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있을 수 있습니다. 🐾
 </div>
 
-<div class="meta">
-Last updated: <span id="lastUpdate">checking...</span> (status is checked every 3 hours)
+<div id="lastUpdate">
+Last update: -
+(상태 확인은 약 3시간 간격으로 다시 수행됩니다)
 </div>
 
 <table id="statusTable">
 
 <thead>
 <tr>
-<th>User</th>
+<th style="width:160px">User</th>
 <th>Tweet</th>
-<th>Status</th>
+<th style="width:120px">Status</th>
 </tr>
 </thead>
 
@@ -95,216 +102,244 @@ Last updated: <span id="lastUpdate">checking...</span> (status is checked every 
 
 </table>
 
-<script src="data/tweets.js"></script>
-<script src="data/username_aliases.js"></script>
+
+<script src="./data/tweets.js"></script>
+<script src="./data/username_aliases.js"></script>
 
 <script>
 
 const CACHE_TIME = 3 * 60 * 60 * 1000
 
+const tbody = document.querySelector("#statusTable tbody")
+
 function extractUsername(url){
 
-  const m = url.match(/x\.com\/([^\/]+)\//)
-  return m ? m[1] : "unknown"
+    const m = url.match(/x\.com\/([^\/]+)/)
+    return m ? m[1] : "unknown"
 
 }
 
-function groupTweets(){
-
-  const map = {}
-
-  tweets.forEach(url=>{
-
-    const user = extractUsername(url)
-
-    if(!map[user]) map[user]=[]
-
-    map[user].push(url)
-
-  })
-
-  return map
-
-}
-
-function formatTime(date){
-
-  return date.toLocaleString()
-
-}
-
-function saveCache(data){
-
-  localStorage.setItem("tweetStatusCache",JSON.stringify(data))
-
-}
 
 function loadCache(){
 
-  const raw = localStorage.getItem("tweetStatusCache")
+    const t = localStorage.getItem("tweet_status_time")
+    if(!t) return null
 
-  if(!raw) return null
+    const age = Date.now() - Number(t)
 
-  try{
-    return JSON.parse(raw)
-  }catch{
-    return null
-  }
+    if(age > CACHE_TIME) return null
+
+    const cache = localStorage.getItem("tweet_status_cache")
+
+    if(!cache) return null
+
+    return JSON.parse(cache)
 
 }
+
+
+function saveCache(data){
+
+    localStorage.setItem(
+        "tweet_status_cache",
+        JSON.stringify(data)
+    )
+
+    localStorage.setItem(
+        "tweet_status_time",
+        Date.now()
+    )
+
+}
+
 
 async function checkTweet(url){
 
-  const api="https://publish.twitter.com/oembed?url="+encodeURIComponent(url)
+    const api =
+    "https://publish.twitter.com/oembed?url=" +
+    encodeURIComponent(url)
 
-  try{
+    try{
 
-    const res=await fetch(api)
+        const res = await fetch(api)
 
-    if(res.status===200) return "OK"
+        if(res.status === 200) return "OK"
+        if(res.status === 404) return "DELETED"
 
-    if(res.status===404) return "DELETED"
+        return "UNKNOWN"
 
-    return "UNKNOWN"
+    }catch{
 
-  }catch{
+        return "UNKNOWN"
 
-    return "UNKNOWN"
-
-  }
+    }
 
 }
 
-async function render(){
 
-  const tbody=document.querySelector("#statusTable tbody")
+function groupTweets(){
 
-  const grouped=groupTweets()
+    const map = {}
 
-  const cache=loadCache()
+    for(const url of tweets){
 
-  let statusMap={}
+        const user = extractUsername(url)
 
-  const now=Date.now()
+        if(!map[user]) map[user] = []
 
-  if(cache && now-cache.time < CACHE_TIME){
+        map[user].push(url)
 
-    statusMap=cache.data
-    document.getElementById("lastUpdate").textContent=formatTime(new Date(cache.time))
-
-  }else{
-
-    document.getElementById("lastUpdate").textContent="checking..."
-
-  }
-
-  const rows=[]
-
-  Object.keys(grouped).forEach(user=>{
-
-    const alias=username_aliases[user]?.label || user
-
-    const urls=grouped[user]
-
-    urls.forEach((url,i)=>{
-
-      const tr=document.createElement("tr")
-
-      if(i===0){
-
-        const tdUser=document.createElement("td")
-        tdUser.rowSpan=urls.length
-        tdUser.textContent=alias
-        tdUser.className="user-cell"
-        tr.appendChild(tdUser)
-
-      }
-
-      const tdTweet=document.createElement("td")
-
-      const a=document.createElement("a")
-      a.href=url
-      a.target="_blank"
-      a.textContent=url
-
-      tdTweet.appendChild(a)
-
-      const tdStatus=document.createElement("td")
-      tdStatus.textContent="..."
-
-      tr.appendChild(tdTweet)
-      tr.appendChild(tdStatus)
-
-      tbody.appendChild(tr)
-
-      rows.push({url,cell:tdStatus})
-
-    })
-
-  })
-
-  if(cache && now-cache.time < CACHE_TIME){
-
-    rows.forEach(r=>{
-
-      const s=statusMap[r.url]
-
-      if(s==="OK"){
-        r.cell.textContent="OK"
-        r.cell.className="status-ok"
-      }
-      else if(s==="DELETED"){
-        r.cell.textContent="DELETED"
-        r.cell.className="status-deleted"
-      }
-      else{
-        r.cell.textContent="UNKNOWN"
-      }
-
-    })
-
-    return
-
-  }
-
-  statusMap={}
-
-  for(const r of rows){
-
-    const result=await checkTweet(r.url)
-
-    statusMap[r.url]=result
-
-    if(result==="OK"){
-      r.cell.textContent="OK"
-      r.cell.className="status-ok"
-    }
-    else if(result==="DELETED"){
-      r.cell.textContent="DELETED"
-      r.cell.className="status-deleted"
-    }
-    else{
-      r.cell.textContent="UNKNOWN"
     }
 
-    await new Promise(res=>setTimeout(res,1200))
-
-  }
-
-  const time=Date.now()
-
-  saveCache({
-    time:time,
-    data:statusMap
-  })
-
-  document.getElementById("lastUpdate").textContent=formatTime(new Date(time))
+    return map
 
 }
 
-render()
+
+function renderInitial(){
+
+    const grouped = groupTweets()
+
+    for(const user in grouped){
+
+        const alias =
+        username_aliases[user]?.label || user
+
+        const userRow =
+        document.createElement("tr")
+
+        userRow.className = "user"
+
+        userRow.innerHTML =
+        `<td colspan="3">${alias}</td>`
+
+        tbody.appendChild(userRow)
+
+        for(const url of grouped[user]){
+
+            const tr =
+            document.createElement("tr")
+
+            tr.innerHTML =
+            `
+            <td></td>
+            <td>
+                <a href="${url}" target="_blank">${url}</a>
+            </td>
+            <td class="status">checking…</td>
+            `
+
+            tbody.appendChild(tr)
+
+        }
+
+    }
+
+}
+
+
+async function fillStatus(data){
+
+    const rows =
+    document.querySelectorAll("tbody tr")
+
+    let i = 0
+
+    for(const row of rows){
+
+        const link =
+        row.querySelector("a")
+
+        if(!link) continue
+
+        const url = link.href
+
+        const status = data[url]
+
+        const cell =
+        row.querySelector(".status")
+
+        if(status==="OK"){
+
+            cell.innerHTML =
+            `<span class="status-ok">OK</span>`
+
+        }
+
+        else if(status==="DELETED"){
+
+            cell.innerHTML =
+            `<span class="status-deleted">DELETED</span>`
+
+        }
+
+        else{
+
+            cell.innerHTML = "UNKNOWN"
+
+        }
+
+        await new Promise(r=>setTimeout(r,80))
+
+        i++
+
+    }
+
+}
+
+
+async function startCheck(){
+
+    renderInitial()
+
+    const cache = loadCache()
+
+    if(cache){
+
+        fillStatus(cache)
+
+        const t =
+        new Date(Number(localStorage.getItem("tweet_status_time")))
+
+        document.getElementById("lastUpdate")
+        .innerText =
+        "Last update: " +
+        t.toLocaleString() +
+        " (cached, 3시간 주기)"
+
+        return
+
+    }
+
+    const result = {}
+
+    for(const url of tweets){
+
+        const s = await checkTweet(url)
+
+        result[url] = s
+
+    }
+
+    saveCache(result)
+
+    fillStatus(result)
+
+    const now = new Date()
+
+    document.getElementById("lastUpdate")
+    .innerText =
+    "Last update: " +
+    now.toLocaleString() +
+    " (3시간 캐시)"
+
+}
+
+
+startCheck()
 
 </script>
 
 </body>
+
 </html>
