@@ -22,6 +22,9 @@ body{
 
 h1{
     font-size:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .notice{
@@ -70,14 +73,12 @@ td.status{
 
 .home-link{
   font-size:13px;
-  margin-left:12px;
   padding:5px 10px;
   border-radius:7px;
   border:1px solid #ddd;
   background:#f5f5f5;
   color:#555;
   text-decoration:none;
-  vertical-align:middle;
 }
 
 .home-link:hover{
@@ -338,7 +339,8 @@ async function startCheck(){
         document.getElementById("lastUpdate")
         .innerText =
         "Last update: " +
-        t.toLocaleString()
+        t.toLocaleString() +
+        " (3시간 캐시)"
 
         return
 
@@ -363,7 +365,8 @@ async function startCheck(){
     document.getElementById("lastUpdate")
     .innerText =
     "Last update: " +
-    now.toLocaleString()
+    now.toLocaleString() +
+    " (3시간 캐시)"
 
 }
 
