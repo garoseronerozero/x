@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Saved Tweets</title>
+<title>Tweet Archive</title>
 
 <style>
 
@@ -23,11 +23,49 @@ body{
 
 h1{
   text-align:center;
+  margin-bottom:10px;
+}
+
+.meta{
+  text-align:center;
+  color:#666;
+  margin-bottom:30px;
+}
+
+.download{
+  text-align:center;
   margin-bottom:40px;
 }
 
+button{
+  padding:8px 16px;
+  border:none;
+  background:#1da1f2;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
 .tweet{
-  margin:30px 0;
+  margin:40px 0;
+}
+
+.source{
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.source a{
+  color:#1da1f2;
+  text-decoration:none;
+}
+
+.source a:hover{
+  text-decoration:underline;
 }
 
 </style>
@@ -38,41 +76,114 @@ h1{
 
 <div class="container">
 
-<h1>Saved Tweets</h1>
+<h1 id="title">Tweet Archive</h1>
+
+<div class="meta">
+<span id="count"></span>
+</div>
+
+<div class="download">
+<button onclick="window.print()">Download PDF</button>
+</div>
+
 
 <div class="tweet">
+
+<div class="source">
+<a href="https://x.com/Happipupper/status/1904039868633923775" target="_blank">
+Original Tweet ↗
+</a>
+</div>
+
 <blockquote class="twitter-tweet">
 <a href="https://x.com/Happipupper/status/1904039868633923775"></a>
 </blockquote>
+
 </div>
 
+
 <div class="tweet">
+
+<div class="source">
+<a href="https://x.com/Happipupper/status/2027934857834491951" target="_blank">
+Original Tweet ↗
+</a>
+</div>
+
 <blockquote class="twitter-tweet">
 <a href="https://x.com/Happipupper/status/2027934857834491951"></a>
 </blockquote>
+
 </div>
 
+
 <div class="tweet">
+
+<div class="source">
+<a href="https://x.com/Happipupper/status/2028728552477302793" target="_blank">
+Original Tweet ↗
+</a>
+</div>
+
 <blockquote class="twitter-tweet">
 <a href="https://x.com/Happipupper/status/2028728552477302793"></a>
 </blockquote>
+
 </div>
 
+
 <div class="tweet">
+
+<div class="source">
+<a href="https://x.com/Happipupper/status/2028732629236027816" target="_blank">
+Original Tweet ↗
+</a>
+</div>
+
 <blockquote class="twitter-tweet">
 <a href="https://x.com/Happipupper/status/2028732629236027816"></a>
 </blockquote>
+
 </div>
 
+
 <div class="tweet">
+
+<div class="source">
+<a href="https://x.com/Happipupper/status/2029019940074991771" target="_blank">
+Original Tweet ↗
+</a>
+</div>
+
 <blockquote class="twitter-tweet">
 <a href="https://x.com/Happipupper/status/2029019940074991771"></a>
 </blockquote>
-</div>
 
 </div>
+
+
+</div>
+
 
 <script async src="https://platform.twitter.com/widgets.js"></script>
+
+<script>
+
+// username 자동 추출
+const tweet = document.querySelector('.twitter-tweet a').href
+const username = tweet.split('/')[3]
+
+document.getElementById("title").textContent =
+"@" + username + " Tweet Archive"
+
+// 트윗 개수 표시
+const tweets = document.querySelectorAll('.tweet').length
+
+document.getElementById("count").textContent =
+tweets + " tweets archived"
+
+</script>
+
 
 </body>
 </html>
