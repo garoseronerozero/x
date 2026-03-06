@@ -3,99 +3,99 @@
 
 <head>
 
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-<title>X Post Status</title>
+    <title>X Post Status</title>
 
-<link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
 
-<meta name="referrer" content="no-referrer">
-<meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,nofollow">
 
-<style>
+    <style>
 
-body{
-    font-family:sans-serif;
-    margin:40px;
-    line-height:1.6;
-}
+        body{
+            font-family:sans-serif;
+            margin:40px;
+            line-height:1.6;
+        }
 
-h1{
-    font-size:22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        h1{
+            font-size:22px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
 
-.notice{
-    font-size:13px;
-    margin-bottom:16px;
-    color:#555;
-}
+        .notice{
+            font-size:13px;
+            margin-bottom:16px;
+            color:#555;
+        }
 
-#lastUpdate{
-    margin-bottom:20px;
-    font-size:13px;
-    color:#666;
-}
+        #lastUpdate{
+            margin-bottom:20px;
+            font-size:13px;
+            color:#666;
+        }
 
-table{
-    border-collapse:collapse;
-    width:100%;
-    font-size:13px;
-}
+        table{
+            border-collapse:collapse;
+            width:100%;
+            font-size:13px;
+        }
 
-th,td{
-    border-bottom:1px solid #ddd;
-    padding:6px 8px;
-}
+        th,td{
+            border-bottom:1px solid #ddd;
+            padding:6px 8px;
+        }
 
-th{
-    text-align:center;
-}
+        th{
+            text-align:center;
+        }
 
-td.status{
-    text-align:center;
-    width:110px;
-}
+        td.status{
+            text-align:center;
+            width:110px;
+        }
 
-.status-ok{
-    color:#2e7d32;
-}
+        .status-ok{
+            color:#2e7d32;
+        }
 
-.status-deleted{
-    color:#c62828;
-}
+        .status-deleted{
+            color:#c62828;
+        }
 
-.user{
-    background:#f7f7f7;
-    font-weight:600;
-}
+        .user{
+            background:#f7f7f7;
+            font-weight:600;
+        }
 
-.home-link{
-  font-size:13px;
-  padding:5px 10px;
-  border-radius:7px;
-  border:1px solid #ddd;
-  background:#f5f5f5;
-  color:#555;
-  text-decoration:none;
-}
+        .home-link{
+            font-size:13px;
+            padding:5px 10px;
+            border-radius:7px;
+            border:1px solid #ddd;
+            background:#f5f5f5;
+            color:#555;
+            text-decoration:none;
+        }
 
-.home-link:hover{
-  background:#eee;
-}
+        .home-link:hover{
+            background:#eee;
+        }
 
-td a{
-    color:#1a73e8;
-    text-decoration:none;
-}
+        td a{
+            color:#1a73e8;
+            text-decoration:none;
+        }
 
-td a:hover{
-    text-decoration:underline;
-}
+        td a:hover{
+            text-decoration:underline;
+        }
 
-</style>
+    </style>
 
 </head>
 
@@ -108,26 +108,26 @@ td a:hover{
 </h1>
 
 <div class="notice">
-이 페이지는 X 일부 게시물의 현재 상태를 확인하기 위한 페이지입니다.<br>
-일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다.
+    이 페이지는 X 일부 게시물의 현재 상태를 확인하기 위한 페이지입니다.<br>
+    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다.
 </div>
 
 <div id="lastUpdate">
-Last update: -
+    Last update: -
 </div>
 
 <table id="statusTable">
 
-<thead>
-<tr>
-<th style="width:160px">User</th>
-<th>Tweet</th>
-<th style="width:120px">Status</th>
-</tr>
-</thead>
+    <thead>
+    <tr>
+        <th style="width:160px">User</th>
+        <th>Tweet</th>
+        <th style="width:120px">Status</th>
+    </tr>
+    </thead>
 
-<tbody>
-</tbody>
+    <tbody>
+    </tbody>
 
 </table>
 
@@ -137,136 +137,58 @@ Last update: -
 
 <script>
 
-const CACHE_TIME = 3 * 60 * 60 * 1000
+    const tbody = document.querySelector("#statusTable tbody")
 
-const tbody = document.querySelector("#statusTable tbody")
+    function extractUsername(url){
 
-function extractUsername(url){
+        const m = url.match(/x\.com\/([^\/]+)/)
+        return m ? m[1] : "unknown"
 
-    const m = url.match(/x\.com\/([^\/]+)/)
-    return m ? m[1] : "unknown"
+    }
 
-}
+    function groupTweets(){
 
+        const map = {}
 
-function loadCache(){
+        for(const url of tweets){
 
-    const t = localStorage.getItem("tweet_status_time")
-    if(!t) return null
+            const user = extractUsername(url)
 
-    const age = Date.now() - Number(t)
+            if(!map[user]) map[user] = []
+            map[user].push(url)
 
-    if(age > CACHE_TIME) return null
-
-    const cache = localStorage.getItem("tweet_status_cache")
-
-    if(!cache) return null
-
-    return JSON.parse(cache)
-
-}
-
-
-function saveCache(data){
-
-    localStorage.setItem(
-        "tweet_status_cache",
-        JSON.stringify(data)
-    )
-
-    localStorage.setItem(
-        "tweet_status_time",
-        Date.now()
-    )
-
-}
-
-
-async function checkTweet(url){
-
-    const api =
-        "https://publish.twitter.com/oembed?url=" +
-        encodeURIComponent(url)
-
-    try{
-
-        const res = await fetch(api)
-
-        if(res.status === 404) return "DELETED"
-
-        if(res.status === 200){
-
-            const json = await res.json()
-
-            const html = json.html || ""
-
-            if(
-                html.includes("doesn’t exist") ||
-                html.includes("doesn't exist") ||
-                html.includes("page doesn")
-            ){
-                return "DELETED"
-            }
-
-            return "OK"
         }
 
-        return "UNKNOWN"
-
-    }catch{
-
-        return "UNKNOWN"
+        return map
 
     }
 
-}
+    function renderInitial(){
 
+        const grouped = groupTweets()
 
-function groupTweets(){
+        for(const user in grouped){
 
-    const map = {}
+            const alias =
+                username_aliases[user]?.label || user
 
-    for(const url of tweets){
+            const userRow =
+                document.createElement("tr")
 
-        const user = extractUsername(url)
+            userRow.className = "user"
 
-        if(!map[user]) map[user] = []
+            userRow.innerHTML =
+                `<td colspan="3">${alias}</td>`
 
-        map[user].push(url)
+            tbody.appendChild(userRow)
 
-    }
+            for(const url of grouped[user]){
 
-    return map
+                const tr =
+                    document.createElement("tr")
 
-}
-
-
-function renderInitial(){
-
-    const grouped = groupTweets()
-
-    for(const user in grouped){
-
-        const alias =
-        username_aliases[user]?.label || user
-
-        const userRow =
-        document.createElement("tr")
-
-        userRow.className = "user"
-
-        userRow.innerHTML =
-        `<td colspan="3">${alias}</td>`
-
-        tbody.appendChild(userRow)
-
-        for(const url of grouped[user]){
-
-            const tr =
-            document.createElement("tr")
-
-            tr.innerHTML =
-            `
+                tr.innerHTML =
+                    `
             <td></td>
             <td>
                 <a href="${url}" target="_blank">${url}</a>
@@ -274,126 +196,101 @@ function renderInitial(){
             <td class="status">checking…</td>
             `
 
-            tbody.appendChild(tr)
+                tbody.appendChild(tr)
+
+            }
 
         }
 
     }
 
-}
+    function applyStatus(data){
 
-function formatDate(d){
-    const yyyy = d.getFullYear()
-    const mm = String(d.getMonth()+1).padStart(2,'0')
-    const dd = String(d.getDate()).padStart(2,'0')
-    const hh = String(d.getHours()).padStart(2,'0')
-    const mi = String(d.getMinutes()).padStart(2,'0')
+        const rows =
+            document.querySelectorAll("tbody tr")
 
-    return `${yyyy}-${mm}-${dd} ${hh}:${mi}`
-}
+        for(const row of rows){
 
+            const link =
+                row.querySelector("a")
 
-async function fillStatus(data){
+            if(!link) continue
 
-    const rows =
-    document.querySelectorAll("tbody tr")
+            const url =
+                link.getAttribute("href")
 
-    let i = 0
+            const status =
+                data[url]
 
-    for(const row of rows){
+            const cell =
+                row.querySelector(".status")
 
-        const link =
-        row.querySelector("a")
+            if(status==="OK"){
 
-        if(!link) continue
+                cell.innerHTML =
+                    `<span class="status-ok">OK</span>`
 
-        const url = link.href
+            }
 
-        const status = data[url]
+            else if(status==="DELETED"){
 
-        const cell =
-        row.querySelector(".status")
+                cell.innerHTML =
+                    `<span class="status-deleted">DELETED</span>`
 
-        if(status==="OK"){
+            }
 
-            cell.innerHTML =
-            `<span class="status-ok">OK</span>`
+            else if(status==="PROTECTED"){
 
-        }
+                cell.textContent = "PROTECTED"
 
-        else if(status==="DELETED"){
+            }
 
-            cell.innerHTML =
-            `<span class="status-deleted">DELETED</span>`
+            else{
 
-        }
+                cell.textContent = "UNKNOWN"
 
-        else{
-
-            cell.innerHTML = "UNKNOWN"
+            }
 
         }
 
-        await new Promise(r=>setTimeout(r,80))
+    }
 
-        i++
+    async function loadStatus(){
+
+        try{
+
+            const res =
+                await fetch("./data/status.json")
+
+            const json =
+                await res.json()
+
+            applyStatus(json.data)
+
+            document.getElementById("lastUpdate")
+                .innerText =
+                "Last update: " + json.lastUpdate
+
+        }
+
+        catch(e){
+
+            document.getElementById("lastUpdate")
+                .innerText =
+                "Status load failed"
+
+        }
 
     }
 
-}
+    function start(){
 
-
-async function startCheck(){
-
-    renderInitial()
-
-    const cache = loadCache()
-
-    if(cache){
-
-        fillStatus(cache)
-
-        const t =
-        new Date(Number(localStorage.getItem("tweet_status_time")))
-
-        document.getElementById("lastUpdate")
-        .innerText =
-        "Last update: " +
-        formatDate(t) +
-        " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
-
-        return
+        renderInitial()
+        loadStatus()
 
     }
 
-    const result = {}
-
-    for(const url of tweets){
-
-        const s = await checkTweet(url)
-
-        result[url] = s
-
-        await new Promise(r => setTimeout(r, 600)) // 0.6초 대기
-
-    }
-
-    saveCache(result)
-
-    fillStatus(result)
-
-    const now = new Date()
-
-    document.getElementById("lastUpdate")
-    .innerText =
-    "Last update: " +
-    formatDate(now) +
-    " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
-
-}
-
-
-startCheck()
+    start()
 
 </script>
 
