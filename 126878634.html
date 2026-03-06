@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,62 +10,23 @@
 <style>
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:#f5f8fa;
-  margin:0;
+font-family:Arial;
+background:#f5f8fa;
 }
 
 .container{
-  max-width:600px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-h1{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.meta{
-  text-align:center;
-  color:#666;
-  margin-bottom:30px;
-}
-
-.download{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-button{
-  padding:8px 16px;
-  border:none;
-  background:#1da1f2;
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-button:hover{
-  opacity:0.9;
+max-width:600px;
+margin:auto;
+padding:40px 20px;
 }
 
 .tweet{
-  margin:40px 0;
+margin:40px 0;
 }
 
 .source{
-  font-size:14px;
-  margin-bottom:8px;
-}
-
-.source a{
-  color:#1da1f2;
-  text-decoration:none;
-}
-
-.source a:hover{
-  text-decoration:underline;
+font-size:14px;
+margin-bottom:8px;
 }
 
 </style>
@@ -76,16 +37,7 @@ button:hover{
 
 <div class="container">
 
-<h1 id="title">Tweet Archive</h1>
-
-<div class="meta">
-<span id="count"></span>
-</div>
-
-<div class="download">
-<button onclick="window.print()">Download PDF</button>
-</div>
-
+<h1>@Happipupper Tweet Archive</h1>
 
 <div class="tweet">
 
@@ -101,7 +53,6 @@ Original Tweet ↗
 
 </div>
 
-
 <div class="tweet">
 
 <div class="source">
@@ -115,7 +66,6 @@ Original Tweet ↗
 </blockquote>
 
 </div>
-
 
 <div class="tweet">
 
@@ -131,7 +81,6 @@ Original Tweet ↗
 
 </div>
 
-
 <div class="tweet">
 
 <div class="source">
@@ -145,7 +94,6 @@ Original Tweet ↗
 </blockquote>
 
 </div>
-
 
 <div class="tweet">
 
@@ -161,29 +109,9 @@ Original Tweet ↗
 
 </div>
 
-
 </div>
 
-
 <script async src="https://platform.twitter.com/widgets.js"></script>
-
-<script>
-
-// username 자동 추출
-const tweet = document.querySelector('.twitter-tweet a').href
-const username = tweet.split('/')[3]
-
-document.getElementById("title").textContent =
-"@" + username + " Tweet Archive"
-
-// 트윗 개수 표시
-const tweets = document.querySelectorAll('.tweet').length
-
-document.getElementById("count").textContent =
-tweets + " tweets archived"
-
-</script>
-
 
 </body>
 </html>
