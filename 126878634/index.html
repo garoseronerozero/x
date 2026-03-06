@@ -62,7 +62,7 @@ iframe{
 
 <div class="container">
 
-<h1>@Happipupper Archived Tweets</h1>
+<h1>@Happipupper Archived Tweets (<span id="tweet-count"></span>)</h1>
 
 <div class="tweet">
 <div class="link">
@@ -108,6 +108,11 @@ Original Tweet →
 </div>
 <iframe src="2029019940074991771_126878634.pdf#toolbar=0&navpanes=0"></iframe>
 </div>
+
+<script>
+const count = document.querySelectorAll('.tweet').length;
+document.getElementById('tweet-count').textContent = count;
+</script>
 
 </div>
 
