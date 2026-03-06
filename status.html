@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Status</title>
+
+<style>
+
+body{
+font-family: system-ui, sans-serif;
+margin:40px;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.controls{
+margin-bottom:20px;
+}
+
+button{
+padding:6px 12px;
+cursor:pointer;
+}
+
+.status-table{
+border-collapse:collapse;
+width:100%;
+font-size:14px;
+}
+
+.status-table th,
+.status-table td{
+border-bottom:1px solid #eee;
+padding:8px 10px;
+text-align:left;
+}
+
+.status.ok{
+color:#2e7d32;
+font-weight:600;
+}
+
+.status.deleted{
+color:#c62828;
+font-weight:600;
+}
+
+.status.loading{
+color:#888;
+}
+
+.meta{
+color:#666;
+font-size:13px;
+margin-bottom:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Status</h1>
+
+<div class="meta">
+Last checked: <span id="last-check">-</span>  
+Auto refresh: every 3 hours
+</div>
+
+<div class="controls">
+<button id="refresh-btn">Refresh</button>
+<span id="cooldown"></span>
+</div>
+
+<table class="status-table">
+<thead>
+<tr>
+<th>Alias</th>
+<th>Tweet</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="tweet-table"></tbody>
+</table>
+
+<script src="data/tweets.js"></script>
+<script src="data/aliases.js"></script>
+
+<script>
+
+const table = document.getElementById("tweet-table");
+const lastCheckEl = document.getElementById("last-check");
+const refreshBtn = document.getElementById("refresh-btn");
+const cooldownEl = document.getElementById("cooldown");
+
+const REFRESH_INTERVAL = 3 * 60 * 60 * 1000;
+const BUTTON_COOLDOWN = 5 * 60 * 1000;
+
+let cooldownTimer = null;
+
+function formatTime(date){
+return date.toLocaleString("ko-KR",{
+year:"numeric",
+month:"2-digit",
+day:"2-digit",
+hour:"2-digit",
+minute:"2-digit"
+});
+}
+
+async function checkTweets(){
+
+table.innerHTML="";
+
+for(const tweet of tweets){
+
+const alias =
+aliases?.[tweet.username]?.display || tweet.username;
+
+const row = document.createElement("tr");
+
+row.innerHTML = `
+<td>${alias}</td>
+<td><a href="${tweet.url}" target="_blank">link</a></td>
+<td class="status loading">CHECKING</td>
+`;
+
+table.appendChild(row);
+
+try{
+
+const res = await fetch(
+"https://publish.twitter.com/oembed?url=" + tweet.url
+);
+
+if(res.ok){
+
+row.children[2].textContent="OK";
+row.children[2].className="status ok";
+
+}else{
+
+throw new Error();
+
+}
+
+}catch{
+
+row.children[2].textContent="DELETED";
+row.children[2].className="status deleted";
+
+}
+
+}
+
+const now = new Date();
+lastCheckEl.textContent = formatTime(now);
+
+}
+
+function startCooldown(){
+
+refreshBtn.disabled = true;
+
+let remaining = BUTTON_COOLDOWN / 1000;
+
+cooldownEl.textContent =
+` (${Math.floor(remaining/60)}:${remaining%60})`;
+
+cooldownTimer = setInterval(()=>{
+
+remaining--;
+
+const m = Math.floor(remaining/60);
+const s = String(remaining%60).padStart(2,"0");
+
+cooldownEl.textContent = ` (${m}:${s})`;
+
+if(remaining<=0){
+
+clearInterval(cooldownTimer);
+cooldownEl.textContent="";
+refreshBtn.disabled=false;
+
+}
+
+},1000);
+
+}
+
+refreshBtn.addEventListener("click",()=>{
+
+checkTweets();
+startCooldown();
+
+});
+
+checkTweets();
+
+setInterval(checkTweets, REFRESH_INTERVAL);
+
+</script>
+
+</body>
+</html>
