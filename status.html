@@ -2,12 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Status</title>
+  <title>Tweet Status</title>
   <link rel="icon" href="favicon.ico">
   <meta name="referrer" content="no-referrer">
   <meta name="robots" content="noindex,nofollow">
-  <script src="./data/tweets.js"></script>
-  <script src="./data/username_aliases.js"></script>
   <style>
     body { font-family: system-ui, sans-serif; margin: 40px; }
     table { border-collapse: collapse; width: 100%; }
@@ -18,74 +16,90 @@
     .ok { color: #333; }
     #lastUpdate { font-size: 13px; color: #555; margin-bottom: 20px; display: block; }
   </style>
+  <script src="./data/tweets.js"></script>
+  <script src="./data/username_aliases.js"></script>
 </head>
 <body>
 
 <h1>Tweet Status</h1>
+<p class="description">
+  이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 페이지입니다.<br>
+  일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 맥락을 이해하기 위해 포함되어 있을 수 있습니다. 🐾
+</p>
 <span id="lastUpdate"></span>
+
 <table id="statusTable">
   <thead>
     <tr>
-      <th>User (OK)</th>
-      <th>Tweet & Status</th>
+      <th>User</th>
+      <th>Tweet URL</th>
+      <th>Status</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <!-- 테이블 row는 JS에서 미리 채움 -->
+  </tbody>
 </table>
 
 <script>
-const REFRESH_INTERVAL = 3*60*60*1000;
-
-function sleep(ms){return new Promise(r=>setTimeout(r, ms));}
-function extractUsername(url){return url.split("/")[3];}
-function getAlias(username){return username_aliases[username]?.label || username;}
-function cacheKey(url){return "tweet_status_"+url;}
-function getCachedStatus(url){const data = localStorage.getItem(cacheKey(url)); if(!data) return null; const parsed = JSON.parse(data); return (Date.now()-parsed.time>REFRESH_INTERVAL)?null:parsed.status;}
-function saveStatus(url,status){localStorage.setItem(cacheKey(url),JSON.stringify({status,time:Date.now()}));}
-async function checkTweet(url){const cached=getCachedStatus(url); if(cached) return cached; try{const res=await fetch("https://publish.twitter.com/oembed?url="+encodeURIComponent(url)); const status=res.status===404?"DELETED":"OK"; saveStatus(url,status); return status;}catch{return "CHECK_FAIL";}}
-function updateTime(){const now=new Date(); const formatted=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0")+" "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0"); document.getElementById("lastUpdate").textContent="Last update: "+formatted;}
-function groupTweets(){const groups={};tweets.forEach(url=>{const u=extractUsername(url); if(!groups[u]) groups[u]=[]; groups[u].push(url);}); return groups;}
-
-async function render(){
-  const tbody=document.querySelector("#statusTable tbody");
-  tbody.innerHTML="";
-  const groups=groupTweets();
-  for(const username in groups){
-    const alias=getAlias(username);
-    const group=groups[username];
-    const okCount=group.filter(url=>(getCachedStatus(url)||"OK")==="OK").length;
-
-    const tr=document.createElement("tr");
-    const userTd=document.createElement("td");
-    userTd.rowSpan=group.length;
-    userTd.textContent=`${alias} (${okCount})`;
-    tr.appendChild(userTd);
-
-    const firstUrl=group[0];
-    const firstStatus=await checkTweet(firstUrl);
-    const firstTd=document.createElement("td");
-    firstTd.innerHTML=`<a href="${firstUrl}" target="_blank">${firstUrl}</a> <span class="${firstStatus==="DELETED"?"deleted":"ok"}">${firstStatus}</span>`;
-    firstTd.className="status-cell";
-    tr.appendChild(firstTd);
-    tbody.appendChild(tr);
-
-    for(let i=1;i<group.length;i++){
-      const url=group[i];
-      const status=await checkTweet(url);
-      const tr2=document.createElement("tr");
-      const td=document.createElement("td");
-      td.innerHTML=`<a href="${url}" target="_blank">${url}</a> <span class="${status==="DELETED"?"deleted":"ok"}">${status}</span>`;
-      td.className="status-cell";
-      tr2.appendChild(td);
-      tbody.appendChild(tr2);
-      await sleep(1200);
-    }
-  }
-  updateTime();
+function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+function extractUsername(url){ return url.split("/")[3]; }
+function getAlias(username){ return username_aliases[username]?.label || username; }
+function updateTime(){ 
+  const now = new Date();
+  const formatted = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0")+"-"+String(now.getDate()).padStart(2,"0")
+    +" "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0");
+  document.getElementById("lastUpdate").textContent = "Last update: " + formatted;
 }
 
-render();
-setInterval(render, REFRESH_INTERVAL);
+// 테이블 미리 채우기
+function buildTable() {
+  const tbody = document.querySelector("#statusTable tbody");
+  tbody.innerHTML = "";
+  tweets.forEach(url => {
+    const username = extractUsername(url);
+    const alias = getAlias(username);
+    const tr = document.createElement("tr");
+
+    const tdUser = document.createElement("td");
+    tdUser.textContent = alias;
+    tr.appendChild(tdUser);
+
+    const tdUrl = document.createElement("td");
+    tdUrl.innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+    tr.appendChild(tdUrl);
+
+    const tdStatus = document.createElement("td");
+    tdStatus.className = "status-cell";
+    tdStatus.textContent = "Loading...";
+    tr.appendChild(tdStatus);
+
+    tbody.appendChild(tr);
+  });
+}
+
+// 상태 업데이트 (순차적)
+async function updateStatus() {
+  const rows = document.querySelectorAll("#statusTable tbody tr");
+  for(const tr of rows) {
+    const url = tr.querySelector("td:nth-child(2) a").href;
+    const td = tr.querySelector(".status-cell");
+    try {
+      const res = await fetch("https://publish.twitter.com/oembed?url="+encodeURIComponent(url));
+      const status = res.status === 404 ? "DELETED" : "OK";
+      td.textContent = status;
+      td.className = "status-cell " + (status==="DELETED"?"deleted":"ok");
+    } catch {
+      td.textContent = "CHECK_FAIL";
+    }
+    await sleep(1200); // 순차 딜레이
+  }
+}
+
+// 초기 실행
+updateTime();
+buildTable();
+updateStatus();
 </script>
 
 </body>
