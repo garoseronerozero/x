@@ -1,252 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="favicon.ico">
+    
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Status</title>
 
-<meta charset="utf-8">
-<title>Status</title>
+  <script src="./data/tweets.js"></script>
+  <script src="./data/user_aliases.js"></script>
 
-<link rel="icon" href="favicon.ico">
-  
-<meta name="referrer" content="no-referrer">
-<meta name="robots" content="noindex,nofollow">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+    }
 
-<style>
+    h1 {
+      margin-bottom: 5px;
+    }
 
-body{
-font-family: system-ui, sans-serif;
-margin:40px;
-}
+    p.description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
 
-table{
-border-collapse:collapse;
-width:100%;
-}
+    .controls {
+      margin-bottom: 20px;
+    }
 
-th,td{
-border:1px solid #ddd;
-padding:8px;
-font-size:14px;
-}
+    button {
+      padding: 6px 12px;
+      cursor: pointer;
+    }
 
-th{
-background:#f5f5f5;
-text-align:left;
-}
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 30px;
+    }
 
-.deleted{
-color:#d33;
-font-weight:bold;
-}
+    th,
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      font-size: 14px;
+    }
 
-.username{
-font-weight:bold;
-}
+    th {
+      background: #f5f5f5;
+    }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
+    .deleted {
+      color: red;
+      font-weight: bold;
+    }
 
-button{
-padding:6px 12px;
-font-size:13px;
-cursor:pointer;
-}
+    .ok {
+      color: #333;
+    }
 
-.meta{
-font-size:13px;
-color:#666;
-margin-bottom:20px;
-}
-
-</style>
-
+    .group-title {
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="header">
-<h2>Tweet Status</h2>
-<button id="refreshBtn">Refresh</button>
-</div>
-
-<div class="meta">
-Last updated: <span id="updated"></span>
-</div>
-
-<table>
-
-<thead>
-<tr>
-<th>User</th>
-<th>Tweet</th>
-<th>Status</th>
-</tr>
-</thead>
-
-<tbody id="tableBody"></tbody>
-
-</table>
-
-<script src="./data/tweets.js"></script>
-<script src="./data/username_aliases.js"></script>
-
-<script>
-
-const REFRESH_INTERVAL = 3 * 60 * 60 * 1000
-const REFRESH_LOCK = 5 * 60 * 1000
-
-let lastManualRefresh = 0
-
-function sleep(ms){
-return new Promise(r=>setTimeout(r,ms))
-}
-
-function getCachedStatus(url){
-
-const key = "tweet_status_"+url
-const cached = localStorage.getItem(key)
-
-if(!cached) return null
-
-const data = JSON.parse(cached)
-
-if(Date.now() - data.time > REFRESH_INTERVAL){
-return null
-}
-
-return data.status
-
-}
-
-function saveStatus(url,status){
-
-localStorage.setItem(
-"tweet_status_"+url,
-JSON.stringify({
-status:status,
-time:Date.now()
-})
-)
-
-}
-
-function getUsername(url){
-
-const m = url.match(/x\.com\/([^\/]+)\//)
-
-return m ? m[1] : "unknown"
-
-}
-
-async function checkTweet(url){
-
-try{
-
-const res = await fetch(url,{method:"HEAD",mode:"no-cors"})
-
-return "OK"
-
-}catch(e){
-
-return "DELETED"
-
-}
-
-}
-
-async function render(){
-
-const body = document.getElementById("tableBody")
-
-body.innerHTML=""
-
-for(const url of tweets){
-
-const username = getUsername(url)
-
-const alias = username_aliases[username]?.label || username
-
-let status = getCachedStatus(url)
-
-if(!status){
-
-await sleep(800)
-
-status = await checkTweet(url)
-
-saveStatus(url,status)
-
-}
-
-const tr = document.createElement("tr")
-
-const tdUser = document.createElement("td")
-tdUser.className="username"
-tdUser.textContent=alias
-
-const tdUrl = document.createElement("td")
-
-const a = document.createElement("a")
-a.href=url
-a.textContent=url
-a.target="_blank"
-
-tdUrl.appendChild(a)
-
-const tdStatus = document.createElement("td")
-tdStatus.textContent=status
-
-if(status==="DELETED"){
-tdStatus.className="deleted"
-}
-
-tr.appendChild(tdUser)
-tr.appendChild(tdUrl)
-tr.appendChild(tdStatus)
-
-body.appendChild(tr)
-
-}
-
-document.getElementById("updated").textContent =
-new Date().toLocaleString()
-
-}
-
-async function manualRefresh(){
-
-const now = Date.now()
-
-if(now-lastManualRefresh < REFRESH_LOCK){
-
-alert("5분 후 다시 시도하세요.")
-
-return
-
-}
-
-lastManualRefresh = now
-
-document.getElementById("refreshBtn").disabled=true
-
-await render()
-
-setTimeout(()=>{
-document.getElementById("refreshBtn").disabled=false
-},REFRESH_LOCK)
-
-}
-
-document.getElementById("refreshBtn").onclick=manualRefresh
-
-render()
-
-setInterval(render,REFRESH_INTERVAL)
-
-</script>
+  <h1>Status</h1>
+
+  <p class="description">
+이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
+일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있습니다. 🐾
+  </p>
+
+
+  <div class="controls">
+    <button id="refreshBtn">Refresh</button>
+    <span id="lastUpdate"></span>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    const REFRESH_INTERVAL = 3 * 60 * 60 * 1000;
+    const MANUAL_LOCK = 5 * 60 * 1000;
+
+    let lastManualRefresh = 0;
+
+    function sleep(ms) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+
+    function extractUsername(url) {
+      const parts = url.split("/");
+      return parts[3];
+    }
+
+    function getAlias(username) {
+      if (username_aliases && username_aliases[username]) {
+        return username_aliases[username].label;
+      }
+      return username;
+    }
+
+    function cacheKey(url) {
+      return "tweet_status_" + url;
+    }
+
+    function getCachedStatus(url) {
+      const data = localStorage.getItem(cacheKey(url));
+      if (!data) return null;
+
+      const parsed = JSON.parse(data);
+      if (Date.now() - parsed.time > REFRESH_INTERVAL) return null;
+
+      return parsed.status;
+    }
+
+    function saveStatus(url, status) {
+      localStorage.setItem(cacheKey(url), JSON.stringify({ status, time: Date.now() }));
+    }
+
+    async function checkTweet(url) {
+      const cached = getCachedStatus(url);
+      if (cached) return cached;
+
+      const oembed = "https://publish.twitter.com/oembed?url=" + encodeURIComponent(url);
+
+      try {
+        const res = await fetch(oembed);
+        const status = res.status === 404 ? "DELETED" : "OK";
+        saveStatus(url, status);
+        return status;
+      } catch {
+        return "CHECK_FAIL";
+      }
+    }
+
+    function groupTweets() {
+      const groups = {};
+      tweets.forEach(url => {
+        const username = extractUsername(url);
+        if (!groups[username]) groups[username] = [];
+        groups[username].push(url);
+      });
+      return groups;
+    }
+
+    function updateTime() {
+      const now = new Date();
+      const formatted = now.getFullYear() + "-" +
+        String(now.getMonth() + 1).padStart(2, "0") + "-" +
+        String(now.getDate()).padStart(2, "0") + " " +
+        String(now.getHours()).padStart(2, "0") + ":" +
+        String(now.getMinutes()).padStart(2, "0");
+
+      document.getElementById("lastUpdate").textContent = "Last update: " + formatted;
+    }
+
+    async function render() {
+      const content = document.getElementById("content");
+      content.innerHTML = "";
+
+      const groups = groupTweets();
+
+      for (const username in groups) {
+        const alias = getAlias(username);
+
+        const title = document.createElement("div");
+        title.className = "group-title";
+        title.textContent = alias + " (" + username + ")";
+        content.appendChild(title);
+
+        const table = document.createElement("table");
+        table.innerHTML = "<thead><tr><th>Tweet</th><th>Status</th></tr></thead>";
+        const tbody = document.createElement("tbody");
+        table.appendChild(tbody);
+
+        for (const url of groups[username]) {
+          await sleep(1200);
+          const status = await checkTweet(url);
+
+          const tr = document.createElement("tr");
+
+          const linkCell = document.createElement("td");
+          const link = document.createElement("a");
+          link.href = url;
+          link.target = "_blank";
+          link.textContent = url;
+          linkCell.appendChild(link);
+
+          const statusCell = document.createElement("td");
+          if (status === "DELETED") {
+            statusCell.innerHTML = "<span class='deleted'>DELETED</span>";
+          } else {
+            statusCell.innerHTML = "<span class='ok'>OK</span>";
+          }
+
+          tr.appendChild(linkCell);
+          tr.appendChild(statusCell);
+          tbody.appendChild(tr);
+        }
+
+        content.appendChild(table);
+      }
+
+      updateTime();
+    }
+
+    function refresh() {
+      const now = Date.now();
+      if (now - lastManualRefresh < MANUAL_LOCK) {
+        alert("5분 후 다시 시도하세요.");
+        return;
+      }
+
+      lastManualRefresh = now;
+      const btn = document.getElementById("refreshBtn");
+      btn.disabled = true;
+      setTimeout(() => { btn.disabled = false; }, MANUAL_LOCK);
+
+      render();
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", refresh);
+
+    render();
+    setInterval(render, REFRESH_INTERVAL);
+  </script>
 
 </body>
 </html>
