@@ -1,5 +1,5 @@
 const tweets = [
-  
+
 "https://x.com/Happipupper/status/1904039868633923775",
 "https://x.com/Happipupper/status/2027934857834491951",
 "https://x.com/Happipupper/status/2028728552477302793",
@@ -15,9 +15,7 @@ const tweets = [
 "https://x.com/iamshipduck1/status/2029525640308027515",
 "https://x.com/0825_0717/status/1899834629798211946",
 "https://x.com/0825_0717/status/1900181165513855129",
-"https://x.com/mamyu1490796/status/1899993772907520477",
 "https://x.com/0825_0717/status/1902056012544405987",
-"https://x.com/gyb0lICcD310210/status/1914999028917715298",
 "https://x.com/0825_0717/status/1902393348390056010",
 "https://x.com/0825_0717/status/1902404597525967232",
 "https://x.com/0825_0717/status/1902708116652994697",
@@ -29,10 +27,7 @@ const tweets = [
 "https://x.com/0825_0717/status/1915013361148002772",
 "https://x.com/0825_0717/status/1933336742968627620",
 "https://x.com/0825_0717/status/1980943385486819346",
-"https://x.com/0825_0717/status/1980916788725739775",
-"https://x.com/0825_0717/status/1983421563434406239",
 "https://x.com/0825_0717/status/1983549974391714128",
-"https://x.com/feministsuhyun/status/1983547051968516239",
 "https://x.com/0825_0717/status/2029441007067250770"
-  
+
 ];
