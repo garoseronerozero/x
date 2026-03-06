@@ -1,262 +1,220 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <title>Status</title>
+<title>Status</title>
 
-  <link rel="icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
 
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
 
-  <style>
+<style>
 
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
-      margin: 40px;
-      max-width: 900px;
-    }
+body{
+  font-family:sans-serif;
+  margin:40px;
+  line-height:1.6;
+}
 
-    h1 {
-      margin-bottom: 10px;
-    }
+h1{
+  margin-bottom:10px;
+}
 
-    .desc {
-      margin-bottom: 30px;
-      color: #444;
-    }
+.notice{
+  margin-bottom:25px;
+  color:#444;
+}
 
-    .notice{
-      font-size:13px;
-      color:#666;
-      margin-bottom:5px;
-    }
-    
-    .update {
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-    
+.meta{
+  margin-bottom:25px;
+  font-size:14px;
+  color:#666;
+}
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+table{
+  border-collapse:collapse;
+  width:100%;
+}
 
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+}
 
-    th {
-      text-align: center;
-      background: #f5f5f5;
-    }
+th{
+  text-align:center;
+  background:#f5f5f5;
+}
 
-    .user {
-      text-align: center;
-      font-weight: bold;
-      width: 180px;
-    }
+td.status{
+  text-align:center;
+  font-weight:600;
+}
 
-    .status {
-      text-align: center;
-      width: 120px;
-      font-weight: bold;
-    }
+.ok{
+  color:green;
+}
 
-    .deleted {
-      color: red;
-    }
+.deleted{
+  color:red;
+}
 
-  </style>
+.checking{
+  color:#999;
+}
+
+</style>
 
 </head>
 
 <body>
 
-  <h1>Status</h1>
+<h1>Status</h1>
 
-  <div class="notice">
-    이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
-    일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있을 수 있습니다.
-  </div>
+<div class="notice">
+이 페이지는 X 일부 게시물의 현재 공개 상태를 확인하기 위한 기록 페이지입니다.<br>
+일부 게시물은 자체적으로 문제가 없지만, 다른 게시글의 인용이나 댓글 등 맥락을 이해하기 위해 포함되어 있을 수 있습니다.
+</div>
 
-  <div class="update" id="updateTime"></div>
+<div class="meta">
+Last updated: <span id="updated"></span> (약 3시간 간격 확인)
+</div>
 
-  <table>
+<table>
 
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Tweet</th>
-        <th>Status</th>
-      </tr>
-    </thead>
+<thead>
 
-    <tbody id="tableBody"></tbody>
+<tr>
+<th>User</th>
+<th>Tweet</th>
+<th>Status</th>
+</tr>
 
-  </table>
+</thead>
 
-<script src="data/username_aliases.js"></script>
-<script src="data/tweets.js"></script>
+<tbody id="tweetTable"></tbody>
+
+</table>
+
+
+<script src="./data/tweets.js"></script>
+<script src="./data/username_aliases.js"></script>
 
 <script>
 
-const CACHE_KEY = "tweet_status_cache";
-const CACHE_TIME = 3 * 60 * 60 * 1000;
+const table = document.getElementById("tweetTable")
 
-function extractUsername(url) {
+function getUsername(url){
 
-  const match = url.match(/x\.com\/([^\/]+)/);
-
-  if (match) return match[1];
-
-  return null;
+  const m = url.match(/x\.com\/([^/]+)/)
+  return m ? m[1] : ""
 
 }
 
-function formatTime(date) {
+function getAlias(username){
 
-  const y = date.getFullYear();
-  const m = String(date.getMonth()+1).padStart(2,'0');
-  const d = String(date.getDate()).padStart(2,'0');
+  if(username_aliases[username]){
+    return username_aliases[username].label
+  }
 
-  const h = String(date.getHours()).padStart(2,'0');
-  const min = String(date.getMinutes()).padStart(2,'0');
-
-  return `${y}-${m}-${d} ${h}:${min}`;
+  return username
 
 }
 
-async function checkTweet(url) {
+function addRow(url){
 
-  try {
+  const username = getUsername(url)
+  const alias = getAlias(username)
 
-    const res = await fetch(url, {
-      method: "HEAD",
-      mode: "no-cors"
-    });
+  const row = document.createElement("tr")
 
-    return "OK";
+  row.innerHTML = `
+    <td>${alias}</td>
+    <td>
+      <a href="${url}" target="_blank">${url}</a>
+    </td>
+    <td class="status checking">checking...</td>
+  `
 
-  } catch {
+  table.appendChild(row)
 
-    return "DELETED";
+  return row.querySelector(".status")
+
+}
+
+async function checkTweet(url){
+
+  const proxy = "https://cors.isomorphic-git.org/"
+
+  try{
+
+    const res = await fetch(proxy + url)
+
+    if(res.status === 200){
+      return "OK"
+    }
+
+    return "DELETED"
+
+  }catch{
+
+    return "DELETED"
 
   }
 
 }
 
-async function run() {
+async function runChecks(){
 
-  const table = document.getElementById("tableBody");
+  for(const url of tweets){
 
-  const cached = localStorage.getItem(CACHE_KEY);
+    const statusCell = addRow(url)
 
-  let cacheData = null;
+    const result = await checkTweet(url)
 
-  if (cached) {
+    if(result === "OK"){
 
-    cacheData = JSON.parse(cached);
+      statusCell.textContent = "OK"
+      statusCell.classList.remove("checking")
+      statusCell.classList.add("ok")
 
-  }
+    }else{
 
-  const now = Date.now();
+      statusCell.textContent = "DELETED"
+      statusCell.classList.remove("checking")
+      statusCell.classList.add("deleted")
 
-  if (cacheData && (now - cacheData.time < CACHE_TIME)) {
+    }
 
-    render(cacheData.data);
-
-    return;
-
-  }
-
-  const results = [];
-
-  for (const url of tweets) {
-
-    const status = await checkTweet(url);
-
-    results.push({
-      url,
-      status
-    });
-
-    await new Promise(r => setTimeout(r,1200));
+    await new Promise(r => setTimeout(r,1200))
 
   }
-
-  const data = {
-    time: now,
-    data: results
-  };
-
-  localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-
-  render(results);
 
 }
 
-function render(results) {
+function updateTime(){
 
-  const table = document.getElementById("tableBody");
+  const now = new Date()
 
-  const groups = {};
+  const yyyy = now.getFullYear()
+  const mm = String(now.getMonth()+1).padStart(2,"0")
+  const dd = String(now.getDate()).padStart(2,"0")
 
-  results.forEach(r => {
+  const hh = String(now.getHours()).padStart(2,"0")
+  const min = String(now.getMinutes()).padStart(2,"0")
 
-    const user = extractUsername(r.url);
-
-    if (!groups[user]) groups[user] = [];
-
-    groups[user].push(r);
-
-  });
-
-  let html = "";
-
-  Object.keys(groups).forEach(user => {
-
-    const alias = username_aliases[user]?.label || user;
-
-    const list = groups[user];
-
-    list.forEach((item, i) => {
-
-      html += "<tr>";
-
-      if (i === 0) {
-
-        html += `<td class="user" rowspan="${list.length}">${alias}</td>`;
-
-      }
-
-      html += `<td><a href="${item.url}" target="_blank">${item.url}</a></td>`;
-
-      const cls = item.status === "DELETED" ? "status deleted" : "status";
-
-      html += `<td class="${cls}">${item.status}</td>`;
-
-      html += "</tr>";
-
-    });
-
-  });
-
-  table.innerHTML = html;
-
-  document.getElementById("updateTime").innerHTML =
-    `Last updated: ${formatTime(new Date())} <br>※ 상태 정보는 약 3시간 주기로 갱신됩니다.`;
+  document.getElementById("updated").textContent =
+    `${yyyy}-${mm}-${dd} ${hh}:${min}`
 
 }
 
-run();
+updateTime()
+
+runChecks()
 
 </script>
 
