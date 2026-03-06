@@ -184,25 +184,29 @@ function saveCache(data){
 
 async function checkTweet(url){
 
+    const idMatch = url.match(/status\/(\d+)/)
+    if(!idMatch) return "UNKNOWN"
+
+    const id = idMatch[1]
+
     const api =
-    "https://publish.twitter.com/oembed?url=" +
-    encodeURIComponent(url)
+        "https://cdn.syndication.twimg.com/tweet-result?id=" + id
 
     try{
-
         const res = await fetch(api)
 
-        if(res.status === 200) return "OK"
+        if(res.status === 200){
+            const json = await res.json()
+
+            if(json && json.id_str) return "OK"
+        }
+
         if(res.status === 404) return "DELETED"
 
         return "UNKNOWN"
-
     }catch{
-
         return "UNKNOWN"
-
     }
-
 }
 
 
@@ -358,7 +362,7 @@ async function startCheck(){
 
         result[url] = s
 
-        await new Promise(r => setTimeout(r, 1200)) // 1.2초 대기
+        await new Promise(r => setTimeout(r, 600)) // 0.6초 대기
 
     }
 
