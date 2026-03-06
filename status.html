@@ -266,6 +266,16 @@ function renderInitial(){
 
 }
 
+function formatDate(d){
+    const yyyy = d.getFullYear()
+    const mm = String(d.getMonth()+1).padStart(2,'0')
+    const dd = String(d.getDate()).padStart(2,'0')
+    const hh = String(d.getHours()).padStart(2,'0')
+    const mi = String(d.getMinutes()).padStart(2,'0')
+
+    return `${yyyy}-${mm}-${dd} ${hh}:${mi}`
+}
+
 
 async function fillStatus(data){
 
@@ -333,7 +343,7 @@ async function startCheck(){
         document.getElementById("lastUpdate")
         .innerText =
         "Last update: " +
-        t.toLocaleString() +
+        formatDate(t) +
         " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
 
         return
@@ -361,7 +371,7 @@ async function startCheck(){
     document.getElementById("lastUpdate")
     .innerText =
     "Last update: " +
-    now.toLocaleString() +
+    formatDate(now) +
     " (3시간 캐시, 실시간 확인은 개별 링크 이용)"
 
 }
