@@ -49,5 +49,6 @@ const tweets = [
 "https://x.com/BaBo__gyeon/status/2030198436411363572",
 "https://x.com/BaBo__gyeon/status/2030199863376540113",
 "https://x.com/padoparang/status/2028281873408122894",
-"https://x.com/padoparang/status/2027954347200680449"
+"https://x.com/padoparang/status/2027954347200680449",
+"https://x.com/roska6666/status/2015341682439688281"
 ];
