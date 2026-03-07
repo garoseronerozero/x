@@ -9,4 +9,5 @@ const username_aliases = {
   "aina0660": { label: "햇살강아지" },
   "hwahwa85221": { label: "어리둥절쿼카" },
   "sariseyo_jebal": { label: "꾸벅꾸벅판다" },
+  "yulhwa9909": { label: "오늘만사는라마" }
 }
