@@ -30,5 +30,12 @@ const tweets = [
 "https://x.com/0825_0717/status/1983549974391714128",
 "https://x.com/0825_0717/status/2029441007067250770",
 "https://x.com/aina0660/status/2027774495101227120",
-"https://x.com/aina0660/status/2027773802260926798"
+"https://x.com/aina0660/status/2027773802260926798",
+"https://x.com/aina0660/status/2027773802260926798",
+"https://x.com/hwahwa85221/status/2028415481506582603",
+"https://x.com/sariseyo_jebal/status/1905271625735377306",
+"https://x.com/sariseyo_jebal/status/1947793179803324790",
+"https://x.com/sariseyo_jebal/status/1899421685176283472",
+"https://x.com/sariseyo_jebal/status/1902306728622063669",
+"https://x.com/sariseyo_jebal/status/1906631392806773208"
 ];
