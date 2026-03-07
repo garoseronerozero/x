@@ -41,5 +41,9 @@ const tweets = [
 "https://x.com/yulhwa9909/status/2029454791659888782",
 "https://x.com/2dong_geul_2/status/2027714176463036597",
 "https://x.com/dubu_is_back/status/2028059063645618566",
-"https://x.com/ontheautumn1/status/2027909152706859049"
+"https://x.com/ontheautumn1/status/2027909152706859049",
+"https://x.com/IVHG_T/status/1899464217138282579",
+"https://x.com/IVHG_T/status/1902935852344545421",
+"https://x.com/IVHG_T/status/1905582278455296184",
+"https://x.com/IVHG_T/status/2028120242531291408"
 ];
