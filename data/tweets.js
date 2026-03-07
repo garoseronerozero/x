@@ -38,5 +38,6 @@ const tweets = [
 "https://x.com/sariseyo_jebal/status/1899421685176283472",
 "https://x.com/sariseyo_jebal/status/1902306728622063669",
 "https://x.com/sariseyo_jebal/status/1906631392806773208",
-"https://x.com/yulhwa9909/status/2029454791659888782"
+"https://x.com/yulhwa9909/status/2029454791659888782",
+"https://x.com/2dong_geul_2/status/2027714176463036597"
 ];
