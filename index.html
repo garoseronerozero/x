@@ -2,259 +2,273 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8">
-<title>X Archive</title>
+    <meta charset="UTF-8">
+    <title>X Archive</title>
 
-<link rel="icon" href="favicon.ico">
-  
-<meta name="referrer" content="no-referrer">
-<meta name="robots" content="noindex,nofollow">
-  
-<style>
+    <link rel="icon" href="favicon.ico">
 
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-  max-width:900px;
-  margin:auto;
-  padding:40px;
-  line-height:1.6;
-}
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,nofollow">
 
-h1{
-  margin-bottom:30px;
-}
+    <style>
 
-.account{
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:20px;
-  margin-bottom:24px;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            line-height: 1.6;
+        }
 
-.account:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-}
+        h1 {
+            margin-bottom: 30px;
+        }
 
-.username{
-  font-size:20px;
-  font-weight:600;
-}
+        .account {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
 
-.meta{
-  font-size:14px;
-  color:#666;
-  margin-top:5px;
-}
+        .account:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
 
-a{
-  color:#1a73e8;
-  text-decoration:none;
-}
+        .username {
+            font-size: 20px;
+            font-weight: 600;
+        }
 
-a:hover{
-  text-decoration:underline;
-}
+        .meta {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
 
-.quicklinks{
-  margin-bottom:30px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
 
-.quicklinks a{
-  font-size:14px;
-  padding:8px 14px;
-  border-radius:8px;
-  background:#f3f6fb;
-  border:1px solid #e2e6ee;
-  color:#1a73e8;
-  text-decoration:none;
-  font-weight:500;
-}
+        a:hover {
+            text-decoration: underline;
+        }
 
-.quicklinks a:hover{
-  background:#e9f1ff;
-}
+        .quicklinks {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-.notice{
-  font-size:13px;
-  color:#666;
-  margin-bottom:5px;
-}
+        .quicklinks a {
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: #f3f6fb;
+            border: 1px solid #e2e6ee;
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-.disclaimer{
-  margin-top:60px;
-  font-size:13px;
-  color:#777;
-  border-top:1px solid #eee;
-  padding-top:20px;
-  line-height:1.6;
-}
+        .quicklinks a:hover {
+            background: #e9f1ff;
+        }
 
-.updated{
-  font-size:12px;
-  color:#888;
-  margin-bottom:30px;
-}
+        .notice {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
 
-.header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:30px;
-}
+        .disclaimer {
+            margin-top: 60px;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            line-height: 1.6;
+        }
 
-.status-button{
-  font-size:13px;
-  padding:7px 14px;
+        .updated {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 30px;
+        }
 
-  border-radius:8px;
-  border:1px solid #bfe3c7;
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
 
-  background:#e8f7ec;
-  color:#2e7d32;
+        .status-button {
+            font-size: 13px;
+            padding: 7px 14px;
 
-  text-decoration:none;
-  font-weight:600;
+            border-radius: 8px;
+            border: 1px solid #bfe3c7;
 
-  transition:background 0.15s, transform 0.05s;
-}
+            background: #e8f7ec;
+            color: #2e7d32;
 
-.status-button:hover{
-  background:#dff3e5;
-}
+            text-decoration: none;
+            font-weight: 600;
 
-.status-button:active{
-  transform:translateY(1px);
-}
+            transition: background 0.15s, transform 0.05s;
+        }
 
-</style>
+        .status-button:hover {
+            background: #dff3e5;
+        }
+
+        .status-button:active {
+            transform: translateY(1px);
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-  
+
 <div class="header">
-  <h1>X Archive</h1>
-  <a class="status-button" href="./status.html">게시물 상태</a>
+    <h1>X Archive</h1>
+    <a class="status-button" href="./status.html">게시물 상태</a>
 </div>
 
 <div class="notice">
-본 사이트는 특정 개인에 대한 평가나 비방을 목적으로 하지 않습니다.
+    본 사이트는 특정 개인에 대한 평가나 비방을 목적으로 하지 않습니다.
 </div>
 
 <div class="updated">
-Last updated: 2026-03-07
+    Last updated: 2026-03-08
 </div>
 
 <!-- Link -->
 <div class="quicklinks">
-  <a href="https://x.com/joesonghab89065/status/2028800273448321509" target="_blank" rel="noopener noreferrer">반성글 ↗</a>
-  <a href="https://x.com/gurundae/status/2028415378393891255" target="_blank" rel="noopener noreferrer">조롱글(로 반응했으나 곧 문제글 모두 삭제) ↗</a>
-  <a href="https://namu.wiki/w/%EA%B9%80%EC%88%98%ED%98%84-%EA%B9%80%EC%83%88%EB%A1%A0%20%EA%B5%90%EC%A0%9C%20%EA%B4%80%EB%A0%A8%20%EB%85%BC%EB%9E%80?uuid=e5f17ea5-478d-4840-b474-d0ae21c80efd#s-1" target="_blank" rel="noopener noreferrer">나무위키 r3633 개요 읽기 ↗</a>
-  <a href="https://www.google.com/collections/s/list/XPnqKnuuR-Ss9OKbOsKGJw/60h6gy4BdtM" target="_blank" rel="noopener noreferrer">악의적 비방 및 명예훼손 대응 사례 ↗</a>
+    <a href="https://x.com/joesonghab89065/status/2028800273448321509" target="_blank" rel="noopener noreferrer">반성글
+        ↗</a>
+    <a href="https://x.com/gurundae/status/2028415378393891255" target="_blank" rel="noopener noreferrer">조롱글(로 반응했으나 곧
+        문제글 모두 삭제) ↗</a>
+    <a href="https://namu.wiki/w/%EA%B9%80%EC%88%98%ED%98%84-%EA%B9%80%EC%83%88%EB%A1%A0%20%EA%B5%90%EC%A0%9C%20%EA%B4%80%EB%A0%A8%20%EB%85%BC%EB%9E%80?uuid=e5f17ea5-478d-4840-b474-d0ae21c80efd#s-1"
+       target="_blank" rel="noopener noreferrer">나무위키 r3633 개요 읽기 ↗</a>
+    <a href="https://www.google.com/collections/s/list/XPnqKnuuR-Ss9OKbOsKGJw/60h6gy4BdtM" target="_blank"
+       rel="noopener noreferrer">악의적 비방 및 명예훼손 대응 사례 ↗</a>
 </div>
 
 <!-- Account -->
 
 <div class="account">
-  <div class="username">
-  <a href="./126878634/">@Happipupper</a>
-  </div>
-  <div class="meta">
-  Display name: ❤️🧡💛날백수멈머💚💙💜 <br>
-  User ID: 126878634 <br>
-  Profile: <a href="https://x.com/i/user/126878634" target="_blank">View on X</a>
-  </div>
+    <div class="username">
+        <a href="./126878634/">@Happipupper</a>
+    </div>
+    <div class="meta">
+        Display name: ❤️🧡💛날백수멈머💚💙💜 <br>
+        User ID: 126878634 <br>
+        Profile: <a href="https://x.com/i/user/126878634" target="_blank">View on X</a>
+    </div>
 </div>
 
 <div class='account'>
-  <div class='username'>
-  <a href='./1263123896070332416/'>@sn7__________</a>
-  </div>
-  <div class='meta'>
-  Display name: ꒰ა <br>
-  User ID: 1263123896070332416 <br>
-  Profile: <a href='https://x.com/i/user/1263123896070332416' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='./1263123896070332416/'>@sn7__________</a>
+    </div>
+    <div class='meta'>
+        Display name: ꒰ა <br>
+        User ID: 1263123896070332416 <br>
+        Profile: <a href='https://x.com/i/user/1263123896070332416' target='_blank'>View on X</a>
+    </div>
 </div>
 
 <div class='account'>
-  <div class='username'>
-  <a href='./1842081808848158720/'>@iamshipduck1</a>
-  </div>
-  <div class='meta'>
-  Display name: 호흡 <br>
-  User ID: 1842081808848158720 <br>
-  Profile: <a href='https://x.com/i/user/1842081808848158720' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='./1842081808848158720/'>@iamshipduck1</a>
+    </div>
+    <div class='meta'>
+        Display name: 호흡 <br>
+        User ID: 1842081808848158720 <br>
+        Profile: <a href='https://x.com/i/user/1842081808848158720' target='_blank'>View on X</a>
+    </div>
 </div>
 
 <div class='account'>
-  <div class='username'>
-    <a href='./2010313469678235649/'>@aina0660</a>
-  </div>
-  <div class='meta'>
-    Display name: 아이나 <br>
-    User ID: 2010313469678235649 <br>
-    Profile: <a href='https://x.com/i/user/2010313469678235649' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='./2010313469678235649/'>@aina0660</a>
+    </div>
+    <div class='meta'>
+        Display name: 아이나 <br>
+        User ID: 2010313469678235649 <br>
+        Profile: <a href='https://x.com/i/user/2010313469678235649' target='_blank'>View on X</a>
+    </div>
 </div>
 
 <div class='account'>
-  <div class='username'>
-    <a href='./1942135428158717953/'>@hwahwa85221</a>
-  </div>
-  <div class='meta'>
-    Display name: 화화 <br>
-    User ID: 1942135428158717953 <br>
-    Profile: <a href='https://x.com/i/user/1942135428158717953' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='./1942135428158717953/'>@hwahwa85221</a>
+    </div>
+    <div class='meta'>
+        Display name: 화화 <br>
+        User ID: 1942135428158717953 <br>
+        Profile: <a href='https://x.com/i/user/1942135428158717953' target='_blank'>View on X</a>
+    </div>
 </div>
 
 
-
 <div class='account'>
-  <div class='username'>
-    <a href='#'>@0825_0717</a>
-  </div>
-  <div class='meta'>
-<!--    Display name: 🙃過激パスニ🙃 <br>-->
-<!--    User ID: 443524372 <br>-->
-    Profile: <a href='https://x.com/i/user/443524372' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='#'>@0825_0717</a>
+    </div>
+    <div class='meta'>
+        <!--    Display name: 🙃過激パスニ🙃 <br>-->
+        <!--    User ID: 443524372 <br>-->
+        Profile: <a href='https://x.com/i/user/443524372' target='_blank'>View on X</a>
+    </div>
 </div>
 
 <div class='account'>
-  <div class='username'>
-    <a href='#'>@sariseyo_jebal</a>
-  </div>
-  <div class='meta'>
-<!--    Display name: 이승석 <br>-->
-<!--    User ID: 1821379463617384449 <br>-->
-    Profile: <a href='https://x.com/i/user/1821379463617384449' target='_blank'>View on X</a>
-  </div>
+    <div class='username'>
+        <a href='#'>@sariseyo_jebal</a>
+    </div>
+    <div class='meta'>
+        <!--    Display name: 이승석 <br>-->
+        <!--    User ID: 1821379463617384449 <br>-->
+        Profile: <a href='https://x.com/i/user/1821379463617384449' target='_blank'>View on X</a>
+    </div>
+</div>
+
+<div class='account'>
+    <div class='username'>
+        <a href='./1939685580595736576/'>@yulhwa9909</a>
+    </div>
+    <div class='meta'>
+        Display name: 긍엉덩이 <br>
+        User ID: 1939685580595736576 <br>
+        Profile: <a href='https://x.com/i/user/1939685580595736576' target='_blank'>View on X</a>
+    </div>
 </div>
 
 <div class="disclaimer">
 
-<p>
-본 페이지는 X(구 Twitter)에 공개적으로 게시된 글을 기록 및 보존 목적으로 아카이브한 것입니다.
-모든 게시물은 원문 링크와 함께 수집 당시의 상태로 보존됩니다.
-</p>
+    <p>
+        본 페이지는 X(구 Twitter)에 공개적으로 게시된 글을 기록 및 보존 목적으로 아카이브한 것입니다.
+        모든 게시물은 원문 링크와 함께 수집 당시의 상태로 보존됩니다.
+    </p>
 
-<p>
-게시물 작성자가 삭제 또는 수정 요청을 할 경우 검토 후 조치할 수 있습니다.
-모든 저작권은 각 게시물 작성자에게 있습니다.
-</p>
+    <p>
+        게시물 작성자가 삭제 또는 수정 요청을 할 경우 검토 후 조치할 수 있습니다.
+        모든 저작권은 각 게시물 작성자에게 있습니다.
+    </p>
 
-<p>
-This site archives publicly available posts from X for documentation and archival purposes.
-All content is preserved in its captured form with links to the original source.
-</p>
+    <p>
+        This site archives publicly available posts from X for documentation and archival purposes.
+        All content is preserved in its captured form with links to the original source.
+    </p>
 
 </div>
 
