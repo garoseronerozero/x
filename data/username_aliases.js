@@ -19,11 +19,18 @@ const username_aliases = {
   // "peacebringmage": { label: "고양이철학자" },
 
   "roska6666": { label: "내향형다람쥐" },
-  // "yulhwa9909": { label: "내향형다람쥐" },
-  // "yulhwa9909": { label: "내향형다람쥐" },
-  // "yulhwa9909": { label: "내향형다람쥐" },
-  // "yulhwa9909": { label: "내향형다람쥐" },
-  // "yulhwa9909": { label: "내향형다람쥐" },
+  "sunloco624": { label: "웃상강아지" },
+  // "yulhwa9909": { label: "어리둥절수달" },
+  // "yulhwa9909": { label: "야근하는펭귄" },
+  // "yulhwa9909": { label: "데이터고양이" },
+  // "yulhwa9909": { label: "알티하는라쿤" },
+  // "yulhwa9909": { label: "눈팅하는토끼" },
+  // "yulhwa9909": { label: "달보는수달" },
+  // "yulhwa9909": { label: "포동햄스터" },
+  // "yulhwa9909": { label: "귤까는너구리" },
+  // "yulhwa9909": { label: "풀뜯는토끼" },
+  // "yulhwa9909": { label: "낮잠자는판다" },
+  // "yulhwa9909": { label: "조용한아기여우" },
 
 
 
