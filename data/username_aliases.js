@@ -14,7 +14,7 @@ const username_aliases = {
   "dubu_is_back": { label: "두더지교장" },
   "ontheautumn1": { label: "까마귀사서" },
   "IVHG_T": { label: "판다조교" },
-  // "yulhwa9909": { label: "알파카조교수" },
+  "BaBo__gyeon": { label: "알파카조교수" },
   // "yulhwa9909": { label: "펭귄연구원" },
   // "yulhwa9909": { label: "고양이철학자" },
   // "yulhwa9909": { label: "내향형다람쥐" },
