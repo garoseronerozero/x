@@ -28,6 +28,7 @@ const tweets = [
 "https://x.com/0825_0717/status/1933336742968627620",
 "https://x.com/0825_0717/status/1980943385486819346",
 "https://x.com/0825_0717/status/1983549974391714128",
-"https://x.com/0825_0717/status/2029441007067250770"
-
+"https://x.com/0825_0717/status/2029441007067250770",
+"https://x.com/aina0660/status/2027774495101227120",
+"https://x.com/aina0660/status/2027773802260926798"
 ];
