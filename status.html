@@ -14,91 +14,90 @@
 
     <style>
 
-        body{
-            font-family:sans-serif;
-            margin:40px;
-            line-height:1.6;
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+            line-height: 1.6;
         }
 
-        h1{
-            font-size:22px;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
+        h1 {
+            font-size: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .notice{
-            font-size:13px;
-            margin-bottom:16px;
-            color:#555;
+        .notice {
+            font-size: 13px;
+            margin-bottom: 16px;
+            color: #555;
         }
 
-        #lastUpdate{
-            margin-bottom:20px;
-            font-size:13px;
-            color:#666;
+        #lastUpdate {
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
         }
 
-        table{
-            border-collapse:collapse;
-            width:100%;
-            font-size:13px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 13px;
         }
 
-        th,td{
-            border-bottom:1px solid #ddd;
-            padding:6px 8px;
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 6px 8px;
         }
 
-        th{
-            text-align:center;
+        th {
+            text-align: center;
         }
 
-        td.status{
-            text-align:center;
-            width:110px;
+        td.status {
+            text-align: center;
+            width: 110px;
         }
 
-        .status-ok{
-            color:#2e7d32;
+        .status-ok {
+            color: #2e7d32;
         }
 
-        .status-deleted{
-            color:#c62828;
+        .status-deleted {
+            color: #c62828;
         }
 
-        .user{
-            background:#f7f7f7;
-            font-weight:600;
+        .user {
+            background: #f7f7f7;
+            font-weight: 600;
         }
 
-        .home-link{
-            font-size:13px;
-            padding:5px 10px;
-            border-radius:7px;
-            border:1px solid #ddd;
-            background:#f5f5f5;
-            color:#555;
-            text-decoration:none;
+        .home-link {
+            font-size: 13px;
+            padding: 5px 10px;
+            border-radius: 7px;
+            border: 1px solid #ddd;
+            background: #f5f5f5;
+            color: #555;
+            text-decoration: none;
         }
 
-        .home-link:hover{
-            background:#eee;
+        .home-link:hover {
+            background: #eee;
         }
 
-        td a{
-            color:#1a73e8;
-            text-decoration:none;
+        td a {
+            color: #1a73e8;
+            text-decoration: none;
         }
 
-        td a:hover{
-            text-decoration:underline;
+        td a:hover {
+            text-decoration: underline;
         }
 
     </style>
 
 </head>
-
 
 <body>
 
@@ -121,7 +120,7 @@
     <thead>
     <tr>
         <th style="width:160px">User</th>
-        <th>Tweet</th>
+        <th id="tweetHeader">Tweet</th>
         <th style="width:120px">Status</th>
     </tr>
     </thead>
@@ -131,7 +130,6 @@
 
 </table>
 
-
 <script src="./data/tweets.js"></script>
 <script src="./data/username_aliases.js"></script>
 
@@ -139,22 +137,22 @@
 
     const tbody = document.querySelector("#statusTable tbody")
 
-    function extractUsername(url){
+    function extractUsername(url) {
 
         const m = url.match(/x\.com\/([^\/]+)/)
         return m ? m[1] : "unknown"
 
     }
 
-    function groupTweets(){
+    function groupTweets() {
 
         const map = {}
 
-        for(const url of tweets){
+        for (const url of tweets) {
 
             const user = extractUsername(url)
 
-            if(!map[user]) map[user] = []
+            if (!map[user]) map[user] = []
             map[user].push(url)
 
         }
@@ -163,11 +161,11 @@
 
     }
 
-    function renderInitial(){
+    function renderInitial() {
 
         const grouped = groupTweets()
 
-        for(const user in grouped){
+        for (const user in grouped) {
 
             const alias =
                 username_aliases[user]?.label || user
@@ -182,19 +180,19 @@
 
             tbody.appendChild(userRow)
 
-            for(const url of grouped[user]){
+            for (const url of grouped[user]) {
 
                 const tr =
                     document.createElement("tr")
 
                 tr.innerHTML =
                     `
-            <td></td>
-            <td>
-                <a href="${url}" target="_blank">${url}</a>
-            </td>
-            <td class="status">checking…</td>
-            `
+<td></td>
+<td>
+<a href="${url}" target="_blank">${url}</a>
+</td>
+<td class="status">checking…</td>
+`
 
                 tbody.appendChild(tr)
 
@@ -204,17 +202,17 @@
 
     }
 
-    function applyStatus(data){
+    function applyStatus(data) {
 
         const rows =
             document.querySelectorAll("tbody tr")
 
-        for(const row of rows){
+        for (const row of rows) {
 
             const link =
                 row.querySelector("a")
 
-            if(!link) continue
+            if (!link) continue
 
             const url =
                 link.getAttribute("href")
@@ -225,27 +223,21 @@
             const cell =
                 row.querySelector(".status")
 
-            if(status==="OK"){
+            if (status === "OK") {
 
                 cell.innerHTML =
                     `<span class="status-ok">OK</span>`
 
-            }
-
-            else if(status==="DELETED"){
+            } else if (status === "DELETED") {
 
                 cell.innerHTML =
                     `<span class="status-deleted">DELETED</span>`
 
-            }
-
-            else if(status==="PROTECTED"){
+            } else if (status === "PROTECTED") {
 
                 cell.textContent = "PROTECTED"
 
-            }
-
-            else{
+            } else {
 
                 cell.textContent = "UNKNOWN"
 
@@ -255,9 +247,28 @@
 
     }
 
-    async function loadStatus(){
+    function updateTweetHeader(data) {
 
-        try{
+        const total = tweets.length
+
+        let deleted = 0
+        let protectedCount = 0
+
+        for (const url in data) {
+
+            if (data[url] === "DELETED") deleted++
+            if (data[url] === "PROTECTED") protectedCount++
+
+        }
+
+        document.getElementById("tweetHeader").textContent =
+            `Tweet (Total: ${total}, Deleted: ${deleted}, Protected: ${protectedCount})`
+
+    }
+
+    async function loadStatus() {
+
+        try {
 
             const res =
                 await fetch("./data/status.json")
@@ -267,13 +278,13 @@
 
             applyStatus(json.data)
 
+            updateTweetHeader(json.data)
+
             document.getElementById("lastUpdate")
                 .innerText =
                 "Last update: " + json.lastUpdate
 
-        }
-
-        catch(e){
+        } catch (e) {
 
             document.getElementById("lastUpdate")
                 .innerText =
@@ -283,7 +294,7 @@
 
     }
 
-    function start(){
+    function start() {
 
         renderInitial()
         loadStatus()
