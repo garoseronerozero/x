@@ -9,5 +9,18 @@ const username_aliases = {
   "aina0660": { label: "햇살강아지" },
   "hwahwa85221": { label: "어리둥절쿼카" },
   "sariseyo_jebal": { label: "꾸벅꾸벅판다" },
-  "yulhwa9909": { label: "오늘만사는라마" }
+  "yulhwa9909": { label: "오늘만사는라마" },
+  "2dong_geul_2": { label: "부엉이교수" },
+
+  // "yulhwa9909": { label: "두더지교장" },
+  // "yulhwa9909": { label: "까마귀사서" },
+  // "yulhwa9909": { label: "판다조교" },
+  // "yulhwa9909": { label: "알파카조교수" },
+  // "yulhwa9909": { label: "펭귄연구원" },
+  // "yulhwa9909": { label: "고양이철학자" },
+  // "yulhwa9909": { label: "내향형다람쥐" },
+
+
+
+  "temp": { label: "TEMP" }
 }
