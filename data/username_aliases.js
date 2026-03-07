@@ -15,7 +15,7 @@ const username_aliases = {
   "ontheautumn1": { label: "까마귀사서" },
   "IVHG_T": { label: "판다조교" },
   "BaBo__gyeon": { label: "알파카조교수" },
-  // "yulhwa9909": { label: "펭귄연구원" },
+  "padoparang": { label: "펭귄연구원" },
   // "yulhwa9909": { label: "고양이철학자" },
   // "yulhwa9909": { label: "내향형다람쥐" },
 
