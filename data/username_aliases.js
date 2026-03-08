@@ -29,7 +29,7 @@ const username_aliases = {
   "_cospirit": { label: "포동햄스터" },
   "pleasedont1112": { label: "귤까는너구리" },
   "shitmoneythumb": { label: "풀뜯는토끼" },
-  // "yulhwa9909": { label: "낮잠자는판다" },
+  "dududuba_baba": { label: "낮잠자는판다" },
   // "yulhwa9909": { label: "조용한아기여우" },
 
 
