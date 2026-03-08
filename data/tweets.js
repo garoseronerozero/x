@@ -124,6 +124,7 @@ const tweets = [
 "https://x.com/bdecem52/status/1900508751884370230",
 "https://x.com/ildansarabwa/status/1903096043291718100",
 "https://x.com/8HK7E/status/1905146417586266198",
+"https://x.com/8HK7E/status/1903278631964852652",
 "https://x.com/8HK7E/status/1906670721067352199",
 "https://x.com/ulttung/status/1902332615862186224",
 "https://x.com/tsukitokumo/status/1905251615009128703",
