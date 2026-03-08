@@ -54,8 +54,14 @@ const username_aliases = {
   "tsukitokumo": { label: "말랑아기해달21" },
   "MALIKXWALL": { label: "말랑아기해달22" },
   "guny1283731": { label: "말랑아기해달23" },
+  "wuhighup": { label: "조용한아기여우1" },
+  "n_adora2021": { label: "조용한아기여우2" },
+  "HeungrokCho": { label: "조용한아기여우3" },
 
-  // "yulhwa9909": { label: "조용한아기여우" },
+  // "HeungrokCho": { label: "조용한아기여우4" },
+  // "HeungrokCho": { label: "조용한아기여우5" },
+  // "HeungrokCho": { label: "조용한아기여우6" },
+
 
   "temp": { label: "TEMP" }
 }
