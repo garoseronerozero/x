@@ -24,7 +24,7 @@ const username_aliases = {
   "jerosis": { label: "야근하는펭귄" },
   "nuong2tuna27": { label: "쇼핑하는고양이" },
   "Tototi9978": { label: "알티하는라쿤" },
-  // "yulhwa9909": { label: "눈팅하는토끼" },
+  "diddl13579": { label: "눈팅하는토끼" },
   // "yulhwa9909": { label: "달보는수달" },
   // "yulhwa9909": { label: "포동햄스터" },
   // "yulhwa9909": { label: "귤까는너구리" },
