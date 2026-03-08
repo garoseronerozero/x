@@ -26,7 +26,7 @@ const username_aliases = {
   "Tototi9978": { label: "알티하는라쿤" },
   "diddl13579": { label: "눈팅하는토끼" },
   "choxchco2103": { label: "달보는수달" },
-  // "yulhwa9909": { label: "포동햄스터" },
+  "_cospirit": { label: "포동햄스터" },
   // "yulhwa9909": { label: "귤까는너구리" },
   // "yulhwa9909": { label: "풀뜯는토끼" },
   // "yulhwa9909": { label: "낮잠자는판다" },
