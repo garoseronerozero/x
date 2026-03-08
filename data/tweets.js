@@ -140,5 +140,6 @@ const tweets = [
 "https://x.com/winterofcrane/status/1899130454302986715",
 "https://x.com/winterofcrane/status/1899475015923589333",
 "https://x.com/winterofcrane/status/1900407691497136297",
-"https://x.com/winterofcrane/status/2030553546408800653"
+"https://x.com/winterofcrane/status/2030553546408800653",
+"https://x.com/womensparty2020/status/1907076404845711707"
 ];
