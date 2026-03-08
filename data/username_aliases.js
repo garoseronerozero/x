@@ -29,10 +29,33 @@ const username_aliases = {
   "_cospirit": { label: "포동햄스터" },
   "pleasedont1112": { label: "귤까는너구리" },
   "shitmoneythumb": { label: "풀뜯는토끼" },
-  // "yulhwa9909": { label: "낮잠자는판다" },
+  "dududuba_baba": { label: "낮잠자는판다" },
+
+  "dududuba_baba": { label: "말랑아기해달1" },
+  "nicefurryfriend": { label: "말랑아기해달2" },
+  "xmdnlxjwnrdj_": { label: "말랑아기해달3" },
+  "7hundred_00": { label: "말랑아기해달4" },
+  "quietepiphany": { label: "말랑아기해달5" },
+  "GG_tina_0805": { label: "말랑아기해달6" },
+  "r2waaa": { label: "말랑아기해달7" },
+  "mozaranii": { label: "말랑아기해달8" },
+  "juseokkk": { label: "말랑아기해달9" },
+  "avequeshop": { label: "말랑아기해달10" },
+  "_myLord_dksdptj": { label: "말랑아기해달11" },
+  "iamminuco": { label: "말랑아기해달12" },
+  "luvTrong": { label: "말랑아기해달13" },
+  "oioi237800": { label: "말랑아기해달14" },
+  "Westanirem": { label: "말랑아기해달15" },
+  "Bds_VegetaShop": { label: "말랑아기해달16" },
+  "bdecem52": { label: "말랑아기해달17" },
+  "ildansarabwa": { label: "말랑아기해달18" },
+  "8HK7E": { label: "말랑아기해달19" },
+  "ulttung": { label: "말랑아기해달20" },
+  "tsukitokumo": { label: "말랑아기해달21" },
+  "MALIKXWALL": { label: "말랑아기해달22" },
+  "guny1283731": { label: "말랑아기해달23" },
+
   // "yulhwa9909": { label: "조용한아기여우" },
-
-
 
   "temp": { label: "TEMP" }
 }
