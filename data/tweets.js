@@ -75,5 +75,6 @@ const tweets = [
 "https://x.com/Himitsh/status/2023285882342814067",
 "https://x.com/Himitsh/status/2028054323901645196",
 "https://x.com/jerosis/status/1907429400628302027",
-"https://x.com/jerosis/status/2027925715208028632"
+"https://x.com/jerosis/status/2027925715208028632",
+"https://x.com/nuong2tuna27/status/2027957391346765841"
 ];

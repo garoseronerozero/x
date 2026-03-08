@@ -22,7 +22,7 @@ const username_aliases = {
   "sunloco624": { label: "웃상강아지" },
   "Himitsh": { label: "어리둥절수달" },
   "jerosis": { label: "야근하는펭귄" },
-  // "yulhwa9909": { label: "데이터고양이" },
+  "nuong2tuna27": { label: "쇼핑하는고양이" },
   // "yulhwa9909": { label: "알티하는라쿤" },
   // "yulhwa9909": { label: "눈팅하는토끼" },
   // "yulhwa9909": { label: "달보는수달" },
