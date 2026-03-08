@@ -133,5 +133,10 @@ const tweets = [
 "https://x.com/n_adora2021/status/2027957766095311088",
 "https://x.com/HeungrokCho/status/2027704328031711644",
 "https://x.com/HeungrokCho/status/1930905697849651516",
-"https://x.com/HeungrokCho/status/1919977809327620529"
+"https://x.com/HeungrokCho/status/1919977809327620529",
+"https://x.com/winterofcrane/status/1899116492656120184",
+"https://x.com/winterofcrane/status/1899130454302986715",
+"https://x.com/winterofcrane/status/1899475015923589333",
+"https://x.com/winterofcrane/status/1900407691497136297",
+"https://x.com/winterofcrane/status/2030553546408800653"
 ];
