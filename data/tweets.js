@@ -31,6 +31,7 @@ const tweets = [
 "https://x.com/0825_0717/status/2029441007067250770",
 "https://x.com/aina0660/status/2027774495101227120",
 "https://x.com/aina0660/status/2027773802260926798",
+"https://x.com/aina0660/status/2028157219687350497",
 "https://x.com/hwahwa85221/status/2028415481506582603",
 "https://x.com/sariseyo_jebal/status/1905271625735377306",
 "https://x.com/sariseyo_jebal/status/1947793179803324790",
@@ -86,9 +87,6 @@ const tweets = [
 "https://x.com/diddl13579/status/2028037456227180881",
 "https://x.com/choxchco2103/status/1900512557259190584",
 "https://x.com/choxchco2103/status/1900523664438649143",
-<<<<<<< HEAD
-"https://x.com/aina0660/status/2028157219687350497"
-=======
 "https://x.com/_cospirit/status/1905130076699799941",
 "https://x.com/_cospirit/status/1906642830636019941",
 "https://x.com/_cospirit/status/1920003533631586656",
@@ -129,5 +127,4 @@ const tweets = [
 "https://x.com/tsukitokumo/status/1905251615009128703",
 "https://x.com/MALIKXWALL/status/1905341847246975195",
 "https://x.com/guny1283731/status/1922479063601434887"
->>>>>>> c7e37c51200fc3f0c89b336bc3160a595651015b
 ];
