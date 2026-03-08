@@ -136,10 +136,21 @@
         document.getElementById('tweet-count').textContent = count;
     </script>
     <script>
-        document.getElementById("downloadAll").onclick = () =>
-            document.querySelectorAll(".tweet iframe").forEach((f, i) =>
-                setTimeout(() => window.open(f.src.split("#")[0]), i * 150)
-            );
+        document.getElementById("downloadAll").onclick = () => {
+            document.querySelectorAll(".tweet iframe").forEach((f,i)=>{
+                const url = f.src.split("#")[0];
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "";
+
+                document.body.appendChild(a);
+
+                setTimeout(()=>{
+                    a.click();
+                    a.remove();
+                }, i*150);
+            });
+        };
     </script>
 
 </div>
