@@ -20,7 +20,7 @@ const username_aliases = {
 
   "roska6666": { label: "내향형다람쥐" },
   "sunloco624": { label: "웃상강아지" },
-  // "yulhwa9909": { label: "어리둥절수달" },
+  "Himitsh": { label: "어리둥절수달" },
   // "yulhwa9909": { label: "야근하는펭귄" },
   // "yulhwa9909": { label: "데이터고양이" },
   // "yulhwa9909": { label: "알티하는라쿤" },
