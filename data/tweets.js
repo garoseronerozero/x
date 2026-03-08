@@ -127,5 +127,11 @@ const tweets = [
 "https://x.com/ulttung/status/1902332615862186224",
 "https://x.com/tsukitokumo/status/1905251615009128703",
 "https://x.com/MALIKXWALL/status/1905341847246975195",
-"https://x.com/guny1283731/status/1922479063601434887"
+"https://x.com/guny1283731/status/1922479063601434887",
+"https://x.com/wuhighup/status/2027729429137658082",
+"https://x.com/n_adora2021/status/1899926291962617912",
+"https://x.com/n_adora2021/status/2027957766095311088",
+"https://x.com/HeungrokCho/status/2027704328031711644",
+"https://x.com/HeungrokCho/status/1930905697849651516",
+"https://x.com/HeungrokCho/status/1919977809327620529"
 ];
