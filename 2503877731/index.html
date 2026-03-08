@@ -3,154 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="noindex,nofollow">
-    <link rel="icon" href="../favicon.ico">
-
-    <!--    TODO: REPLACE USERNAME HERE-->
     <title>@_cospirit</title>
-
-
-    <style>
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-            background: #f3f4f6;
-            margin: 0;
-            padding: 50px 20px;
-            color: #222;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 35px;
-        }
-
-        .tweet {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 32px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .link {
-            margin-bottom: 14px;
-        }
-
-        .link a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1d9bf0;
-        }
-
-        .link a:hover {
-            text-decoration: underline;
-        }
-
-        iframe {
-            width: 100%;
-            height: 780px;
-            border: none;
-            border-radius: 8px;
-        }
-
-    </style>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-
 <div class="container">
-
-    <!--    TODO: REPLACE USERNAME HERE-->
-    <h1>@_cospirit Archived Tweets (<span id="tweet-count"></span>)</h1>
-
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1905130076699799941' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1905130076699799941_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1906642830636019941' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1906642830636019941_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1920003533631586656' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1920003533631586656_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935090586069123516' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935090586069123516_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935098661786288298' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935098661786288298_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935266035437027646' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935266035437027646_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935368004323492286' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935368004323492286_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935491434142122008' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935491434142122008_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/_cospirit/status/1935571161708200058' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='1935571161708200058_2503877731.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-
-    <!--    TODO: APPEND HERE, Don't forget Cmt+Opt+L-->
-
-    <script>
-        const count = document.querySelectorAll('.tweet').length;
-        document.getElementById('tweet-count').textContent = count;
-    </script>
-
+    <div id="tweets"></div>
 </div>
+<script>
+    const username = "_cospirit";
 
+    const pdfs = [
+        "1905130076699799941_2503877731.pdf",
+        "1906642830636019941_2503877731.pdf",
+        "1920003533631586656_2503877731.pdf",
+        "1935090586069123516_2503877731.pdf",
+        "1935098661786288298_2503877731.pdf",
+        "1935266035437027646_2503877731.pdf",
+        "1935368004323492286_2503877731.pdf",
+        "1935491434142122008_2503877731.pdf",
+        "1935571161708200058_2503877731.pdf"
+    ];
+</script>
+
+<script src="../tweet-render.js"></script>
+<script src="../download-all.js"></script>
 </body>
 </html>
