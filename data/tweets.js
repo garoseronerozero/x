@@ -1,5 +1,4 @@
 const tweets = [
-
 "https://x.com/Happipupper/status/1904039868633923775",
 "https://x.com/Happipupper/status/2027934857834491951",
 "https://x.com/Happipupper/status/2028728552477302793",
@@ -32,6 +31,7 @@ const tweets = [
 "https://x.com/aina0660/status/2027774495101227120",
 "https://x.com/aina0660/status/2027773802260926798",
 "https://x.com/aina0660/status/2028157219687350497",
+"https://x.com/aina0660/status/2028730619958849652",
 "https://x.com/hwahwa85221/status/2028415481506582603",
 "https://x.com/sariseyo_jebal/status/1905271625735377306",
 "https://x.com/sariseyo_jebal/status/1947793179803324790",
@@ -50,6 +50,9 @@ const tweets = [
 "https://x.com/BaBo__gyeon/status/2030199863376540113",
 "https://x.com/padoparang/status/2028281873408122894",
 "https://x.com/padoparang/status/2027954347200680449",
+"https://x.com/peacebringmage/status/2001921232758100141",
+"https://x.com/peacebringmage/status/2002368445606948953",
+"https://x.com/peacebringmage/status/2002322726015701243",
 "https://x.com/roska6666/status/2015341682439688281",
 "https://x.com/sunloco624/status/2027766412018913741",
 "https://x.com/Himitsh/status/1899821031327740040",
@@ -98,8 +101,6 @@ const tweets = [
 "https://x.com/_cospirit/status/1935571161708200058",
 "https://x.com/pleasedont1112/status/2026509272247591248",
 "https://x.com/shitmoneythumb/status/2023322854637596888",
-"https://x.com/dududuba_baba/status/1911678288185139206",
-"https://x.com/dududuba_baba/status/1923145333690818704",
 "https://x.com/dududuba_baba/status/1911678288185139206",
 "https://x.com/dududuba_baba/status/1923145333690818704",
 "https://x.com/nicefurryfriend/status/1900135521143447716",
