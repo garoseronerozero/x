@@ -97,5 +97,6 @@ const tweets = [
 "https://x.com/_cospirit/status/1935368004323492286",
 "https://x.com/_cospirit/status/1935491434142122008",
 "https://x.com/_cospirit/status/1935571161708200058",
-"https://x.com/pleasedont1112/status/2026509272247591248"
+"https://x.com/pleasedont1112/status/2026509272247591248",
+"https://x.com/shitmoneythumb/status/2023322854637596888"
 ];
