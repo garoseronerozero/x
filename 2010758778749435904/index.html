@@ -3,90 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="noindex,nofollow">
-    <link rel="icon" href="../favicon.ico">
-
-    <!--    TODO: REPLACE USERNAME HERE-->
     <title>@sunloco624</title>
-
-
-    <style>
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-            background: #f3f4f6;
-            margin: 0;
-            padding: 50px 20px;
-            color: #222;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 35px;
-        }
-
-        .tweet {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 32px;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .link {
-            margin-bottom: 14px;
-        }
-
-        .link a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1d9bf0;
-        }
-
-        .link a:hover {
-            text-decoration: underline;
-        }
-
-        iframe {
-            width: 100%;
-            height: 780px;
-            border: none;
-            border-radius: 8px;
-        }
-
-    </style>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-
 <div class="container">
-
-    <!--    TODO: REPLACE USERNAME HERE-->
-    <h1>@sunloco624 Archived Tweets (<span id="tweet-count"></span>)</h1>
-
-    <div class='tweet'>
-        <div class='link'>
-            <a href='https://x.com/sunloco624/status/2027766412018913741' target='_blank'>
-                Original Tweet →
-            </a>
-        </div>
-        <iframe src='2027766412018913741_2010758778749435904.pdf#toolbar=0&navpanes=0'></iframe>
-    </div>
-
-    <!--    TODO: APPEND HERE, Don't forget Cmt+Opt+L-->
-
-    <script>
-        const count = document.querySelectorAll('.tweet').length;
-        document.getElementById('tweet-count').textContent = count;
-    </script>
-
+    <div id="tweets"></div>
 </div>
+<script>
+    const username = "sunloco624";
 
+    const pdfs = [
+        "2027766412018913741_2010758778749435904.pdf"
+    ];
+</script>
+
+<script src="../tweet-render.js"></script>
+<script src="../download-all.js"></script>
 </body>
 </html>
