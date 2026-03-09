@@ -211,9 +211,9 @@
             } else if (status === "DELETED") {
                 cell.innerHTML =
                     `<span class="status-deleted">DELETED</span>`
-            } else if (status === "AUTh_ERROR") {    // Auth error: Protected or Banned user account
+            } else if (status === "AUTH_ERROR") {    // Auth error: Protected or Banned user account
                 cell.innerHTML =
-                    `<span class="status-error">ERROR</span>`
+                    `<span class="status-error">AUTH_ERROR</span>`
             } else {
                 cell.textContent = "UNKNOWN"
             }
@@ -225,16 +225,16 @@
         const total = tweets.length
 
         let deleted = 0
-        let errorCount = 0
+        let authErrorCount = 0
 
         for (const url in data) {
             if (data[url] === "DELETED") deleted++
-            if (data[url] === "ERROR") errorCount++
+            if (data[url] === "AUTH_ERROR") authErrorCount++
 
         }
 
         document.getElementById("tweetHeader").textContent =
-            `Tweet (Total: ${total}, Deleted: ${deleted}, Auth_Error: ${errorCount})`
+            `Tweet (Total: ${total}, Deleted: ${deleted}, Auth_Error: ${authErrorCount})`
     }
 
     async function loadStatus() {
