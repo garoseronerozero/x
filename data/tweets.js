@@ -196,5 +196,9 @@ const tweets = [
 "https://x.com/Bds_VegetaShop/status/1902583836891848855",
 "https://x.com/Bds_VegetaShop/status/1905121254690164938",
 "https://x.com/Bds_VegetaShop/status/1905163625880547398",
-"https://x.com/Bds_VegetaShop/status/1907308294215201017"
+"https://x.com/Bds_VegetaShop/status/1907308294215201017",
+"https://x.com/iamminuco/status/1902290918117343512",
+"https://x.com/iamminuco/status/1902576258355241089",
+"https://x.com/iamminuco/status/1905176199116271720",
+"https://x.com/iamminuco/status/1905451231335907609"
 ];
