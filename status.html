@@ -211,7 +211,7 @@
             } else if (status === "DELETED") {
                 cell.innerHTML =
                     `<span class="status-deleted">DELETED</span>`
-            } else if (status === "ERROR") {    // Auth error: Protected or Banned user account
+            } else if (status === "AUTh_ERROR") {    // Auth error: Protected or Banned user account
                 cell.innerHTML =
                     `<span class="status-error">ERROR</span>`
             } else {
@@ -234,7 +234,7 @@
         }
 
         document.getElementById("tweetHeader").textContent =
-            `Tweet (Total: ${total}, Deleted: ${deleted}, Error: ${errorCount})`
+            `Tweet (Total: ${total}, Deleted: ${deleted}, Auth_Error: ${errorCount})`
     }
 
     async function loadStatus() {
