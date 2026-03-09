@@ -189,4 +189,12 @@ const tweets = [
 "https://x.com/man9oou/status/1902733895654903858",
 "https://x.com/man9oou/status/1905589260344066202",
 "https://x.com/man9oou/status/1905590191777067361",
+"https://x.com/Bds_VegetaShop/status/1900395412558623074",
+"https://x.com/Bds_VegetaShop/status/1900478720693219590",
+"https://x.com/Bds_VegetaShop/status/1901917333226234132",
+"https://x.com/Bds_VegetaShop/status/1902553603996618979",
+"https://x.com/Bds_VegetaShop/status/1902583836891848855",
+"https://x.com/Bds_VegetaShop/status/1905121254690164938",
+"https://x.com/Bds_VegetaShop/status/1905163625880547398",
+"https://x.com/Bds_VegetaShop/status/1907308294215201017"
 ];
