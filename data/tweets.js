@@ -122,6 +122,7 @@ const tweets = [
 "https://x.com/Westanirem/status/1906924228370391544",
 "https://x.com/Bds_VegetaShop/status/1905163625880547398",
 "https://x.com/bdecem52/status/1900508751884370230",
+"https://x.com/ildansarabwa/status/1899564254631731296",
 "https://x.com/ildansarabwa/status/1903096043291718100",
 "https://x.com/8HK7E/status/1905146417586266198",
 "https://x.com/8HK7E/status/1903278631964852652",
