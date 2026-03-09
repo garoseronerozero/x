@@ -161,5 +161,10 @@ const tweets = [
 "https://x.com/ihatemaksan2/status/1902904431764705645",
 "https://x.com/ihatemaksan2/status/1905524515763106007",
 "https://x.com/ihatemaksan2/status/1910299388175405082",
-"https://x.com/ihatemaksan2/status/1910681916241830183"
+"https://x.com/ihatemaksan2/status/1910681916241830183",
+"https://x.com/man9oou/status/1899469583813361711",
+"https://x.com/man9oou/status/1902733644063498730",
+"https://x.com/man9oou/status/1902733895654903858",
+"https://x.com/man9oou/status/1905589260344066202",
+"https://x.com/man9oou/status/1905590191777067361",
 ];
