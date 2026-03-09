@@ -228,5 +228,10 @@ const tweets = [
     "https://x.com/bellzorizin/status/1906617124908666943",
     "https://x.com/rieuxx/status/1899675029123764405",
     "https://x.com/rieuxx/status/1906631952922468691",
-    "https://x.com/rieuxx/status/1899412634019242061"
+    "https://x.com/rieuxx/status/1899412634019242061",
+    "https://x.com/applyboo/status/1906622512697618478",
+    "https://x.com/gksskatlqkftoRl/status/1906640125229945231",
+    "https://x.com/gksskatlqkftoRl/status/1906689277339029719",
+    "https://x.com/gksskatlqkftoRl/status/1906718569389342977",
+    "https://x.com/Le_pleurer__/status/1920094203775774889"
 ];
