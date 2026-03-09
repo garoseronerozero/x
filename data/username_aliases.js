@@ -53,7 +53,7 @@ const username_aliases = {
   "HeungrokCho": { label: "부엉이교수2" },
   "winterofcrane": { label: "부엉이교수3" },
   "womensparty2020": { label: "부엉이교수4" },
-  // "HeungrokCho": { label: "부엉이교수5" },
+  "ihatemaksan2": { label: "부엉이교수5" },
   // "HeungrokCho": { label: "부엉이교수6" },
   // "HeungrokCho": { label: "부엉이교수7" },
   // "HeungrokCho": { label: "부엉이교수8" },
