@@ -130,6 +130,7 @@ const tweets = [
 "https://x.com/tsukitokumo/status/1905251615009128703",
 "https://x.com/MALIKXWALL/status/1905341847246975195",
 "https://x.com/guny1283731/status/1922479063601434887",
+"https://x.com/guny1283731/status/1922477751790944270",
 "https://x.com/wuhighup/status/2027729429137658082",
 "https://x.com/n_adora2021/status/1899926291962617912",
 "https://x.com/n_adora2021/status/2027957766095311088",
