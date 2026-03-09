@@ -61,7 +61,7 @@ const username_aliases = {
   "rieuxx": { label: "부엉이교수10" },
   "applyboo": { label: "신나는다람쥐1" },
   "gksskatlqkftoRl": { label: "신나는다람쥐2" },
-  // "HeungrokCho": { label: "신나는다람쥐3" },
+  "Le_pleurer__": { label: "신나는다람쥐3" },
   // "HeungrokCho": { label: "신나는다람쥐4" },
   // "HeungrokCho": { label: "신나는다람쥐5" },
   // "HeungrokCho": { label: "신나는다람쥐6" },
