@@ -60,6 +60,19 @@ const username_aliases = {
   "bellzorizin": { label: "부엉이교수9" },
   "rieuxx": { label: "부엉이교수10" },
   // "HeungrokCho": { label: "신나는다람쥐1" },
+  // "HeungrokCho": { label: "신나는다람쥐2" },
+  // "HeungrokCho": { label: "신나는다람쥐3" },
+  // "HeungrokCho": { label: "신나는다람쥐4" },
+  // "HeungrokCho": { label: "신나는다람쥐5" },
+  // "HeungrokCho": { label: "신나는다람쥐6" },
+  // "HeungrokCho": { label: "신나는다람쥐7" },
+  // "HeungrokCho": { label: "신나는다람쥐8" },
+  // "HeungrokCho": { label: "신나는다람쥐9" },
+  // "HeungrokCho": { label: "신나는다람쥐10" },
+  // "HeungrokCho": { label: "오늘만사는라마1" },
+  // "HeungrokCho": { label: "오늘만사는라마2" },
+  // "HeungrokCho": { label: "오늘만사는라마3" },
+  // "HeungrokCho": { label: "오늘만사는라마4" },
 
 
   "temp": { label: "TEMP" }
