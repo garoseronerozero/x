@@ -154,5 +154,12 @@ const tweets = [
 "https://x.com/winterofcrane/status/1899475015923589333",
 "https://x.com/winterofcrane/status/1900407691497136297",
 "https://x.com/winterofcrane/status/2030553546408800653",
-"https://x.com/womensparty2020/status/1907076404845711707"
+"https://x.com/womensparty2020/status/1907076404845711707",
+"https://x.com/ihatemaksan2/status/1900346350799298920",
+"https://x.com/ihatemaksan2/status/1900524427705782404",
+"https://x.com/ihatemaksan2/status/1902363134335000584",
+"https://x.com/ihatemaksan2/status/1902904431764705645",
+"https://x.com/ihatemaksan2/status/1905524515763106007",
+"https://x.com/ihatemaksan2/status/1910299388175405082",
+"https://x.com/ihatemaksan2/status/1910681916241830183"
 ];
