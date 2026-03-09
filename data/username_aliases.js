@@ -57,8 +57,8 @@ const username_aliases = {
   "man9oou": { label: "부엉이교수6" },
   "peddler_sb": { label: "부엉이교수7" },
   "nec00n_nim": { label: "부엉이교수8" },
-  // "HeungrokCho": { label: "부엉이교수9" },
-  // "HeungrokCho": { label: "부엉이교수10" },
+  "bellzorizin": { label: "부엉이교수9" },
+  "rieuxx": { label: "부엉이교수10" },
   // "HeungrokCho": { label: "신나는다람쥐1" },
 
 
