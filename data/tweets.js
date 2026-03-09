@@ -200,5 +200,6 @@ const tweets = [
 "https://x.com/iamminuco/status/1902290918117343512",
 "https://x.com/iamminuco/status/1902576258355241089",
 "https://x.com/iamminuco/status/1905176199116271720",
-"https://x.com/iamminuco/status/1905451231335907609"
+"https://x.com/iamminuco/status/1905451231335907609",
+"https://x.com/peddler_sb/status/2030890651311902906"
 ];
