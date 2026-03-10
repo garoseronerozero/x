@@ -65,7 +65,7 @@ const username_aliases = {
   "jkjkjkls27": { label: "신나는다람쥐4" },
   "titopgjhwtggnn": { label: "신나는다람쥐5" },
   "not_unot_u": { label: "신나는다람쥐6" },
-  // "HeungrokCho": { label: "신나는다람쥐7" },
+  "kkMjiH": { label: "신나는다람쥐7" },
   // "HeungrokCho": { label: "신나는다람쥐8" },
   // "HeungrokCho": { label: "신나는다람쥐9" },
   // "HeungrokCho": { label: "신나는다람쥐10" },
