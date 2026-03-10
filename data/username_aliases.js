@@ -74,7 +74,7 @@ const username_aliases = {
   "naatu21769": { label: "오늘만사는라마3" },
   "eodnjekske": { label: "오늘만사는라마4" },
   "861026": { label: "오늘만사는라마5" },
-  // "HeungrokCho": { label: "오늘만사는라마6" },
+  "cokaclora": { label: "오늘만사는라마6" },
   // "HeungrokCho": { label: "오늘만사는라마7" },
   // "HeungrokCho": { label: "오늘만사는라마8" },
   // "HeungrokCho": { label: "오늘만사는라마9" },
