@@ -64,3 +64,25 @@ iframe {
 #downloadAll:hover {
     opacity: 1;
 }
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background: #0f1115;
+        color: #e6e6e6;
+    }
+
+    .tweet {
+        background: #161a20;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+    }
+
+    .link a {
+        color: #7fb3ff;
+    }
+
+    .link a:hover {
+        text-decoration: underline;
+    }
+
+}
