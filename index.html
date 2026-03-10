@@ -26,13 +26,31 @@
         .account {
             border: 1px solid #ddd;
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            border-left: 4px solid #dddddd;
+            padding: 12px 20px 12px 10px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .account:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .account.flag-sensitive {
+            border-left-color: #e55353;
+        }
+
+        .account.flag-identifiable {
+            border-left-color: #e6d38a;
+        }
+
+        .account.flag-manipulated {
+            border-left-color: #e54848;
+        }
+
+        .account.status-suspended-or-deleted {
+            border-left-color: #cfcfcf;
         }
 
         .username {
@@ -125,27 +143,35 @@
             background: #dff3e5;
         }
 
+        .legend-bar {
+            width: 4px;
+            height: 16px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .legend-bar.sensitive {
+            background: #e55353;
+        }
+
+        .legend-bar.identifiable {
+            background: #e6d38a;
+        }
+
+        .legend-bar.manipulated {
+            background: #e54848;
+        }
+
+        .legend-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
         .status-button:active {
             transform: translateY(1px);
-        }
-
-
-        .account.identifiable {
-            background: #fff9e6;
-            border-left: 4px solid #f4d77a;
-            border-color: #f0e1a6;
-        }
-
-        .account.image-manipulated {
-            background: #fff1f4;
-            border-left: 4px solid #f4a7b7;
-            border-color: #f1c7cf;
-        }
-
-        .account.status-deleted {
-            background: #f5f5f5;
-            border-left: 4px solid #d0d0d0;
-            border-color: #e0e0e0;
         }
 
         #backToTop {
@@ -178,81 +204,73 @@
         @media (prefers-color-scheme: dark) {
 
             body {
-                background: #0f1115;
-                color: #e6e6e6;
+                background: #0d1117;
+                color: #e6edf3;
             }
 
             .account {
-                border-color: #2a2f36;
-                background: #161a20;
+                background: #161b22;
+                border-color: #30363d;
+            }
+
+            .account:hover {
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
             }
 
             .meta {
-                color: #9aa4af;
+                color: #9da7b3;
             }
 
             a {
                 color: #7fb3ff;
             }
 
+            a:hover {
+                color: #a8c7ff;
+            }
+
             .quicklinks a {
-                background: #1c2128;
-                border-color: #2d333b;
+                background: #161b22;
+                border-color: #30363d;
                 color: #7fb3ff;
             }
 
             .quicklinks a:hover {
-                background: #252b33;
+                background: #1f2630;
             }
 
             .notice {
-                color: #a5adb6;
+                color: #9da7b3;
             }
 
             .updated {
-                color: #9aa4af;
+                color: #8b949e;
             }
 
             .disclaimer {
-                border-top: 1px solid #2d333b;
-                color: #9aa4af;
+                border-top: 1px solid #30363d;
+                color: #9da7b3;
             }
 
             .status-button {
-                background: #173b2a;
-                border-color: #295c43;
-                color: #7be0a4;
+                background: #1a3a2a;
+                border-color: #2c6e49;
+                color: #7ee787;
             }
 
             .status-button:hover {
-                background: #1f4a34;
+                background: #214d36;
             }
 
             #backToTop {
-                background: #1c2128;
+                background: #161b22;
                 color: #c9d1d9;
             }
 
-            /* 상태 카드 */
-
-            .account.identifiable {
-                background: #161a20;
-                border-color: #2a2f36;
-                border-left: 4px solid #e6c65c;   /* yellow tone */
+            .legend-bar {
+                opacity: 0.9;
             }
 
-            .account.image-manipulated {
-                background: #161a20;
-                border-color: #2a2f36;
-                border-left: 4px solid #d96b6b;   /* red tone */
-            }
-
-            .account.status-deleted {
-                background: #161a20;
-                border-color: #2a2f36;
-                border-left: 4px solid #555;
-                opacity: 0.75;
-            }
 
         }
 
@@ -288,16 +306,17 @@
        rel="noopener noreferrer">악의적 비방 및 명예훼손 대응 사례 ↗</a>
     <a href="https://v.daum.net/v/Qi6hrmGhOa" target="_blank"
        rel="noopener noreferrer">기사 ↗</a>
-<!--    <a href="https://x.com/EchoesOfKSH_CN/status/2024822552770806038" target="_blank"-->
-<!--       rel="noopener noreferrer">아직도 팬이 있나? ↗</a>-->
-<!--    <a href="https://v.daum.net/v/Qi6hrmGhOa" target="_blank"-->
-<!--       rel="noopener noreferrer">수사 1 ↗</a>-->
-<!--    <a href="https://v.daum.net/v/Qi6hrmGhOa" target="_blank"-->
-<!--       rel="noopener noreferrer">수사 2 ↗</a>-->
-
-
+    <!--    <a href="https://x.com/EchoesOfKSH_CN/status/2024822552770806038" target="_blank"-->
+    <!--       rel="noopener noreferrer">아직도 팬이 있나? ↗</a>-->
+    <!--    <a href="https://v.daum.net/v/Qi6hrmGhOa" target="_blank"-->
+    <!--       rel="noopener noreferrer">수사 1 ↗</a>-->
+    <!--    <a href="https://v.daum.net/v/Qi6hrmGhOa" target="_blank"-->
+    <!--       rel="noopener noreferrer">수사 2 ↗</a>-->
 </div>
-
+<div class="notice legend-item">
+    <span class="legend-bar sensitive"></span>
+    비동의 사생활 사진 유출물 재유포·AI 합성 이미지 포함 가능
+</div>
 <!-- Account -->
 
 <div class="account">
@@ -307,7 +326,7 @@
     <div class="meta">
         Display name: ❤️🧡💛날백수멈머💚💙💜 <br>
         <!--        User ID: 126878634 <br>-->
-        Profile: <a href="https://x.com/i/user/126878634" target="_blank">View on X</a>
+        Profile: <a href="https://x.com/i/user/126878634" target="_blank" rel="noopener noreferrer">View on X</a>
     </div>
 </div>
 
@@ -318,18 +337,20 @@
     <div class='meta'>
         Display name: ꒰ა <br>
         <!--        User ID: 1263123896070332416 <br>-->
-        Profile: <a href='https://x.com/i/user/1263123896070332416' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1263123896070332416' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./1842081808848158720/'>@iamshipduck1</a>
     </div>
     <div class='meta'>
         Display name: 호흡 <br>
         <!--        User ID: 1842081808848158720 <br>-->
-        Profile: <a href='https://x.com/i/user/1842081808848158720' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1842081808848158720' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -340,7 +361,8 @@
     <div class='meta'>
         Display name: 아이나 <br>
         <!--        User ID: 2010313469678235649 <br>-->
-        Profile: <a href='https://x.com/i/user/2010313469678235649' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2010313469678235649' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -351,7 +373,8 @@
     <div class='meta'>
         Display name: 화화 <br>
         <!--        User ID: 1942135428158717953 <br>-->
-        Profile: <a href='https://x.com/i/user/1942135428158717953' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1942135428158717953' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -362,7 +385,8 @@
     <div class='meta'>
         Display name: 긍엉덩이 <br>
         <!--        User ID: 1939685580595736576 <br>-->
-        Profile: <a href='https://x.com/i/user/1939685580595736576' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1939685580595736576' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -373,7 +397,8 @@
     <div class='meta'>
         Display name: 동글 <br>
         <!--        User ID: 1768533897615384576 <br>-->
-        Profile: <a href='https://x.com/i/user/1768533897615384576' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1768533897615384576' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -384,7 +409,8 @@
     <div class='meta'>
         Display name: 강두부 🇦🇺 <br>
         <!--        User ID: 1915593731740491776 <br>-->
-        Profile: <a href='https://x.com/i/user/1915593731740491776' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1915593731740491776' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -395,7 +421,8 @@
     <div class='meta'>
         Display name: ontheautumn <br>
         <!--        User ID: 1564525811784642561 <br>-->
-        Profile: <a href='https://x.com/i/user/1564525811784642561' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1564525811784642561' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -406,7 +433,7 @@
     <div class='meta'>
         Display name: Sirius <br>
         <!--        User ID: 222092067 <br>-->
-        Profile: <a href='https://x.com/i/user/222092067' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/222092067' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -417,7 +444,8 @@
     <div class='meta'>
         Display name: 서야, <br>
         <!--        User ID: 845628439486873600 <br>-->
-        Profile: <a href='https://x.com/i/user/845628439486873600' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/845628439486873600' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -429,7 +457,8 @@
     <div class='meta'>
         Display name: 신 <br>
         <!--        User ID: 2008062163047620608 <br>-->
-        Profile: <a href='https://x.com/i/user/2008062163047620608' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2008062163047620608' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -440,7 +469,8 @@
     <div class='meta'>
         Display name: 구독 <br>
         <!--        User ID: 2010758778749435904 <br>-->
-        Profile: <a href='https://x.com/i/user/2010758778749435904' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2010758778749435904' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -451,7 +481,7 @@
     <div class='meta'>
         Display name: 🇰🇷신아트였던 사람🎗 <br>
         <!--        User ID: 430149984 <br>-->
-        Profile: <a href='https://x.com/i/user/430149984' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/430149984' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -462,7 +492,7 @@
     <div class='meta'>
         Display name: 제로시스 <br>
         <!--        User ID: 162594178 <br>-->
-        Profile: <a href='https://x.com/i/user/162594178' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/162594178' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -473,7 +503,8 @@
     <div class='meta'>
         Display name: 미뇽뇽 (RT이벤트중🫶🏻) <br>
         <!--        User ID: 1512643894177316864 <br>-->
-        Profile: <a href='https://x.com/i/user/1512643894177316864' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1512643894177316864' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -484,7 +515,8 @@
     <div class='meta'>
         Display name: 리콘 (0린이 쓰지 말라고) <br>
         <!--        User ID: 1898234322265817093 <br>-->
-        Profile: <a href='https://x.com/i/user/1898234322265817093' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1898234322265817093' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -495,18 +527,19 @@
     <div class='meta'>
         Display name: 잔디밭애옹 _dodhd <br>
         <!--        User ID: 1468532906549473280 <br>-->
-        Profile: <a href='https://x.com/i/user/1468532906549473280' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1468532906549473280' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./1897669346/'>@choxchco2103</a>
     </div>
     <div class='meta'>
         Display name: 멍뭉 <br>
         <!--        User ID: 1897669346 <br>-->
-        Profile: <a href='https://x.com/i/user/1897669346' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1897669346' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -517,7 +550,7 @@
     <div class='meta'>
         Display name: 코 <br>
         <!--        User ID: 2503877731 <br>-->
-        Profile: <a href='https://x.com/i/user/2503877731' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2503877731' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -528,7 +561,8 @@
     <div class='meta'>
         Display name: 정지대마왕2 <br>
         <!--        User ID: 1986763835127234560 <br>-->
-        Profile: <a href='https://x.com/i/user/1986763835127234560' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1986763835127234560' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -539,7 +573,8 @@
     <div class='meta'>
         Display name: 즤 좌 is Premium+ <br>
         <!--        User ID: 1492836699055194112 <br>-->
-        Profile: <a href='https://x.com/i/user/1492836699055194112' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1492836699055194112' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -550,7 +585,8 @@
     <div class='meta'>
         Display name: 웨지 <br>
         <!--        User ID: 1875794115356663808 <br>-->
-        Profile: <a href='https://x.com/i/user/1875794115356663808' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1875794115356663808' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -561,7 +597,8 @@
     <div class='meta'>
         Display name: 🌸agnës 🥪🐻🧳🌸 <br>
         <!--        User ID: 956561013125476352 <br>-->
-        Profile: <a href='https://x.com/i/user/956561013125476352' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/956561013125476352' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -572,7 +609,8 @@
     <div class='meta'>
         Display name: 두바이쫀득미코 <br>
         <!--        User ID: 1638168416313028610 <br>-->
-        Profile: <a href='https://x.com/i/user/1638168416313028610' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1638168416313028610' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -583,30 +621,31 @@
     <div class='meta'>
         Display name: 칠백 <br>
         <!--        User ID: 1549309864094355456 <br>-->
-        Profile: <a href='https://x.com/i/user/1549309864094355456' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1549309864094355456' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./264466181/'>@quietepiphany</a>
     </div>
     <div class='meta'>
         Display name: Steph⁷ IS SEEING BTS ⊙⊝⊜ <br>
         <!--        User ID: 264466181 <br>-->
-        Profile: <a href='https://x.com/i/user/264466181' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/264466181' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./1724783550/'>@GG_tina_0805</a>
     </div>
     <div class='meta'>
         Display name: 🕯☆별☆🕯 <br>
         <!--        User ID: 1724783550 <br>-->
-        Profile: <a href='https://x.com/i/user/1724783550' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1724783550' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -617,7 +656,8 @@
     <div class='meta'>
         Display name: 🕯리와🕯 <br>
         <!--        User ID: 1383690785539780617 <br>-->
-        Profile: <a href='https://x.com/i/user/1383690785539780617' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1383690785539780617' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -628,7 +668,8 @@
     <div class='meta'>
         Display name: 미쁜이 <br>
         <!--        User ID: 1358408494601310214 <br>-->
-        Profile: <a href='https://x.com/i/user/1358408494601310214' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1358408494601310214' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -639,7 +680,8 @@
     <div class='meta'>
         Display name: 루하✌️🇰🇷🇺🇸🇯🇵 <br>
         <!--        User ID: 957662450874118144 <br>-->
-        Profile: <a href='https://x.com/i/user/957662450874118144' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/957662450874118144' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -650,7 +692,7 @@
     <div class='meta'>
         Display name: soyun🎗 <br>
         <!--        User ID: 262676886 <br>-->
-        Profile: <a href='https://x.com/i/user/262676886' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/262676886' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -661,7 +703,8 @@
     <div class='meta'>
         Display name: MR.I 혁파고🌟 <br>
         <!--        User ID: 821457529284591616 <br>-->
-        Profile: <a href='https://x.com/i/user/821457529284591616' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/821457529284591616' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -672,7 +715,8 @@
     <div class='meta'>
         Display name: Minuco <br>
         <!--        User ID: 1741484656577675264 <br>-->
-        Profile: <a href='https://x.com/i/user/1741484656577675264' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1741484656577675264' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -683,7 +727,7 @@
     <div class='meta'>
         Display name: 럽님 <br>
         <!--        User ID: 3218765682 <br>-->
-        Profile: <a href='https://x.com/i/user/3218765682' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/3218765682' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -694,7 +738,8 @@
     <div class='meta'>
         Display name: 야 <br>
         <!--        User ID: 1780799599013425152 <br>-->
-        Profile: <a href='https://x.com/i/user/1780799599013425152' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1780799599013425152' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -705,18 +750,18 @@
     <div class='meta'>
         Display name: 버독네 채소가게 <br>
         <!--        User ID: 4448768352 <br>-->
-        Profile: <a href='https://x.com/i/user/4448768352' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/4448768352' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./2274316471/'>@bdecem52</a>
     </div>
     <div class='meta'>
         Display name: 石蘭 <br>
         <!--        User ID: 2274316471 <br>-->
-        Profile: <a href='https://x.com/i/user/2274316471' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2274316471' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -727,7 +772,8 @@
     <div class='meta'>
         Display name: 견뎌맨.. <br>
         <!--        User ID: 1527125913996972032 <br>-->
-        Profile: <a href='https://x.com/i/user/1527125913996972032' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1527125913996972032' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -738,7 +784,8 @@
     <div class='meta'>
         Display name: 에머슨 <br>
         <!--        User ID: 737591915089010688 <br>-->
-        Profile: <a href='https://x.com/i/user/737591915089010688' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/737591915089010688' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -749,7 +796,8 @@
     <div class='meta'>
         Display name: 얼뚱❄️ <br>
         <!--        User ID: 1291661243543990272 <br>-->
-        Profile: <a href='https://x.com/i/user/1291661243543990272' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1291661243543990272' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -760,7 +808,7 @@
     <div class='meta'>
         Display name: 🕯️올앵🌺달구름🎗️ <br>
         <!--        User ID: 2811640418 <br>-->
-        Profile: <a href='https://x.com/i/user/2811640418' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/2811640418' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
@@ -771,18 +819,20 @@
     <div class='meta'>
         Display name: Safdar Malik <br>
         <!--        User ID: 1876260174446333952 <br>-->
-        Profile: <a href='https://x.com/i/user/1876260174446333952' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1876260174446333952' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./1815982412142395392/'>@wuhighup</a>
     </div>
     <div class='meta'>
         Display name: 레이 <br>
         <!--        User ID: 1815982412142395392 <br>-->
-        Profile: <a href='https://x.com/i/user/1815982412142395392' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1815982412142395392' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -793,18 +843,20 @@
     <div class='meta'>
         Display name: 아도라 <br>
         <!--        User ID: 1399431301732569099 <br>-->
-        Profile: <a href='https://x.com/i/user/1399431301732569099' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1399431301732569099' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account'>
+<div class='account flag-sensitive'>
     <div class='username'>
         <a href='./1906129029708824576/'>@HeungrokCho</a>
     </div>
     <div class='meta'>
         Display name: 반올 <br>
         <!--        User ID: 1906129029708824576 <br>-->
-        Profile: <a href='https://x.com/i/user/1906129029708824576' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1906129029708824576' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -815,7 +867,8 @@
     <div class='meta'>
         Display name: 미나 <br>
         <!--        User ID: 1031619943098241024 <br>-->
-        Profile: <a href='https://x.com/i/user/1031619943098241024' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1031619943098241024' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -826,7 +879,8 @@
     <div class='meta'>
         Display name: 여성의당 <br>
         <!--        User ID: 1230037632039542784 <br>-->
-        Profile: <a href='https://x.com/i/user/1230037632039542784' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1230037632039542784' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -836,7 +890,8 @@
     <div class='meta'>
         Display name: 막살🪻 <br>
         <!--        User ID: 1502675209945780224 <br>-->
-        Profile: <a href='https://x.com/i/user/1502675209945780224' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1502675209945780224' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -846,7 +901,8 @@
     <div class='meta'>
         Display name: 똥냐.. <br>
         <!--        User ID: 1684087895626489856 <br>-->
-        Profile: <a href='https://x.com/i/user/1684087895626489856' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1684087895626489856' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -856,7 +912,8 @@
     <div class='meta'>
         Display name: 💊약쟁이 계정 두번째 정지당함ㅅㅂ <br>
         <!--        User ID: 1990687890679214080 <br>-->
-        Profile: <a href='https://x.com/i/user/1990687890679214080' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1990687890679214080' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -867,7 +924,8 @@
     <div class='meta'>
         Display name: 🎄네쿤님🌙💕🌟 <br>
         <!--        User ID: 875358965734887424 <br>-->
-        Profile: <a href='https://x.com/i/user/875358965734887424' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/875358965734887424' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -877,7 +935,8 @@
     <div class='meta'>
         Display name: 6 _ 6 <br>
         <!--        User ID: 1851383815035637760 <br>-->
-        Profile: <a href='https://x.com/i/user/1851383815035637760' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1851383815035637760' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -888,7 +947,8 @@
     <div class='meta'>
         Display name: 리외 <br>
         <!--        User ID: 1708346752724795393 <br>-->
-        Profile: <a href='https://x.com/i/user/1708346752724795393' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1708346752724795393' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -899,7 +959,8 @@
     <div class='meta'>
         Display name: 뿡야 <br>
         <!--        User ID: 1723177758896128000 <br>-->
-        Profile: <a href='https://x.com/i/user/1723177758896128000' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1723177758896128000' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -910,7 +971,8 @@
     <div class='meta'>
         Display name: ****뽀잉뽀이 <br>
         <!--        User ID: 1802349569260589056 <br>-->
-        Profile: <a href='https://x.com/i/user/1802349569260589056' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1802349569260589056' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
@@ -921,7 +983,8 @@
     <div class='meta'>
         Display name: 🇵🇸蓮花😷🇭🇰🇹🇭🇲🇲🇸🇩🇧🇩🇮🇩🏳️‍🌈 <br>
         <!--        User ID: 1153326769929220096 <br>-->
-        Profile: <a href='https://x.com/i/user/1153326769929220096' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1153326769929220096' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -931,7 +994,8 @@
     <div class='meta'>
         Display name: 이름짓기귀찮음 <br>
         <!--        User ID: 1055852155070898178 <br>-->
-        Profile: <a href='https://x.com/i/user/1055852155070898178' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1055852155070898178' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -941,7 +1005,7 @@
     <div class='meta'>
         Display name: 가래떡 <br>
         <!--        User ID: 962149538 <br>-->
-        Profile: <a href='https://x.com/i/user/962149538' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/962149538' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 <div class='account'>
@@ -951,7 +1015,8 @@
     <div class='meta'>
         Display name: 브리라순자 <br>
         <!--        User ID: 778352745732513792 <br>-->
-        Profile: <a href='https://x.com/i/user/778352745732513792' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/778352745732513792' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -961,7 +1026,8 @@
     <div class='meta'>
         Display name: 르르 <br>
         <!--        User ID: 721565292158038040 <br>-->
-        Profile: <a href='https://x.com/i/user/721565292158038040' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/721565292158038040' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -970,8 +1036,9 @@
     </div>
     <div class='meta'>
         Display name: 구름빵 <br>
-<!--        User ID: 2009809551445635074 <br>-->
-        Profile: <a href='https://x.com/i/user/2009809551445635074' target='_blank'>View on X</a>
+        <!--        User ID: 2009809551445635074 <br>-->
+        Profile: <a href='https://x.com/i/user/2009809551445635074' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -980,8 +1047,8 @@
     </div>
     <div class='meta'>
         Display name: 씨부양 <br>
-<!--        User ID: 3069772860 <br>-->
-        Profile: <a href='https://x.com/i/user/3069772860' target='_blank'>View on X</a>
+        <!--        User ID: 3069772860 <br>-->
+        Profile: <a href='https://x.com/i/user/3069772860' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 <div class='account'>
@@ -990,8 +1057,9 @@
     </div>
     <div class='meta'>
         Display name: 전갈 <br>
-<!--        User ID: 842633834038542337 <br>-->
-        Profile: <a href='https://x.com/i/user/842633834038542337' target='_blank'>View on X</a>
+        <!--        User ID: 842633834038542337 <br>-->
+        Profile: <a href='https://x.com/i/user/842633834038542337' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1000,8 +1068,9 @@
     </div>
     <div class='meta'>
         Display name: Zed <br>
-<!--        User ID: 1924166064650473472 <br>-->
-        Profile: <a href='https://x.com/i/user/1924166064650473472' target='_blank'>View on X</a>
+        <!--        User ID: 1924166064650473472 <br>-->
+        Profile: <a href='https://x.com/i/user/1924166064650473472' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1010,8 +1079,9 @@
     </div>
     <div class='meta'>
         Display name: 고독한찐따 <br>
-<!--        User ID: 1993011954093535232 <br>-->
-        Profile: <a href='https://x.com/i/user/1993011954093535232' target='_blank'>View on X</a>
+        <!--        User ID: 1993011954093535232 <br>-->
+        Profile: <a href='https://x.com/i/user/1993011954093535232' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1020,8 +1090,9 @@
     </div>
     <div class='meta'>
         Display name: 나아투 <br>
-<!--        User ID: 1991206044945838080 <br>-->
-        Profile: <a href='https://x.com/i/user/1991206044945838080' target='_blank'>View on X</a>
+        <!--        User ID: 1991206044945838080 <br>-->
+        Profile: <a href='https://x.com/i/user/1991206044945838080' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1030,8 +1101,9 @@
     </div>
     <div class='meta'>
         Display name: 방구할배 <br>
-<!--        User ID: 1978040184538296519 <br>-->
-        Profile: <a href='https://x.com/i/user/1978040184538296519' target='_blank'>View on X</a>
+        <!--        User ID: 1978040184538296519 <br>-->
+        Profile: <a href='https://x.com/i/user/1978040184538296519' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1040,8 +1112,8 @@
     </div>
     <div class='meta'>
         Display name: 냠 <br>
-<!--        User ID: 112899772 <br>-->
-        Profile: <a href='https://x.com/i/user/112899772' target='_blank'>View on X</a>
+        <!--        User ID: 112899772 <br>-->
+        Profile: <a href='https://x.com/i/user/112899772' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 <div class='account'>
@@ -1050,8 +1122,9 @@
     </div>
     <div class='meta'>
         Display name: 그선풍기입니다또정지됐습니다 <br>
-<!--        User ID: 1558399344071454727 <br>-->
-        Profile: <a href='https://x.com/i/user/1558399344071454727' target='_blank'>View on X</a>
+        <!--        User ID: 1558399344071454727 <br>-->
+        Profile: <a href='https://x.com/i/user/1558399344071454727' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 <div class='account'>
@@ -1060,85 +1133,76 @@
     </div>
     <div class='meta'>
         Display name: 븅 <br>
-<!--        User ID: 1952748877578481664 <br>-->
-        Profile: <a href='https://x.com/i/user/1952748877578481664' target='_blank'>View on X</a>
+        <!--        User ID: 1952748877578481664 <br>-->
+        Profile: <a href='https://x.com/i/user/1952748877578481664' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--TODO: APPEND HERE, Don't forget Cmd+Opt+L-->
 
 
-<div class='account identifiable'>
+<div class='account flag-identifiable'>
     <div class='username'>
         <a href='#'>@0825_0717</a>
     </div>
     <div class='meta'>
         <!--    Display name: 🙃過激パスニ🙃 <br>-->
         <!--    User ID: 443524372 <br>-->
-        Profile: <a href='https://x.com/i/user/443524372' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/443524372' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 
-<div class='account identifiable'>
+<div class='account flag-identifiable'>
     <div class='username'>
         <a href='#'>@sariseyo_jebal</a>
     </div>
     <div class='meta'>
         <!--    Display name: 이승석 <br>-->
         <!--    User ID: 1821379463617384449 <br>-->
-        Profile: <a href='https://x.com/i/user/1821379463617384449' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1821379463617384449' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account identifiable'>
+<div class='account flag-identifiable'>
     <div class='username'>
         <a href='#'>@padoparang</a>
     </div>
     <div class='meta'>
         <!--        Display name: 이사애 <br>-->
         <!--        User ID: 1504662092972183552 <br>-->
-        Profile: <a href='https://x.com/i/user/1504662092972183552' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1504662092972183552' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account image-manipulated'>
+<div class='account flag-manipulated'>
     <div class='username'>
         <a href='#'>@peacebringmage</a>
     </div>
     <div class='meta'>
         Display name: 데쳄 Decem <br>
-        <!--        User ID: 1605066801112457219 <br>-->
-        Profile: <a href='https://x.com/i/user/1605066801112457216' target='_blank'>View on X</a>
+        <!--        User ID: 1605066801112457216 <br>-->
+        Profile: <a href='https://x.com/i/user/1605066801112457216' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account identifiable'>
+<div class='account flag-identifiable'>
     <div class='username'>
         <a href='#'>@Westanirem</a>
     </div>
     <div class='meta'>
         <!--        Display name: :: 한다래 <br>-->
         <!--        User ID: 782162915109371904 <br>-->
-        Profile: <a href='https://x.com/i/user/782162915109371904' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/782162915109371904' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
-<div class='account identifiable'>
+<div class='account flag-identifiable'>
     <div class='username'>
         <a href='#'>@guny1283731</a>
         <!--        <a href='./1922194938336559104/'>@guny1283731</a>-->
@@ -1146,7 +1210,8 @@
     <div class='meta'>
         <!--        Display name: Emma <br>-->
         <!--        User ID: 1922194938336559104 <br>-->
-        Profile: <a href='https://x.com/i/user/1922194938336559104' target='_blank'>View on X</a>
+        Profile: <a href='https://x.com/i/user/1922194938336559104' target='_blank' rel='noopener noreferrer'>View on
+        X</a>
     </div>
 </div>
 
