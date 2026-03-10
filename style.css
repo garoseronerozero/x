@@ -59,6 +59,7 @@ iframe {
     font-size: 20px;
     cursor: pointer;
     opacity: .7;
+    color: #444;
 }
 
 #downloadAll:hover {
@@ -85,4 +86,7 @@ iframe {
         text-decoration: underline;
     }
 
+    #downloadAll {
+        color: #e6e6e6;
+    }
 }
