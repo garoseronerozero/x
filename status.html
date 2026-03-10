@@ -194,7 +194,6 @@
     <tbody>
     </tbody>
 </table>
-
 <script src="./data/tweets.js"></script>
 <script src="./data/username_aliases.js"></script>
 
@@ -206,44 +205,35 @@
         return m ? m[1] : "unknown"
     }
 
-    function groupTweets() {
-
-        const map = {}
-
-        for (const url of tweets) {
-            const user = extractUsername(url)
-
-            if (!map[user]) map[user] = []
-            map[user].push(url)
-        }
-        return map
-    }
+    /* ---------- initial render ---------- */
 
     function renderInitial() {
 
-        const grouped = groupTweets()
+        let lastUser = null
 
-        for (const user in grouped) {
-            const alias =
-                username_aliases[user]?.label || user
+        for (const url of tweets) {
 
-            const userRow =
-                document.createElement("tr")
+            const user = extractUsername(url)
 
-            userRow.className = "user"
+            if (user !== lastUser) {
 
-            userRow.innerHTML =
-                `<td colspan="3">${alias}</td>`
+                const alias =
+                    (username_aliases[user] && username_aliases[user].label)
+                        ? username_aliases[user].label
+                        : user
 
-            tbody.appendChild(userRow)
+                const userRow = document.createElement("tr")
+                userRow.className = "user"
+                userRow.innerHTML = `<td colspan="3">${alias}</td>`
 
-            for (const url of grouped[user]) {
+                tbody.appendChild(userRow)
 
-                const tr =
-                    document.createElement("tr")
+                lastUser = user
+            }
 
-                tr.innerHTML =
-                    `
+            const tr = document.createElement("tr")
+
+            tr.innerHTML = `
 <td></td>
 <td>
 <a href="${url}" target="_blank">${url}</a>
@@ -251,46 +241,53 @@
 <td class="status">checking…</td>
 `
 
-                tbody.appendChild(tr)
-
-            }
+            tbody.appendChild(tr)
         }
     }
+
+    /* ---------- apply status ---------- */
 
     function applyStatus(data) {
 
         const rows =
-            document.querySelectorAll("tbody tr")
+            document.querySelectorAll("tbody tr:not(.user)")
 
         for (const row of rows) {
-            const link =
-                row.querySelector("a")
 
+            const link = row.querySelector("a")
             if (!link) continue
 
-            const url =
-                link.getAttribute("href")
+            const url = link.getAttribute("href")
+            const status = data[url]
 
-            const status =
-                data[url]
+            const cell = row.querySelector(".status")
 
-            const cell =
-                row.querySelector(".status")
+            if (!cell) continue
 
             if (status === "OK") {
+
                 cell.innerHTML =
                     `<span class="status-ok">OK</span>`
+
             } else if (status === "DELETED") {
+
                 cell.innerHTML =
                     `<span class="status-deleted">DELETED</span>`
-            } else if (status === "AUTH_ERROR") {    // Auth error: Protected or Banned user account
+
+            } else if (status === "AUTH_ERROR") {
+
                 cell.innerHTML =
                     `<span class="status-error">AUTH_ERROR</span>`
+
             } else {
+
                 cell.textContent = "UNKNOWN"
+
             }
         }
     }
+
+    /* ---------- header stats ---------- */
 
     function updateTweetHeader(data) {
 
@@ -300,6 +297,7 @@
         let authErrorCount = 0
 
         for (const url in data) {
+
             if (data[url] === "DELETED") deleted++
             if (data[url] === "AUTH_ERROR") authErrorCount++
 
@@ -309,10 +307,14 @@
             `Tweet (Total: ${total}, Deleted: ${deleted}, Auth_Error: ${authErrorCount})`
     }
 
+    /* ---------- load status ---------- */
+
     async function loadStatus() {
+
         try {
+
             const res =
-                await fetch("./data/status.json")
+                await fetch("./data/status.json", { cache: "no-store" })
 
             const json =
                 await res.json()
@@ -324,32 +326,25 @@
             document.getElementById("lastUpdate")
                 .innerText =
                 "Last update: " + json.lastUpdate
+
         } catch (e) {
+
             document.getElementById("lastUpdate")
                 .innerText =
                 "Status load failed"
+
         }
     }
+
+    /* ---------- start ---------- */
 
     function start() {
         renderInitial()
         loadStatus()
     }
-    start()
-</script>
-<a href="#top" id="backToTop">↑</a>
-<script>
-    const btn = document.getElementById("backToTop");
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            btn.style.opacity = "1";
-            btn.style.pointerEvents = "auto";
-        } else {
-            btn.style.opacity = "0";
-            btn.style.pointerEvents = "none";
-        }
-    });
+    start()
+
 </script>
 </body>
 </html>
