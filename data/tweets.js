@@ -280,5 +280,11 @@ const tweets = [
     "https://x.com/kkMjiH/status/1902727451383624143",
     "https://x.com/kkMjiH/status/1910833438007210328",
     "https://x.com/kkMjiH/status/1911578174116466893",
-    "https://x.com/kkMjiH/status/1980602825899143343"
+    "https://x.com/kkMjiH/status/1980602825899143343",
+    "https://x.com/blueluvwomen/status/2023342610266652917",
+    "https://x.com/sibuang12345/status/1903928424424714624",
+    "https://x.com/sibuang12345/status/1979690590733533580",
+    "https://x.com/sibuang12345/status/1899901636870656034",
+    "https://x.com/heatherandatto/status/2025487256140820938",
+    "https://x.com/Zed7dabo/status/1929093017278775595"
 ];
