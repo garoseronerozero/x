@@ -116,10 +116,14 @@
             border-radius: 50%;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 
-            /*opacity: 0;*/
-            /*pointer-events: none;*/
+            opacity: 0;
+            pointer-events: none;
 
-            transition: opacity 0.2s;
+            transition: opacity 0.2s ease, transform 0.15s ease;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-2px);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -162,6 +166,7 @@
             #backToTop {
                 background: #1c2128;
                 color: #c9d1d9;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.6);
             }
 
         }
@@ -348,5 +353,20 @@
 
 </script>
 <a href="#top" id="backToTop">↑</a>
+<script>
+    const btn = document.getElementById("backToTop")
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 400) {
+            btn.style.opacity = "1"
+            btn.style.pointerEvents = "auto"
+
+        } else {
+            btn.style.opacity = "0"
+            btn.style.pointerEvents = "none"
+        }
+    })
+</script>
 </body>
 </html>
