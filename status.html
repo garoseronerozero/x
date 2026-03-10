@@ -7,6 +7,7 @@
     <link rel="icon" href="favicon.ico">
     <meta name="referrer" content="no-referrer">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
 
     <style>
         body {
@@ -119,6 +120,50 @@
             pointer-events: none;
 
             transition: opacity 0.2s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            body {
+                background: #0f1115;
+                color: #e6e6e6;
+            }
+
+            .notice {
+                color: #a5adb6;
+            }
+
+            #lastUpdate {
+                color: #9aa4af;
+            }
+
+            th, td {
+                border-bottom: 1px solid #2a2f36;
+            }
+
+            .user {
+                background: #1a1f26;
+            }
+
+            td a {
+                color: #7fb3ff;
+            }
+
+            .home-link {
+                background: #1c2128;
+                border-color: #2d333b;
+                color: #c9d1d9;
+            }
+
+            .home-link:hover {
+                background: #252b33;
+            }
+
+            #backToTop {
+                background: #1c2128;
+                color: #c9d1d9;
+            }
+
         }
     </style>
 </head>
