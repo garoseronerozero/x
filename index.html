@@ -6,9 +6,9 @@
     <title>X Archive</title>
 
     <link rel="icon" href="favicon.ico">
-
     <meta name="referrer" content="no-referrer">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
 
     <style>
         body {
@@ -173,6 +173,87 @@
             pointer-events: none;
 
             transition: opacity 0.2s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            body {
+                background: #0f1115;
+                color: #e6e6e6;
+            }
+
+            .account {
+                border-color: #2a2f36;
+                background: #161a20;
+            }
+
+            .meta {
+                color: #9aa4af;
+            }
+
+            a {
+                color: #7fb3ff;
+            }
+
+            .quicklinks a {
+                background: #1c2128;
+                border-color: #2d333b;
+                color: #7fb3ff;
+            }
+
+            .quicklinks a:hover {
+                background: #252b33;
+            }
+
+            .notice {
+                color: #a5adb6;
+            }
+
+            .updated {
+                color: #9aa4af;
+            }
+
+            .disclaimer {
+                border-top: 1px solid #2d333b;
+                color: #9aa4af;
+            }
+
+            .status-button {
+                background: #173b2a;
+                border-color: #295c43;
+                color: #7be0a4;
+            }
+
+            .status-button:hover {
+                background: #1f4a34;
+            }
+
+            #backToTop {
+                background: #1c2128;
+                color: #c9d1d9;
+            }
+
+            /* 상태 카드 */
+
+            .account.identifiable {
+                background: #161a20;
+                border-color: #2a2f36;
+                border-left: 4px solid #e6c65c;   /* yellow tone */
+            }
+
+            .account.image-manipulated {
+                background: #161a20;
+                border-color: #2a2f36;
+                border-left: 4px solid #d96b6b;   /* red tone */
+            }
+
+            .account.status-deleted {
+                background: #161a20;
+                border-color: #2a2f36;
+                border-left: 4px solid #555;
+                opacity: 0.75;
+            }
+
         }
 
     </style>
