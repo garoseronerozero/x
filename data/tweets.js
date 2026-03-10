@@ -286,5 +286,13 @@ const tweets = [
     "https://x.com/sibuang12345/status/1979690590733533580",
     "https://x.com/sibuang12345/status/1899901636870656034",
     "https://x.com/heatherandatto/status/2025487256140820938",
-    "https://x.com/Zed7dabo/status/1929093017278775595"
+    "https://x.com/Zed7dabo/status/1929093017278775595",
+    "https://x.com/jjintta350234/status/2028111572493807661",
+    "https://x.com/jjintta350234/status/2028130126509363220",
+    "https://x.com/naatu21769/status/2027760135750488280",
+    "https://x.com/naatu21769/status/2028114192004444450",
+    "https://x.com/eodnjekske/status/2023783863269683559",
+    "https://x.com/861026/status/2015222720997560622",
+    "https://x.com/861026/status/1903031832385556904",
+    "https://x.com/cokaclora/status/2015293198802071728"
 ];
