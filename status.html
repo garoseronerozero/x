@@ -9,6 +9,10 @@
     <meta name="robots" content="noindex,nofollow">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: sans-serif;
             margin: 40px;
@@ -93,9 +97,36 @@
         td a:hover {
             text-decoration: underline;
         }
+
+        #backToTop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+            text-decoration: none;
+
+            color: #555;
+            background: #f2f2f2;
+
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: opacity 0.2s;
+        }
     </style>
 </head>
-<body>
+<body id="top">
 <h1>
     X Post Status
     <a href="./index.html" class="home-link">홈으로</a>
@@ -264,6 +295,20 @@
         loadStatus()
     }
     start()
+</script>
+<a href="#top" id="backToTop">↑</a>
+<script>
+    const btn = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            btn.style.opacity = "1";
+            btn.style.pointerEvents = "auto";
+        } else {
+            btn.style.opacity = "0";
+            btn.style.pointerEvents = "none";
+        }
+    });
 </script>
 </body>
 </html>

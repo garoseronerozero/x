@@ -12,6 +12,10 @@
 
     <style>
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
             max-width: 900px;
@@ -130,30 +134,57 @@
             transform: translateY(1px);
         }
 
+
         .account.identifiable {
             background: #fff9e6;
-            border-left-color: #f4d77a;
+            border-left: 4px solid #f4d77a;
             border-color: #f0e1a6;
         }
 
         .account.image-manipulated {
             background: #fff1f4;
-            border-left-color: #f4a7b7;
+            border-left: 4px solid #f4a7b7;
             border-color: #f1c7cf;
         }
 
         .account.status-deleted {
             background: #f5f5f5;
-            border-left-color: #d0d0d0;
+            border-left: 4px solid #d0d0d0;
             border-color: #e0e0e0;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+            text-decoration: none;
+
+            color: #555;
+            background: #f2f2f2;
+
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+            opacity: 0;
+            pointer-events: none;
+
+            transition: opacity 0.2s;
         }
 
     </style>
 
 </head>
 
-<body>
-
+<body id="top">
 
 <div class="header">
     <h1>X Archive</h1>
@@ -730,7 +761,7 @@
     </div>
     <div class='meta'>
         Display name: 똥냐.. <br>
-<!--        User ID: 1684087895626489856 <br>-->
+        <!--        User ID: 1684087895626489856 <br>-->
         Profile: <a href='https://x.com/i/user/1684087895626489856' target='_blank'>View on X</a>
     </div>
 </div>
@@ -740,7 +771,7 @@
     </div>
     <div class='meta'>
         Display name: 💊약쟁이 계정 두번째 정지당함ㅅㅂ <br>
-<!--        User ID: 1990687890679214080 <br>-->
+        <!--        User ID: 1990687890679214080 <br>-->
         Profile: <a href='https://x.com/i/user/1990687890679214080' target='_blank'>View on X</a>
     </div>
 </div>
@@ -751,7 +782,7 @@
     </div>
     <div class='meta'>
         Display name: 🎄네쿤님🌙💕🌟 <br>
-<!--        User ID: 875358965734887424 <br>-->
+        <!--        User ID: 875358965734887424 <br>-->
         Profile: <a href='https://x.com/i/user/875358965734887424' target='_blank'>View on X</a>
     </div>
 </div>
@@ -761,7 +792,7 @@
     </div>
     <div class='meta'>
         Display name: 6 _ 6 <br>
-<!--        User ID: 1851383815035637760 <br>-->
+        <!--        User ID: 1851383815035637760 <br>-->
         Profile: <a href='https://x.com/i/user/1851383815035637760' target='_blank'>View on X</a>
     </div>
 </div>
@@ -772,7 +803,7 @@
     </div>
     <div class='meta'>
         Display name: 리외 <br>
-<!--        User ID: 1708346752724795393 <br>-->
+        <!--        User ID: 1708346752724795393 <br>-->
         Profile: <a href='https://x.com/i/user/1708346752724795393' target='_blank'>View on X</a>
     </div>
 </div>
@@ -783,7 +814,7 @@
     </div>
     <div class='meta'>
         Display name: 뿡야 <br>
-<!--        User ID: 1723177758896128000 <br>-->
+        <!--        User ID: 1723177758896128000 <br>-->
         Profile: <a href='https://x.com/i/user/1723177758896128000' target='_blank'>View on X</a>
     </div>
 </div>
@@ -794,7 +825,7 @@
     </div>
     <div class='meta'>
         Display name: ****뽀잉뽀이 <br>
-<!--        User ID: 1802349569260589056 <br>-->
+        <!--        User ID: 1802349569260589056 <br>-->
         Profile: <a href='https://x.com/i/user/1802349569260589056' target='_blank'>View on X</a>
     </div>
 </div>
@@ -805,7 +836,7 @@
     </div>
     <div class='meta'>
         Display name: 🇵🇸蓮花😷🇭🇰🇹🇭🇲🇲🇸🇩🇧🇩🇮🇩🏳️‍🌈 <br>
-<!--        User ID: 1153326769929220096 <br>-->
+        <!--        User ID: 1153326769929220096 <br>-->
         Profile: <a href='https://x.com/i/user/1153326769929220096' target='_blank'>View on X</a>
     </div>
 </div>
@@ -815,7 +846,7 @@
     </div>
     <div class='meta'>
         Display name: 이름짓기귀찮음 <br>
-<!--        User ID: 1055852155070898178 <br>-->
+        <!--        User ID: 1055852155070898178 <br>-->
         Profile: <a href='https://x.com/i/user/1055852155070898178' target='_blank'>View on X</a>
     </div>
 </div>
@@ -825,7 +856,7 @@
     </div>
     <div class='meta'>
         Display name: 가래떡 <br>
-<!--        User ID: 962149538 <br>-->
+        <!--        User ID: 962149538 <br>-->
         Profile: <a href='https://x.com/i/user/962149538' target='_blank'>View on X</a>
     </div>
 </div>
@@ -835,7 +866,7 @@
     </div>
     <div class='meta'>
         Display name: 브리라순자 <br>
-<!--        User ID: 778352745732513792 <br>-->
+        <!--        User ID: 778352745732513792 <br>-->
         Profile: <a href='https://x.com/i/user/778352745732513792' target='_blank'>View on X</a>
     </div>
 </div>
@@ -845,16 +876,10 @@
     </div>
     <div class='meta'>
         Display name: 르르 <br>
-<!--        User ID: 721565292158038040 <br>-->
+        <!--        User ID: 721565292158038040 <br>-->
         Profile: <a href='https://x.com/i/user/721565292158038040' target='_blank'>View on X</a>
     </div>
 </div>
-
-
-
-
-
-
 
 
 <!--TODO: APPEND HERE, Don't forget Cmd+Opt+L-->
@@ -946,6 +971,19 @@
     </p>
 
 </div>
+<a href="#top" id="backToTop">↑</a>
+<script>
+    const btn = document.getElementById("backToTop");
 
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            btn.style.opacity = "1";
+            btn.style.pointerEvents = "auto";
+        } else {
+            btn.style.opacity = "0";
+            btn.style.pointerEvents = "none";
+        }
+    });
+</script>
 </body>
 </html>
