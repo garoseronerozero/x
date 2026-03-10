@@ -69,10 +69,17 @@ const username_aliases = {
   "blueluvwomen": { label: "신나는다람쥐8" },
   "sibuang12345": { label: "신나는다람쥐9" },
   "heatherandatto": { label: "신나는다람쥐10" },
-  // "HeungrokCho": { label: "오늘만사는라마1" },
+  "Zed7dabo": { label: "오늘만사는라마1" },
   // "HeungrokCho": { label: "오늘만사는라마2" },
   // "HeungrokCho": { label: "오늘만사는라마3" },
   // "HeungrokCho": { label: "오늘만사는라마4" },
+  // "HeungrokCho": { label: "오늘만사는라마5" },
+  // "HeungrokCho": { label: "오늘만사는라마6" },
+  // "HeungrokCho": { label: "오늘만사는라마7" },
+  // "HeungrokCho": { label: "오늘만사는라마8" },
+  // "HeungrokCho": { label: "오늘만사는라마9" },
+  // "HeungrokCho": { label: "오늘만사는라마10" },
+  // "HeungrokCho": { label: "조용한아기여우1" },
 
 
   "temp": { label: "TEMP" }
