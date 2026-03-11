@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-03-11 14:29",
+  "lastUpdate": "2026-03-11 16:15",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -85,11 +85,11 @@
     "https://x.com/jerosis/status/2027925715208028632": "OK",
     "https://x.com/nuong2tuna27/status/2027957391346765841": "OK",
     "https://x.com/nuong2tuna27/status/2027956111014564294": "OK",
-    "https://x.com/Tototi9978/status/1902651804783149530": "OK",
-    "https://x.com/Tototi9978/status/1905431113558020493": "OK",
-    "https://x.com/Tototi9978/status/1920340078070517957": "OK",
-    "https://x.com/Tototi9978/status/1920622152073576733": "OK",
-    "https://x.com/Tototi9978/status/1994726726363222405": "OK",
+    "https://x.com/Tototi9978/status/1902651804783149530": "AUTH_ERROR",
+    "https://x.com/Tototi9978/status/1905431113558020493": "AUTH_ERROR",
+    "https://x.com/Tototi9978/status/1920340078070517957": "AUTH_ERROR",
+    "https://x.com/Tototi9978/status/1920622152073576733": "AUTH_ERROR",
+    "https://x.com/Tototi9978/status/1994726726363222405": "AUTH_ERROR",
     "https://x.com/diddl13579/status/2028037456227180881": "OK",
     "https://x.com/choxchco2103/status/1900512557259190584": "OK",
     "https://x.com/choxchco2103/status/1900523664438649143": "OK",
