@@ -309,9 +309,17 @@
 
         }
 
+        const error = deleted + authErrorCount
+
+        const remainingRate =
+            total > 0
+                ? ((total - error) / total * 100).toFixed(1)
+                : 0
+
         document.getElementById("tweetHeader").innerHTML =
-            `Tweet (Total: ${total}, Deleted: ${deleted},
-<span title="Authorization Error: 계정 잠금 또는 정지되어 게시물 접근이 안되는 경우" style="text-decoration: underline;">Auth_Error</span>: ${authErrorCount})`;
+            `Tweet (${total} total ·
+<span title="삭제 또는 계정 잠금/정지로 접근 불가">${error} error</span> ·
+${remainingRate}%)`
     }
 
     /* ---------- load status ---------- */
