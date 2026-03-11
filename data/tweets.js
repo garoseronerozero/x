@@ -310,5 +310,9 @@ const tweets = [
     "https://x.com/hodgeson0011/status/1906983505642561981",
     "https://x.com/hodgeson0011/status/1914899762945647027",
     "https://x.com/hodgeson0011/status/1915203139466387470",
-    "https://x.com/hodgeson0011/status/1919992398178091501"
+    "https://x.com/hodgeson0011/status/1919992398178091501",
+    "https://x.com/choi24485481/status/1900156384181969101",
+    "https://x.com/choi24485481/status/1901878401511915754",
+    "https://x.com/choi24485481/status/1905467013872394258",
+    "https://x.com/choi24485481/status/1905506599613182244"
 ];
