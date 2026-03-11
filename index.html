@@ -30,6 +30,7 @@
             border-left: 4px solid #dddddd;
             padding: 12px 20px 12px 10px;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
+            position: relative;
         }
 
         .account:hover {
@@ -51,6 +52,53 @@
 
         .account.status-suspended-or-deleted {
             border-left-color: #cfcfcf;
+        }
+
+        .badges {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 600;
+
+            padding: 3px 8px;
+
+            border-radius: 999px;
+
+            border: 1px solid #d0d7de;
+
+            background: #f6f8fa;
+            color: #57606a;
+
+            line-height: 1;
+            letter-spacing: .3px;
+
+            white-space: nowrap;
+        }
+
+        .badge-new {
+            background: #fff8c5;
+            border-color: #e3c76a;
+            color: #735c0f;
+        }
+
+        .badge-count {
+            background: #eef1f4;
+            border-color: #d0d7de;
+            color: #24292f;
+        }
+
+        .badge-flag {
+            background: #ffecec;
+            border-color: #f5b5b5;
+            color: #a40e26;
         }
 
         .username {
@@ -193,7 +241,7 @@
             background: #f2f2f2;
 
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
             opacity: 0;
             pointer-events: none;
@@ -219,6 +267,34 @@
 
             .account:hover {
                 box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+            }
+
+            .badges {
+                opacity: .95;
+            }
+
+            .badge {
+                background: #1f2428;
+                border-color: #30363d;
+                color: #c9d1d9;
+            }
+
+            .badge-new {
+                background: #3a3210;
+                border-color: #6b5c18;
+                color: #f4e7a1;
+            }
+
+            .badge-count {
+                background: #24292f;
+                border-color: #3d444d;
+                color: #c9d1d9;
+            }
+
+            .badge-flag {
+                background: #3a1d1d;
+                border-color: #6e2a2a;
+                color: #ffb3b3;
             }
 
             .meta {
@@ -269,14 +345,12 @@
             #backToTop {
                 background: #1c2128;
                 color: #c9d1d9;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
             }
 
             .legend-bar {
                 opacity: 0.9;
             }
-
-
         }
 
     </style>
@@ -328,6 +402,12 @@
 <!-- Account -->
 
 <div class="account">
+
+<!--    <div class="badges">-->
+<!--        <span class="badge badge-new">NEW</span>-->
+<!--        <span class="badge badge-count">+3</span>-->
+<!--    </div>-->
+
     <div class="username">
         <a href="./126878634/">@Happipupper</a>
     </div>
