@@ -78,7 +78,7 @@ const username_aliases = {
   "cokaclora": { label: "오늘만사는라마7" },
   "dlth52": { label: "오늘만사는라마8" },
   "ablacksheep0701": { label: "오늘만사는라마9" },
-  // "HeungrokCho": { label: "오늘만사는라마10" },
+  "hodgeson0011": { label: "오늘만사는라마10" },
   // "HeungrokCho": { label: "조용한아기여우1" },
   // "HeungrokCho": { label: "조용한아기여우2" },
 
