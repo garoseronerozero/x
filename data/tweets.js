@@ -298,5 +298,17 @@ const tweets = [
     "https://x.com/861026/status/2015222720997560622",
     "https://x.com/861026/status/1903031832385556904",
     "https://x.com/cokaclora/status/2015293198802071728",
-    "https://x.com/dlth52/status/2028163778341486761"
+    "https://x.com/dlth52/status/2028163778341486761",
+    "https://x.com/ablacksheep0701/status/1906642872084123984",
+    "https://x.com/ablacksheep0701/status/1906667478236741771",
+    "https://x.com/ablacksheep0701/status/1906612676786270410",
+    "https://x.com/ablacksheep0701/status/1906614160181649688",
+    "https://x.com/ablacksheep0701/status/1906636004423073929",
+    "https://x.com/hodgeson0011/status/1900787593580564573",
+    "https://x.com/hodgeson0011/status/1903374006843240761",
+    "https://x.com/hodgeson0011/status/1905177628769656998",
+    "https://x.com/hodgeson0011/status/1906983505642561981",
+    "https://x.com/hodgeson0011/status/1914899762945647027",
+    "https://x.com/hodgeson0011/status/1915203139466387470",
+    "https://x.com/hodgeson0011/status/1919992398178091501"
 ];
