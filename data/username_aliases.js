@@ -79,7 +79,7 @@ const username_aliases = {
   "dlth52": { label: "오늘만사는라마8" },
   "ablacksheep0701": { label: "오늘만사는라마9" },
   "hodgeson0011": { label: "오늘만사는라마10" },
-  // "HeungrokCho": { label: "조용한아기여우1" },
+  "choi24485481": { label: "조용한아기여우1" },
   // "HeungrokCho": { label: "조용한아기여우2" },
 
 
