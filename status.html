@@ -114,7 +114,7 @@
             background: #f2f2f2;
 
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
             opacity: 0;
             pointer-events: none;
@@ -166,7 +166,7 @@
             #backToTop {
                 background: #1c2128;
                 color: #c9d1d9;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
             }
 
         }
@@ -309,8 +309,9 @@
 
         }
 
-        document.getElementById("tweetHeader").textContent =
-            `Tweet (Total: ${total}, Deleted: ${deleted}, Auth_Error: ${authErrorCount})`
+        document.getElementById("tweetHeader").innerHTML =
+            `Tweet (Total: ${total}, Deleted: ${deleted},
+<span title="Authorization Error: 계정 잠금 또는 정지된 계정" style="text-decoration: underline;">Auth_Error</span>: ${authErrorCount})`;
     }
 
     /* ---------- load status ---------- */
@@ -320,7 +321,7 @@
         try {
 
             const res =
-                await fetch("./data/status.json", { cache: "no-store" })
+                await fetch("./data/status.json", {cache: "no-store"})
 
             const json =
                 await res.json()
