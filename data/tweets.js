@@ -340,7 +340,7 @@ const tweets = [
     "https://x.com/150526_8_8/status/1928348308868595954",
     "https://x.com/150526_8_8/status/1979585729056686300",
     "https://x.com/150526_8_8/status/1995035963777847570",
+    "https://x.com/imyongmi/status/1910956144241287323",
     "https://x.com/imyongmi/status/1980432381380305395",
-    "https://x.com/imyongmi/status/1997931670700437621",
-    "https://x.com/imyongmi/status/1910956144241287323"
+    "https://x.com/imyongmi/status/1997931670700437621"
 ];
