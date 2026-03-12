@@ -81,7 +81,7 @@ const username_aliases = {
   "hodgeson0011": { label: "오늘만사는라마10" },
   "choi24485481": { label: "조용한아기여우1" },
   "500ml7_": { label: "조용한아기여우2" },
-  // "HeungrokCho": { label: "조용한아기여우3" },
+  "migzinnam": { label: "조용한아기여우3" },
   // "HeungrokCho": { label: "조용한아기여우4" },
   // "HeungrokCho": { label: "조용한아기여우5" },
   // "HeungrokCho": { label: "조용한아기여우6" },
