@@ -322,5 +322,19 @@ const tweets = [
     "https://x.com/migzinnam/status/1903303336985760084",
     "https://x.com/migzinnam/status/1909212907575111875",
     "https://x.com/migzinnam/status/1909627287278174438",
-    "https://x.com/migzinnam/status/1931190448598798834"
+    "https://x.com/migzinnam/status/1931190448598798834",
+    "https://x.com/silkroad2011/status/1900093533446439411",
+    "https://x.com/silkroad2011/status/1900094207165161837",
+    "https://x.com/silkroad2011/status/1900776154145173637",
+    "https://x.com/silkroad2011/status/1901073641699504451",
+    "https://x.com/silkroad2011/status/1902534350513827916",
+    "https://x.com/silkroad2011/status/1902534696518742041",
+    "https://x.com/silkroad2011/status/1905431911079756119",
+    "https://x.com/silkroad2011/status/1906527518339088441",
+    "https://x.com/silkroad2011/status/1906651519237128417",
+    "https://x.com/silkroad2011/status/1906660589264625903",
+    "https://x.com/silkroad2011/status/1911953318764810281",
+    "https://x.com/urrrrm9/status/1902108158098866632",
+    "https://x.com/bzhsytrf/status/1994796903201153496",
+    "https://x.com/winnerday_0817/status/1994050183978532996"
 ];
