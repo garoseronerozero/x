@@ -80,7 +80,12 @@ const username_aliases = {
   "ablacksheep0701": { label: "오늘만사는라마9" },
   "hodgeson0011": { label: "오늘만사는라마10" },
   "choi24485481": { label: "조용한아기여우1" },
-  // "HeungrokCho": { label: "조용한아기여우2" },
+  "500ml7_": { label: "조용한아기여우2" },
+  // "HeungrokCho": { label: "조용한아기여우3" },
+  // "HeungrokCho": { label: "조용한아기여우4" },
+  // "HeungrokCho": { label: "조용한아기여우5" },
+  // "HeungrokCho": { label: "조용한아기여우6" },
+  // "HeungrokCho": { label: "조용한아기여우7" },
 
 
   "temp": { label: "TEMP" }
