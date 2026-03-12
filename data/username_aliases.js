@@ -86,7 +86,7 @@ const username_aliases = {
   "urrrrm9": { label: "조용한아기여우5" },
   "bzhsytrf": { label: "조용한아기여우6" },
   "winnerday_0817": { label: "조용한아기여우7" },
-  // "HeungrokCho": { label: "조용한아기여우8" },
+  "150526_8_8": { label: "조용한아기여우8" },
   // "HeungrokCho": { label: "조용한아기여우9" },
   // "HeungrokCho": { label: "조용한아기여우10" },
   // "HeungrokCho": { label: "치카치카악어1" },
