@@ -82,7 +82,7 @@ const username_aliases = {
   "choi24485481": { label: "조용한아기여우1" },
   "500ml7_": { label: "조용한아기여우2" },
   "migzinnam": { label: "조용한아기여우3" },
-  // "HeungrokCho": { label: "조용한아기여우4" },
+  "silkroad2011": { label: "조용한아기여우4" },
   // "HeungrokCho": { label: "조용한아기여우5" },
   // "HeungrokCho": { label: "조용한아기여우6" },
   // "HeungrokCho": { label: "조용한아기여우7" },
