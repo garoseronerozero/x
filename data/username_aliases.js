@@ -91,7 +91,7 @@ const username_aliases = {
   "gn3akDI8AUpj2ob": { label: "조용한아기여우10" },
   "knight608": { label: "치카치카악어1" },
   "lemaudrb": { label: "치카치카악어2" },
-  // "HeungrokCho": { label: "치카치카악어3" },
+  "a_masterpiece00": { label: "치카치카악어3" },
   // "HeungrokCho": { label: "치카치카악어4" },
   // "HeungrokCho": { label: "치카치카악어5" },
   // "HeungrokCho": { label: "치카치카악어6" },
