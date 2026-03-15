@@ -280,10 +280,10 @@
                 cell.innerHTML =
                     `<span class="status-deleted">DELETED</span>`
 
-            } else if (status === "AUTH_ERROR") {
+            } else if (status === "RESTRICTED") {
 
                 cell.innerHTML =
-                    `<span class="status-error">AUTH_ERROR</span>`
+                    `<span class="status-error">RESTRICTED</span>`
 
             } else {
 
@@ -300,16 +300,16 @@
         const total = tweets.length
 
         let deleted = 0
-        let authErrorCount = 0
+        let restricted = 0
 
         for (const url in data) {
 
             if (data[url] === "DELETED") deleted++
-            if (data[url] === "AUTH_ERROR") authErrorCount++
+            if (data[url] === "RESTRICTED") restricted++
 
         }
 
-        const error = deleted + authErrorCount
+        const error = deleted + restricted
 
         const remainingRate =
             total > 0
@@ -318,7 +318,7 @@
 
         document.getElementById("tweetHeader").innerHTML =
             `Tweet (${total} total ·
-<span title="삭제 또는 계정 잠금/정지로 접근 불가">${error} errors</span> ·
+<span title="삭제 또는 계정 잠금/정지/나이 제한 등으로 접근 제한">${error} unavailable</span> ·
 <span title="잔존율">${remainingRate}%)</span>`
     }
 
