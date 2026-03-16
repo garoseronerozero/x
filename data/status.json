@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-03-16 12:23",
+  "lastUpdate": "2026-03-17 00:16",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -102,7 +102,7 @@
     "https://x.com/_cospirit/status/1935368004323492286": "OK",
     "https://x.com/_cospirit/status/1935491434142122008": "OK",
     "https://x.com/_cospirit/status/1935571161708200058": "OK",
-    "https://x.com/pleasedont1112/status/2026509272247591248": "RESTRICTED",
+    "https://x.com/pleasedont1112/status/2026509272247591248": "OK",
     "https://x.com/shitmoneythumb/status/2023322854637596888": "OK",
     "https://x.com/dududuba_baba/status/1911678288185139206": "OK",
     "https://x.com/dududuba_baba/status/1923145333690818704": "OK",
@@ -399,10 +399,10 @@
     "https://x.com/lemaudrb/status/1920000043979047180": "OK",
     "https://x.com/lemaudrb/status/1920006536560312343": "OK",
     "https://x.com/lemaudrb/status/1920006733877150030": "OK",
-    "https://x.com/a_masterpiece00/status/1906860130358226953": "OK",
-    "https://x.com/a_masterpiece00/status/1907258246861394014": "OK",
-    "https://x.com/a_masterpiece00/status/1920040767680131506": "OK",
-    "https://x.com/a_masterpiece00/status/1920081224879526375": "OK",
-    "https://x.com/a_masterpiece00/status/2033362462754697473": "OK"
+    "https://x.com/a_masterpiece00/status/1906860130358226953": "DELETED",
+    "https://x.com/a_masterpiece00/status/1907258246861394014": "DELETED",
+    "https://x.com/a_masterpiece00/status/1920040767680131506": "DELETED",
+    "https://x.com/a_masterpiece00/status/1920081224879526375": "DELETED",
+    "https://x.com/a_masterpiece00/status/2033362462754697473": "DELETED"
   }
 }
