@@ -20,16 +20,17 @@
 
         body {
             margin: 0;
-            background: #0f0f10;
-            color: #eaeaea;
+            background: #ffffff;
+            color: #222;
             font-family: system-ui, -apple-system, sans-serif;
         }
 
         header {
             text-align: center;
             padding: 30px 20px;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #e5e5e5;
         }
+
 
         h1 {
             margin: 0;
@@ -132,24 +133,11 @@
         }
 
         .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin: 25px 0 15px 0;
-            padding-bottom: 6px;
-
-            display: inline-block;
-
-            /*border-bottom: 2px solid #e5e5e5;*/
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .section-title {
             font-size: 26px;
             font-weight: 800;
             margin: 12px 0 10px;
-            color: #f1f1f1;
             letter-spacing: 0.4px;
+            color: #222;
         }
 
         .section-title span {
@@ -192,9 +180,18 @@
 
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
+
+            body {
+                background: #0f0f10;
+                color: #eaeaea;
+            }
+
+            header {
+                border-bottom: 1px solid #222;
+            }
+
             .section-title {
                 color: #eee;
-                /*border-bottom: 2px solid #444;*/
             }
 
             .section-title span {
