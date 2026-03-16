@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>X Archived</title>
+
+    <link rel="icon" href="favicon.ico">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0f0f10;
+            color: #eaeaea;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .board {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+            gap: 32px;
+            justify-items: center;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 230px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid #2a2a2a;
+            transition: .2s;
+            filter: grayscale(35%);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .card:hover img {
+            transform: scale(1.04);
+            border-color: #ff4d4d;
+            filter: none;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 36%;
+            padding: 18px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.65) 40%,
+                    rgba(0, 0, 0, 0.95) 100%
+            );
+
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .username {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: .4px;
+            color: #fff;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, .8);
+        }
+
+        .icon {
+            font-size: 20px;
+            opacity: .8;
+            transition: .18s;
+        }
+
+        .card:hover .icon {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .disclaimer {
+            max-width: 900px;
+            margin: 20px auto 0;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #888;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 25px 0 15px 0;
+            padding-bottom: 6px;
+
+            display: inline-block;
+
+            /*border-bottom: 2px solid #e5e5e5;*/
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin: 12px 0 10px;
+            color: #f1f1f1;
+            letter-spacing: 0.4px;
+        }
+
+        .section-title span {
+            font-weight: 500;
+            color: #9a9a9a;
+            font-size: 0.82em;
+            margin-left: 6px;
+        }
+
+        .card {
+            cursor: pointer;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            .section-title {
+                color: #eee;
+                /*border-bottom: 2px solid #444;*/
+            }
+
+            .section-title span {
+                color: #aaa;
+            }
+        }
+
+        /* 모바일 */
+
+        @media (max-width: 700px) {
+
+            .grid {
+                gap: 22px;
+            }
+
+            .username {
+                font-size: 18px;
+            }
+
+            .overlay {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="section-title">
+        Hall of Fame <span>(The Usual Suspects)</span>
+    </h1>
+</header>
+
+
+<div class="board">
+    <div class="grid">
+
+        <a class="card" href="https://x.com/i/user/1994617244555644938" target="_blank">
+            <img src="images/1994617244555644938.jpg">
+            <div class="overlay">
+                <span class="username">yuine b</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1930766995898941440" target="_blank">
+            <img src="images/1930766995898941440.jpg">
+            <div class="overlay">
+                <span class="username">Nah 🖤</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/804667650630529024" target="_blank">
+            <img src="images/804667650630529024.jpg">
+            <div class="overlay">
+                <span class="username">nini</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1315724147041894400" target="_blank">
+            <img src="images/1315724147041894400.jpg">
+            <div class="overlay">
+                <span class="username">Koo_chim 💜 (REST)</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1863474610039037952" target="_blank">
+            <img src="images/1863474610039037952.jpg">
+            <div class="overlay">
+                <span class="username">❤️geewonii</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1198985255765590019" target="_blank">
+            <img src="images/1198985255765590019.jpg">
+            <div class="overlay">
+                <span class="username">옌🧋</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1696657465994002432" target="_blank">
+            <img src="images/1696657465994002432.jpg">
+            <div class="overlay">
+                <span class="username">Catydid</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/795525178205696000" target="_blank">
+            <img src="images/795525178205696000.jpg">
+            <div class="overlay">
+                <span class="username">lerainnedoure</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
+        <a class="card" href="https://x.com/i/user/1055852155070898178" target="_blank">
+            <img src="images/1055852155070898178.jpg">
+            <div class="overlay">
+                <span class="username">이름짓기귀찮음</span>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p class="disclaimer">
+        This site is maintained for archival purposes only and is not intended to target or defame any individual.
+    </p>
+</footer>
+</body>
+</html>
