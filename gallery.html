@@ -163,23 +163,32 @@
             cursor: pointer;
         }
 
-        .home-link {
+        .home-button {
             position: fixed;
             top: 40px;
             right: 40px;
 
             font-size: 13px;
-            padding: 5px 10px;
-            border-radius: 7px;
-            border: 1px solid #ddd;
-            background: #f5f5f5;
-            color: #555;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+            background: #f6f8fa;
+            color: #57606a;
             text-decoration: none;
+            font-weight: 600;
+
+            transition: background 0.15s, transform 0.05s;
         }
 
-        .home-link:hover {
-            background: #eee;
+        .home-button:hover {
+            background: #eef1f4;
+            text-decoration: underline;
         }
+
+        .home-button:active {
+            transform: translateY(1px);
+        }
+
 
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
@@ -192,14 +201,14 @@
                 color: #aaa;
             }
 
-            .home-link {
-                background: #1c2128;
-                border-color: #2d333b;
+            .home-button {
+                background: #1f2428;
+                border-color: #30363d;
                 color: #c9d1d9;
             }
 
-            .home-link:hover {
-                background: #252b33;
+            .home-button:hover {
+                background: #24292f;
             }
         }
 
@@ -222,7 +231,9 @@
     </style>
 </head>
 <body>
-<a href="./index.html" class="home-link">홈으로</a>
+<div style="display:flex; gap:8px;">
+    <a href="./index.html" class="home-button">홈으로</a>
+</div>
 <header>
     <h1 class="section-title">
         Hall of Fame <span>(The Usual Suspects)</span>
