@@ -400,5 +400,6 @@ const tweets = [
     "https://x.com/a_masterpiece00/status/1906860130358226953",
     "https://x.com/a_masterpiece00/status/1907258246861394014",
     "https://x.com/a_masterpiece00/status/1920040767680131506",
-    "https://x.com/a_masterpiece00/status/1920081224879526375"
+    "https://x.com/a_masterpiece00/status/1920081224879526375",
+    "https://x.com/a_masterpiece00/status/2033362462754697473"
 ];
