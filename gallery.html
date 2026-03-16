@@ -26,16 +26,18 @@
         }
 
         header {
+            position: relative;
             text-align: center;
             padding: 30px 20px;
             border-bottom: 1px solid #e5e5e5;
         }
 
-
-        h1 {
+        header h1 {
             margin: 0;
             font-size: 22px;
             letter-spacing: 1px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .board {
@@ -151,10 +153,11 @@
             cursor: pointer;
         }
 
+
         .home-button {
-            position: fixed;
-            top: 40px;
-            right: 40px;
+            position: absolute;
+            right: 30px;
+            top: 30%;
 
             font-size: 13px;
             padding: 8px 14px;
@@ -164,8 +167,6 @@
             color: #57606a;
             text-decoration: none;
             font-weight: 600;
-
-            transition: background 0.15s, transform 0.05s;
         }
 
         .home-button:hover {
@@ -228,12 +229,14 @@
     </style>
 </head>
 <body>
-<div style="display:flex; gap:8px;">
-    <a href="./index.html" class="home-button">홈으로</a>
-</div>
+
 <header>
     <h1 class="section-title">
         Hall of Fame <span>(Frequent Flyers)</span>
+        <a href="./index.html" class="home-button">홈으로</a>
+<!--        <div style="display:flex; gap:8px;">-->
+<!--            <a href="./index.html" class="home-button">홈으로</a>-->
+<!--        </div>-->
     </h1>
 </header>
 
