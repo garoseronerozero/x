@@ -27,11 +27,19 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             margin-bottom: 20px;
-            border-left: 4px solid #dddddd;
+            /*border-left: 4px solid #dddddd;*/
+            border-left: 4px solid;
             padding: 12px 20px 12px 10px;
             transition: transform 0.15s ease, box-shadow 0.15s ease;
             position: relative;
+            /*background: linear-gradient(*/
+            /*        to right,*/
+            /*        #F59E0B 4px,*/
+            /*        transparent 4px*/
+            /*);*/
         }
+
+
 
         .account:hover {
             transform: translateY(-2px);
@@ -39,15 +47,15 @@
         }
 
         .account.flag-identifiable {
-            border-left-color: #d4c072;
+            border-left-color: #D6B74A;
         }
 
         .account.flag-sensitive {
-            border-left-color: #e55353;
+            border-left-color: #D97706;
         }
 
         .account.flag-manipulated {
-            border-left-color: #DC143C;
+            border-left-color: #E54848;
         }
 
         .account.status-suspended-or-deleted {
@@ -233,16 +241,17 @@
             display: inline-block;
         }
 
+
         .legend-bar.identifiable {
-            background: #d4c072;
+            background: #D6B74A;
         }
 
         .legend-bar.sensitive {
-            background: #e55353;
+            background: #D97706;
         }
 
         .legend-bar.manipulated {
-            background: #DC143C;
+            background: #E54848;
         }
 
         .legend-item {
@@ -324,9 +333,6 @@
                 background: #3a3312;
                 border-color: #6b5c1e;
                 color: #ffd54f;
-                /*background: #3a1f1f;*/
-                /*border-color: #6b2b2b;*/
-                /*color: #ff8a80;*/
             }
 
             .badge-count {
@@ -397,27 +403,27 @@
             }
 
             .account.flag-identifiable {
-                border-left-color: #e6d38a;
+                border-left-color: #FACC15;
             }
 
             .account.flag-sensitive {
-                border-left-color: #ff6b6b;
+                border-left-color: #FB923C;
             }
 
             .account.flag-manipulated {
-                border-left-color: #ff4d6d;
+                border-left-color: #F87171;
             }
 
             .legend-bar.identifiable {
-                background: #e6d38a;
+                background: #FACC15;
             }
 
             .legend-bar.sensitive {
-                background: #ff6b6b;
+                background: #FB923C;
             }
 
             .legend-bar.manipulated {
-                background: #ff4d6d;
+                background: #F87171;
             }
 
             #backToTop {
@@ -489,10 +495,14 @@
 </div>
 
 <div class="notice legend-item">
+
     <span class="legend-bar sensitive"></span>
-    비동의 사적 이미지·영상 유출·재유포 맟 합성·조작 콘텐츠 포함
-<!--    <span class="legend-bar manipulated"></span>-->
-<!--    합성·조작·훼손 콘텐츠 포함-->
+    비동의 사적 이미지·영상 재유포
+    <span class="legend-bar manipulated"></span>
+    합성·조작·훼손된 콘텐츠 포함
+    <span class="legend-bar identifiable"></span>
+    식별 정보 포함 가능성
+
 </div>
 <!-- Account -->
 
@@ -827,19 +837,6 @@
         X</a>
     </div>
 </div>
-
-<div class='account flag-sensitive flag-manipulated'>
-    <div class='username'>
-        <a href='#'>@quietepiphany</a>
-<!--        <a href='./264466181/'>@quietepiphany</a>-->
-    </div>
-    <div class='meta'>
-        Display name: Steph⁷ IS SEEING BTS ⊙⊝⊜ <br>
-        <!--        User ID: 264466181 <br>-->
-        Profile: <a href='https://x.com/i/user/264466181' target='_blank' rel='noopener noreferrer'>View on X</a>
-    </div>
-</div>
-
 
 <div class='account flag-sensitive'>
     <div class='username'>
@@ -1555,8 +1552,7 @@
 
 
 
-<!--TODO: APPEND HERE, Don't forget Cmd+Opt+L-->
-
+<!-- 계정에 개인정보(실명, 사진, 링크 등)를 포함할 가능성이 있는 계정 -->
 
 <div class='account flag-identifiable'>
     <div class="badges">
@@ -1567,7 +1563,7 @@
         <a href='#'>@0825_0717</a>
     </div>
     <div class='meta'>
-        <!--    Display name: 🙃過激パスニ🙃 <br>-->
+            Display name: 🙃過激パスニ🙃 <br>
         <!--    User ID: 443524372 <br>-->
         Profile: <a href='https://x.com/i/user/443524372' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
@@ -1609,6 +1605,7 @@
         X</a>
     </div>
 </div>
+
 <div class='account flag-identifiable'>
     <div class="badges">
         <!--            <span class="badge badge-new">NEW</span>-->
@@ -1625,6 +1622,21 @@
         X</a>
     </div>
 </div>
+
+<div class='account flag-identifiable'>
+    <div class='username'>
+        <a href='#'>@Lord_lemus</a>
+        <!--        <a href='./1224518178228690944/'>@Lord_lemus</a>-->
+    </div>
+    <div class='meta'>
+        Display name: 레무스경 <br>
+        <!--        User ID: 1224518178228690944 <br>-->
+        Profile: <a href='https://x.com/i/user/1224518178228690944' target='_blank' rel='noopener noreferrer'>View on X</a>
+    </div>
+</div>
+
+
+<!--사진 합성, 조작을 직접 했거나 합성된 이미지 재유포 -->
 
 <div class='account flag-identifiable flag-manipulated'>
     <div class='username'>
@@ -1662,6 +1674,18 @@
         <!--        User ID: 1574896597741473792 <br>-->
         Profile: <a href='https://x.com/i/user/1574896597741473792' target='_blank' rel='noopener noreferrer'>View on
         X</a>
+    </div>
+</div>
+
+<div class='account flag-sensitive flag-manipulated'>
+    <div class='username'>
+        <a href='#'>@quietepiphany</a>
+        <!--        <a href='./264466181/'>@quietepiphany</a>-->
+    </div>
+    <div class='meta'>
+        Display name: Steph⁷ IS SEEING BTS ⊙⊝⊜ <br>
+        <!--        User ID: 264466181 <br>-->
+        Profile: <a href='https://x.com/i/user/264466181' target='_blank' rel='noopener noreferrer'>View on X</a>
     </div>
 </div>
 

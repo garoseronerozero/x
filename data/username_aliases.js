@@ -93,7 +93,7 @@ const username_aliases = {
   "lemaudrb": { label: "치카치카악어2" },
   "a_masterpiece00": { label: "치카치카악어3" },
   "dlwoaudrotorl": { label: "치카치카악어4" },
-  // "HeungrokCho": { label: "치카치카악어5" },
+  "Lord_lemus": { label: "치카치카악어5" },
   // "HeungrokCho": { label: "치카치카악어6" },
   // "HeungrokCho": { label: "치카치카악어7" },
   // "HeungrokCho": { label: "치카치카악어8" },
