@@ -38,16 +38,16 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
         }
 
+        .account.flag-identifiable {
+            border-left-color: #d4c072;
+        }
+
         .account.flag-sensitive {
             border-left-color: #e55353;
         }
 
-        .account.flag-identifiable {
-            border-left-color: #e6d38a;
-        }
-
         .account.flag-manipulated {
-            border-left-color: #e54848;
+            border-left-color: #8b5cf6;
         }
 
         .account.status-suspended-or-deleted {
@@ -233,16 +233,16 @@
             display: inline-block;
         }
 
+        .legend-bar.identifiable {
+            background: #d4c072;
+        }
+
         .legend-bar.sensitive {
             background: #e55353;
         }
 
-        .legend-bar.identifiable {
-            background: #e6d38a;
-        }
-
         .legend-bar.manipulated {
-            background: #e54848;
+            background: #8b5cf6;
         }
 
         .legend-item {
@@ -396,6 +396,30 @@
                 background: #24292f;
             }
 
+            .account.flag-identifiable {
+                border-left-color: #e6d38a;
+            }
+
+            .account.flag-sensitive {
+                border-left-color: #ff6b6b;
+            }
+
+            .account.flag-manipulated {
+                border-left-color: #a78bfa;
+            }
+
+            .legend-bar.identifiable {
+                background: #e6d38a;
+            }
+
+            .legend-bar.sensitive {
+                background: #ff6b6b;
+            }
+
+            .legend-bar.manipulated {
+                background: #a78bfa;
+            }
+
             #backToTop {
                 background: #1c2128;
                 color: #c9d1d9;
@@ -466,7 +490,9 @@
 
 <div class="notice legend-item">
     <span class="legend-bar sensitive"></span>
-    비동의 사적 이미지·영상 유출·재유포 및 합성·조작 콘텐츠 포함
+    비동의 사적 이미지·영상 유출·재유포
+    <span class="legend-bar manipulated"></span>
+    합성·조작·훼손 콘텐츠 포함
 </div>
 <!-- Account -->
 
@@ -802,9 +828,10 @@
     </div>
 </div>
 
-<div class='account flag-sensitive'>
+<div class='account flag-sensitive flag-manipulated'>
     <div class='username'>
-        <a href='./264466181/'>@quietepiphany</a>
+        <a href='#'>@quietepiphany</a>
+<!--        <a href='./264466181/'>@quietepiphany</a>-->
     </div>
     <div class='meta'>
         Display name: Steph⁷ IS SEEING BTS ⊙⊝⊜ <br>
