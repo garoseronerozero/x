@@ -94,7 +94,7 @@ const username_aliases = {
   "a_masterpiece00": { label: "치카치카악어3" },
   "dlwoaudrotorl": { label: "치카치카악어4" },
   "Lord_lemus": { label: "치카치카악어5" },
-  // "HeungrokCho": { label: "치카치카악어6" },
+  "IlearnFeminism": { label: "치카치카악어6" },
   // "HeungrokCho": { label: "치카치카악어7" },
   // "HeungrokCho": { label: "치카치카악어8" },
   // "HeungrokCho": { label: "치카치카악어9" },
