@@ -453,5 +453,10 @@ const tweets = [
     "https://x.com/Parann789_re/status/1907736507076784537",
     "https://x.com/Parann789_re/status/1909652110448406928",
     "https://x.com/Parann789_re/status/1924492884142915806",
-    "https://x.com/Parann789_re/status/2033952630020706355"
+    "https://x.com/Parann789_re/status/2033952630020706355",
+    "https://x.com/BIRDKID_TT/status/1899078563778761191",
+    "https://x.com/BIRDKID_TT/status/2034069568449351804",
+    "https://x.com/bts_love0503/status/2027715491754872980",
+    "https://x.com/bts_love0503/status/2027716446391046537",
+    "https://x.com/bts_love0503/status/2034131448681402575"
 ];
