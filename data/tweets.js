@@ -458,5 +458,13 @@ const tweets = [
     "https://x.com/BIRDKID_TT/status/2034069568449351804",
     "https://x.com/bts_love0503/status/2027715491754872980",
     "https://x.com/bts_love0503/status/2027716446391046537",
-    "https://x.com/bts_love0503/status/2034131448681402575"
+    "https://x.com/bts_love0503/status/2034131448681402575",
+    "https://x.com/bts_love0503/status/2034207308578971942",
+    "https://x.com/iyuublue/status/2034136275595452919",
+    "https://x.com/bbdjd__/status/2034188372336656714",
+    "https://x.com/bba_da__/status/2034175532020207701",
+    "https://x.com/53627349_/status/1899725926461796433",
+    "https://x.com/53627349_/status/2034162872700571732",
+    "https://x.com/shoegirlim/status/1899640110796476541",
+    "https://x.com/shoegirlim/status/2034204711042384116"
 ];
