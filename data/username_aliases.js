@@ -102,7 +102,7 @@ const username_aliases = {
   "bts_love0503": { label: "쿠쿠다스사자1" },
   "iyuublue": { label: "쿠쿠다스사자2" },
   "bbdjd__": { label: "쿠쿠다스사자3" },
-  // "HeungrokCho": { label: "쿠쿠다스사자4" },
+  "53627349_": { label: "쿠쿠다스사자4" },
   // "HeungrokCho": { label: "쿠쿠다스사자5" },
   // "HeungrokCho": { label: "쿠쿠다스사자6" },
   // "HeungrokCho": { label: "쿠쿠다스사자7" },
