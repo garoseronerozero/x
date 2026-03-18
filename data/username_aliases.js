@@ -105,7 +105,7 @@ const username_aliases = {
   "bba_da__": { label: "쿠쿠다스사자4" },
   "53627349_": { label: "쿠쿠다스사자5" },
   "shoegirlim": { label: "쿠쿠다스사자6" },
-  // "HeungrokCho": { label: "쿠쿠다스사자7" },
+  "blucheck333": { label: "쿠쿠다스사자7" },
   // "HeungrokCho": { label: "쿠쿠다스사자8" },
   // "HeungrokCho": { label: "쿠쿠다스사자9" },
   // "HeungrokCho": { label: "쿠쿠다스사자10" },
