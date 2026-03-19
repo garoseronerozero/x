@@ -108,7 +108,7 @@ const username_aliases = {
   "blucheck333": { label: "쿠쿠다스사자7" },
   "k29838": { label: "쿠쿠다스사자8" },
   "uhksg0_07": { label: "쿠쿠다스사자9" },
-  // "HeungrokCho": { label: "쿠쿠다스사자10" },
+  "Ol_rloey": { label: "쿠쿠다스사자10" },
   // "HeungrokCho": { label: "트위터하는루피1" },
   // "HeungrokCho": { label: "트위터하는루피2" },
   // "HeungrokCho": { label: "트위터하는루피3" },
