@@ -429,6 +429,8 @@ const tweets = [
     "https://x.com/dlwoaudrotorl/status/1902708320957579330",
     "https://x.com/Lord_lemus/status/2033977973838385222",
     "https://x.com/IlearnFeminism/status/2033927644299862033",
+    "https://x.com/IlearnFeminism/status/2034382043358876086",
+    "https://x.com/IlearnFeminism/status/1952721162049310939",
     "https://x.com/luvsomepie/status/1905587408663355566",
     "https://x.com/luvsomepie/status/1906615387501797731",
     "https://x.com/luvsomepie/status/1906620927627939917",
@@ -466,5 +468,13 @@ const tweets = [
     "https://x.com/53627349_/status/1899725926461796433",
     "https://x.com/53627349_/status/2034162872700571732",
     "https://x.com/shoegirlim/status/1899640110796476541",
-    "https://x.com/shoegirlim/status/2034204711042384116"
+    "https://x.com/shoegirlim/status/2034204711042384116",
+    "https://x.com/blucheck333/status/2034154690355794254",
+    "https://x.com/k29838/status/2034182658381779179",
+    "https://x.com/k29838/status/1983415453675598290",
+    "https://x.com/uhksg0_07/status/2034233976358068246",
+    "https://x.com/uhksg0_07/status/1905703837949968801",
+    "https://x.com/Ol_rloey/status/2034158722738696401",
+    "https://x.com/Ol_rloey/status/2034167617766969744",
+    "https://x.com/616161jilnoon/status/2034219422064492944"
 ];

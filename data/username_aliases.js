@@ -109,7 +109,7 @@ const username_aliases = {
   "k29838": { label: "쿠쿠다스사자8" },
   "uhksg0_07": { label: "쿠쿠다스사자9" },
   "Ol_rloey": { label: "쿠쿠다스사자10" },
-  // "HeungrokCho": { label: "트위터하는루피1" },
+  "616161jilnoon": { label: "트위터하는루피1" },
   // "HeungrokCho": { label: "트위터하는루피2" },
   // "HeungrokCho": { label: "트위터하는루피3" },
   // "HeungrokCho": { label: "트위터하는루피4" },
