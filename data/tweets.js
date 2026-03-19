@@ -476,5 +476,8 @@ const tweets = [
     "https://x.com/uhksg0_07/status/1905703837949968801",
     "https://x.com/Ol_rloey/status/2034158722738696401",
     "https://x.com/Ol_rloey/status/2034167617766969744",
-    "https://x.com/616161jilnoon/status/2034219422064492944"
+    "https://x.com/616161jilnoon/status/2034219422064492944",
+    "https://x.com/nmwnvu/status/2034591556930556188",
+    "https://x.com/noirregal/status/2028002179899093480",
+    "https://x.com/noirregal/status/2034161346934411399"
 ];
