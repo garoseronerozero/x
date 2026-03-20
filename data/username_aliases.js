@@ -113,7 +113,7 @@ const username_aliases = {
   "nmwnvu": { label: "트위터하는루피2" },
   "noirregal": { label: "트위터하는루피3" },
   "SaLD_777": { label: "트위터하는루피4" },
-  // "HeungrokCho": { label: "트위터하는루피5" },
+  "pickpockette0": { label: "트위터하는루피5" },
   // "HeungrokCho": { label: "트위터하는루피6" },
   // "HeungrokCho": { label: "트위터하는루피7" },
   // "HeungrokCho": { label: "트위터하는루피8" },
