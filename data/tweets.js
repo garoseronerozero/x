@@ -493,5 +493,5 @@ const tweets = [
     "https://x.com/pickpockette0/status/1906678866355105985",
     "https://x.com/eunya_____/status/2028034407739879573",
     "https://x.com/_can_is_can/status/2028372929797640516",
-    "https://x.com/mydoggae/status/2035476520299630733"
+    "https://x.com/bts_love0503/status/2034224151049937221"
 ];
