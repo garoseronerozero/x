@@ -116,7 +116,7 @@ const username_aliases = {
   "pickpockette0": { label: "트위터하는루피5" },
   "eunya_____": { label: "트위터하는루피6" },
   "_can_is_can": { label: "트위터하는루피7" },
-  // "HeungrokCho": { label: "트위터하는루피8" },
+  "mydoggae": { label: "트위터하는루피8" },
   // "HeungrokCho": { label: "트위터하는루피9" },
   // "HeungrokCho": { label: "트위터하는루피10" },
   // "HeungrokCho": { label: "파오리는요리중1" },
