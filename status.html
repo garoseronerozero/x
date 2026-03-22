@@ -217,114 +217,121 @@
     <tbody>
     </tbody>
 </table>
-<script src="./data/tweets.js"></script>
+
 <script src="./data/username_aliases.js"></script>
 
 <script>
     const tbody = document.querySelector("#statusTable tbody")
 
+    /* ---------- 빠른 lookup용 map ---------- */
+    const aliasMap = new Map(
+        USER_LIST.map(u => [u.id, u.label])
+    )
+
+    /* ---------- username 추출 ---------- */
     function extractUsername(url) {
         const m = url.match(/x\.com\/([^\/]+)/)
         return m ? m[1] : "unknown"
     }
 
-    /* ---------- initial render ---------- */
+    /* ---------- status 스타일 ---------- */
+    function getStatusClass(status) {
+        if (status === "OK") return "status-ok"
+        if (status === "DELETED") return "status-deleted"
+        if (status === "RESTRICTED") return "status-error"
+        return ""
+    }
 
-    function renderInitial() {
+    /* ---------- group ---------- */
+    function groupByUser(data) {
 
-        let lastUser = null
+        const map = new Map()
 
-        for (const url of tweets) {
+        for (const [url, status] of Object.entries(data)) {
 
-            const user = extractUsername(url)
+            const user = extractUsername(url).trim()
 
-            if (user !== lastUser) {
-
-                const alias =
-                    (username_aliases[user] && username_aliases[user].label)
-                        ? username_aliases[user].label
-                        : user
-
-                const userRow = document.createElement("tr")
-                userRow.className = "user"
-                userRow.innerHTML = `<td colspan="3">${alias}</td>`
-
-                tbody.appendChild(userRow)
-
-                lastUser = user
+            if (!map.has(user)) {
+                map.set(user, [])
             }
+
+            map.get(user).push({url, status})
+        }
+
+        return map
+    }
+
+    /* ---------- render ---------- */
+    function renderGrouped(groupedMap) {
+
+        tbody.innerHTML = ""
+
+        const rendered = new Set()
+
+        // ✅ 1. USER_LIST 순서 그대로 렌더 (100% 보장)
+        for (const {id} of USER_LIST) {
+
+            if (!groupedMap.has(id)) continue
+
+            renderUserBlock(id, groupedMap.get(id))
+            rendered.add(id)
+        }
+
+        // ✅ 2. 나머지 user 뒤에
+        const extraUsers = []
+
+        for (const user of groupedMap.keys()) {
+            if (!rendered.has(user)) {
+                extraUsers.push(user)
+            }
+        }
+
+        extraUsers.sort()
+
+        for (const user of extraUsers) {
+            renderUserBlock(user, groupedMap.get(user))
+        }
+    }
+
+    /* ---------- render block ---------- */
+    function renderUserBlock(user, tweets) {
+
+        const alias = aliasMap.get(user) || user
+
+        const userRow = document.createElement("tr")
+        userRow.className = "user"
+        userRow.innerHTML = `<td colspan="3">${alias}</td>`
+        tbody.appendChild(userRow)
+
+        for (const tweet of tweets) {
 
             const tr = document.createElement("tr")
 
             tr.innerHTML = `
 <td></td>
 <td>
-<a href="${url}" target="_blank">${url}</a>
+<a href="${tweet.url}" target="_blank" rel="noopener noreferrer">
+${tweet.url}
+</a>
 </td>
-<td class="status">checking…</td>
+<td class="status ${getStatusClass(tweet.status)}">
+${tweet.status}
+</td>
 `
 
             tbody.appendChild(tr)
         }
     }
 
-    /* ---------- apply status ---------- */
-
-    function applyStatus(data) {
-
-        const rows =
-            document.querySelectorAll("tbody tr:not(.user)")
-
-        for (const row of rows) {
-
-            const link = row.querySelector("a")
-            if (!link) continue
-
-            const url = link.getAttribute("href")
-            const status = data[url]
-
-            const cell = row.querySelector(".status")
-
-            if (!cell) continue
-
-            if (status === "OK") {
-
-                cell.innerHTML =
-                    `<span class="status-ok">OK</span>`
-
-            } else if (status === "DELETED") {
-
-                cell.innerHTML =
-                    `<span class="status-deleted">DELETED</span>`
-
-            } else if (status === "RESTRICTED") {
-
-                cell.innerHTML =
-                    `<span class="status-error">RESTRICTED</span>`
-
-            } else {
-
-                cell.textContent = "UNKNOWN"
-
-            }
-        }
-    }
-
-    /* ---------- header stats ---------- */
-
+    /* ---------- stats ---------- */
     function updateTweetHeader(data) {
 
-        const total = tweets.length
+        const values = Object.values(data)
 
-        let deleted = 0
-        let restricted = 0
+        const total = values.length
 
-        for (const url in data) {
-
-            if (data[url] === "DELETED") deleted++
-            if (data[url] === "RESTRICTED") restricted++
-
-        }
+        const deleted = values.filter(v => v === "DELETED").length
+        const restricted = values.filter(v => v === "RESTRICTED").length
 
         const error = deleted + restricted
 
@@ -335,49 +342,38 @@
 
         document.getElementById("tweetHeader").innerHTML =
             `Tweet (${total} total ·
-<span title="삭제 또는 계정 잠금/정지/규칙 위반/나이 제한 등으로 접근 제한">${error} unavailable</span> ·
+<span title="삭제 또는 제한">${error} unavailable</span> ·
 <span title="잔존율">${remainingRate}%)</span>`
     }
 
-    /* ---------- load status ---------- */
-
-    async function loadStatus() {
+    /* ---------- load ---------- */
+    async function loadAndRender() {
 
         try {
 
-            const res =
-                await fetch("./data/status.json", {cache: "no-store"})
+            const res = await fetch("./data/status.json", {cache: "no-store"})
+            const json = await res.json()
 
-            const json =
-                await res.json()
+            const groupedMap = groupByUser(json.data)
 
-            applyStatus(json.data)
+            renderGrouped(groupedMap)
 
             updateTweetHeader(json.data)
 
-            document.getElementById("lastUpdate")
-                .innerText =
+            document.getElementById("lastUpdate").innerText =
                 "Last update: " + json.lastUpdate
 
         } catch (e) {
 
-            document.getElementById("lastUpdate")
-                .innerText =
+            document.getElementById("lastUpdate").innerText =
                 "Status load failed"
-
         }
     }
 
-    /* ---------- start ---------- */
-
-    function start() {
-        renderInitial()
-        loadStatus()
-    }
-
-    start()
-
+    loadAndRender()
 </script>
+
+
 <a href="#top" id="backToTop">↑</a>
 <script>
     const btn = document.getElementById("backToTop")
