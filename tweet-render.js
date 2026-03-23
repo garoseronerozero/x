@@ -22,7 +22,7 @@ pdfs.forEach(file => {
     div.innerHTML = `
     <div class="link">
       <a href="https://x.com/${username}/status/${tweetId}" target="_blank">
-        Original Tweet →
+        Original Tweet ↗
       </a>
     </div>
 
