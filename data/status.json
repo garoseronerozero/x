@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-03-24 12:19",
+  "lastUpdate": "2026-03-25 10:43",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -229,9 +229,9 @@
     "https://x.com/nec00n_nim/status/1922080225564721529": "OK",
     "https://x.com/bellzorizin/status/1901378772554944807": "OK",
     "https://x.com/bellzorizin/status/1906617124908666943": "OK",
-    "https://x.com/rieuxx/status/1899675029123764405": "RESTRICTED",
-    "https://x.com/rieuxx/status/1906631952922468691": "RESTRICTED",
-    "https://x.com/rieuxx/status/1899412634019242061": "RESTRICTED",
+    "https://x.com/rieuxx/status/1899675029123764405": "OK",
+    "https://x.com/rieuxx/status/1906631952922468691": "OK",
+    "https://x.com/rieuxx/status/1899412634019242061": "OK",
     "https://x.com/applyboo/status/1906622512697618478": "OK",
     "https://x.com/gksskatlqkftoRl/status/1906640125229945231": "OK",
     "https://x.com/gksskatlqkftoRl/status/1906689277339029719": "OK",
@@ -496,6 +496,11 @@
     "https://x.com/pickpockette0/status/1905530037505302864": "OK",
     "https://x.com/pickpockette0/status/1906678866355105985": "OK",
     "https://x.com/eunya_____/status/2028034407739879573": "OK",
-    "https://x.com/_can_is_can/status/2028372929797640516": "OK"
+    "https://x.com/_can_is_can/status/2028372929797640516": "OK",
+    "https://x.com/boricokeFanta/status/1923208397958111524": "OK",
+    "https://x.com/boricokeFanta/status/1925015217181987002": "OK",
+    "https://x.com/boricokeFanta/status/1927154858685005938": "OK",
+    "https://x.com/boricokeFanta/status/1935475596374720800": "OK",
+    "https://x.com/boricokeFanta/status/1995278504070627756": "OK"
   }
 }
