@@ -135,7 +135,7 @@ const USER_LIST = [
   { id: "ddddoddddi", label: "피타는노력3" },
   { id: "bangguzang", label: "피타는노력4" },
   { id: "onastyle", label: "피타는노력5" },
-  // { id: "mydoggae", label: "피타는노력6" },
+  { id: "sjdbcxnxk", label: "피타는노력6" },
   // { id: "mydoggae", label: "피타는노력7" },
   // { id: "mydoggae", label: "피타는노력8" },
   // { id: "mydoggae", label: "피타는노력9" },
