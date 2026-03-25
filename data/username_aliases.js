@@ -128,7 +128,7 @@ const USER_LIST = [
   { id: "eunya_____", label: "트위터하는루피6" },
   { id: "_can_is_can", label: "트위터하는루피7" },
   { id: "mydoggae", label: "트위터하는루피8" },
-  // { id: "mydoggae", label: "트위터하는루피9" },
+  { id: "boricokeFanta", label: "트위터하는루피9" },
   // { id: "mydoggae", label: "트위터하는루피10" },
   // { id: "mydoggae", label: "파오리는요리중1" },
   // { id: "mydoggae", label: "파오리는요리중2" },
