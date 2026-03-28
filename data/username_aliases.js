@@ -130,6 +130,7 @@ const USER_LIST = [
   { id: "mydoggae", label: "트위터하는루피8" },
   { id: "boricokeFanta", label: "트위터하는루피9" },
   { id: "hana_4410", label: "트위터하는루피10" },
+
   { id: "jade2024yeah", label: "피타는노력1" },
   { id: "hmla05448", label: "피타는노력2" },
   { id: "ddddoddddi", label: "피타는노력3" },
@@ -139,7 +140,8 @@ const USER_LIST = [
   { id: "gemini8750", label: "피타는노력7" },
   { id: "huiary_bathroom", label: "피타는노력8" },
   { id: "yesongaesong", label: "피타는노력9" },
-  // { id: "mydoggae", label: "피타는노력10" },
+  { id: "yurim_999", label: "피타는노력10" },
+
   // { id: "mydoggae", label: "하늘하늘쿼카1" },
   // { id: "mydoggae", label: "하늘하늘쿼카2" },
   // { id: "mydoggae", label: "하늘하늘쿼카3" },
