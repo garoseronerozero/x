@@ -226,6 +226,26 @@
             transform: translateY(1px);
         }
 
+        .pick-button {
+            font-size: 13px;
+            padding: 7px 14px;
+
+            border-radius: 8px;
+            border: 1px solid rgba(255, 45, 117, 0.35);
+
+            background: rgba(255, 45, 117, 0.08);
+            color: #ff2d75;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: background 0.15s, transform 0.05s, box-shadow 0.15s;
+        }
+
+        .pick-button:hover {
+            background: rgba(255, 45, 117, 0.16);
+        }
+
         .legend-bar {
             width: 4px;
             height: 16px;
@@ -394,6 +414,17 @@
                 background: #24292f;
             }
 
+            .pick-button {
+                color: #ff4d8d;
+                border: 1px solid rgba(255, 77, 141, 0.4);
+                background: rgba(255, 77, 141, 0.08);
+            }
+
+            .pick-button:hover {
+                background: rgba(255, 77, 141, 0.18);
+                box-shadow: 0 0 10px rgba(255, 77, 141, 0.25);
+            }
+
             .account.flag-identifiable {
                 border-left-color: #FACC15;
             }
@@ -439,6 +470,7 @@
     <h1>X Archive</h1>
 
     <div style="display:flex; gap:8px;">
+        <a class="pick-button" href="./bits.html">픽</a>
         <a class="gallery-button" href="./gallery/index.html">갤러리</a>
         <a class="status-button" href="./status.html">게시물 상태</a>
     </div>
