@@ -89,25 +89,10 @@
             margin-bottom: 20px;
         }
 
-        /* 그리드 */
-        /*.grid {*/
-        /*    display: grid;*/
-        /*    grid-template-columns: repeat(2, 1fr);*/
-        /*    gap: 18px;*/
-        /*}*/
-
         .grid {
             column-count: 2;
             column-gap: 18px;
         }
-
-        /* 카드 */
-        /*.card {*/
-        /*    border: 1px solid #ddd;*/
-        /*    border-radius: 12px;*/
-        /*    padding: 10px;*/
-        /*    background: #fff;*/
-        /*}*/
 
         .card {
             break-inside: avoid;
@@ -116,6 +101,18 @@
             border-radius: 12px;
             padding: 10px;
             background: #fff;
+        }
+
+        .disclaimer {
+            margin-top: 40px;
+            padding-top: 16px;
+
+            /*border-top: 1px solid #eaeef2;*/
+
+            font-size: 12px;
+            color: #8b949e;
+
+            text-align: center;
         }
 
         /* 모바일 */
@@ -159,6 +156,11 @@
 
             .description {
                 color: #9da7b3;
+            }
+
+            .disclaimer {
+                border-color: #30363d;
+                color: #6e7681;
             }
         }
 
@@ -263,4 +265,7 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
+<div class="disclaimer">
+    Content is embedded from external sources and not controlled by this site.
+</div>
 </html>
