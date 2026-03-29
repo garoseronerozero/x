@@ -8,6 +8,7 @@
     <meta name="referrer" content="no-referrer">
     <meta name="robots" content="noindex,nofollow">
     <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
@@ -186,6 +187,54 @@
                 color: #9da7b3;
             }
 
+        }
+
+        @media (max-width: 700px) {
+
+            /* 상단 여백 줄이기 */
+            body {
+                margin: 20px 14px;
+            }
+
+            /* h1 정리 (줄바꿈 + 버튼 정렬) */
+            h1 {
+                font-size: 18px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .home-button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            /* notice / 설명 가독성 */
+            .notice {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+            #lastUpdate {
+                font-size: 12px;
+            }
+
+            /* 하단 disclaimer */
+            .disclaimer {
+                font-size: 12px;
+                line-height: 1.5;
+                margin-top: 20px;
+            }
+
+            /* 🔥 back to top (핵심) */
+            #backToTop {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+
+                bottom: 16px;
+                right: 16px;
+            }
         }
     </style>
 </head>
