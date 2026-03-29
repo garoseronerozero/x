@@ -102,7 +102,14 @@
             border-radius: 12px;
             padding: 10px;
             background: #fff;
+            overflow: hidden;
         }
+
+        /* embed 안정화 */
+        .card iframe {
+            width: 100% !important;
+        }
+
 
         .disclaimer {
             margin-top: 40px;
@@ -119,12 +126,15 @@
         /* 모바일 */
         @media (max-width: 700px) {
             .grid {
+                column-count: unset;   /* column 끄기 */
+                display: grid;
                 grid-template-columns: 1fr;
+                gap: 18px;
             }
 
-            /*.grid {*/
-            /*    column-count: 1;*/
-            /*}*/
+            .card {
+                break-inside: unset;   /* 안전하게 제거 */
+            }
         }
 
         /* 다크모드 */
