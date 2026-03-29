@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <title>픽 — X Archive</title>
+
+    <link rel="icon" href="../favicon.ico">
+    <meta name="referrer" content="no-referrer">
+<!--    <meta name="referrer" content="strict-origin-when-cross-origin">-->
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
+
+    <style>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .header {
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        .nav {
+            display:flex;
+            gap:8px;
+        }
+
+        .nav a {
+            font-size: 13px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+            background: #f6f8fa;
+            color: #57606a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav a:hover {
+            background: #eef1f4;
+        }
+
+        /* 설명 */
+        .description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* 그리드 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        /* 카드 */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        /* 모바일 */
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 다크모드 */
+        @media (prefers-color-scheme: dark) {
+
+            body {
+                background: #0d1117;
+                color: #e6edf3;
+            }
+
+            .card {
+                background: #161b22;
+                border-color: #30363d;
+            }
+
+            .nav a {
+                background: #1f2428;
+                border-color: #30363d;
+                color: #c9d1d9;
+            }
+
+            .nav a:hover {
+                background: #24292f;
+            }
+
+            .description {
+                color: #9da7b3;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>픽</h1>
+
+    <div class="nav">
+        <a href="../index.html">홈</a>
+        <a href="../gallery/index.html">갤러리</a>
+        <a href="../status.html">게시물 상태</a>
+    </div>
+</div>
+
+<div class="description">
+</div>
+
+<div class="grid">
+
+    <div class="card">
+        <blockquote class="twitter-tweet" data-conversation="none">
+            <a href="https://x.com/i/web/status/1912005941937258966"></a>
+        </blockquote>
+    </div>
+
+    <div class="card">
+        <blockquote class="twitter-tweet" data-conversation="none">
+            <a href="https://x.com/hodgeson0011/status/1915203139466387470"></a>
+        </blockquote>
+    </div>
+
+</div>
+
+<!-- script는 반드시 한 번 -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
