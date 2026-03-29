@@ -142,16 +142,16 @@ const USER_LIST = [
   { id: "yesongaesong", label: "피타는노력9" },
   { id: "yurim_999", label: "피타는노력10" },
 
-  { id: "hwesaek92124", label: "하루키네장수고양이1" },
-  { id: "muutb4r", label: "하루키네장수고양이2" },
-  // { id: "mydoggae", label: "하루키네장수고양이3" },
-  // { id: "mydoggae", label: "하루키네장수고양이4" },
-  // { id: "mydoggae", label: "하루키네장수고양이5" },
-  // { id: "mydoggae", label: "하루키네장수고양이6" },
-  // { id: "mydoggae", label: "하루키네장수고양이7" },
-  // { id: "mydoggae", label: "하루키네장수고양이8" },
-  // { id: "mydoggae", label: "하루키네장수고양이9" },
-  // { id: "mydoggae", label: "하루키네장수고양이10" },
+  { id: "hwesaek92124", label: "하늘하늘쿼카1" },
+  { id: "muutb4r", label: "하늘하늘쿼카2" },
+  // { id: "mydoggae", label: "하늘하늘쿼카3" },
+  // { id: "mydoggae", label: "하늘하늘쿼카4" },
+  // { id: "mydoggae", label: "하늘하늘쿼카5" },
+  // { id: "mydoggae", label: "하늘하늘쿼카6" },카
+  // { id: "mydoggae", label: "하늘하늘쿼카7" },
+  // { id: "mydoggae", label: "하늘하늘쿼카8" },
+  // { id: "mydoggae", label: "하늘하늘쿼카9" },
+  // { id: "mydoggae", label: "하늘하늘쿼카10" },
 
   { id: "temp", label: "TEMP" }
 ]
