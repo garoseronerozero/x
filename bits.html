@@ -52,11 +52,34 @@
             background: #eef1f4;
         }
 
-        /* 기본 (라이트) */
         .pick {
             font-size: 28px;
-            color: #ff2d75;
-            font-weight: 800;
+            font-weight: 900;
+
+            background: linear-gradient(180deg, #ff5c93 0%, #ff2d75 60%, #d91b60 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            position: relative;
+        }
+
+        /* 아주 은은한 하이라이트 */
+        .pick::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            background: linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.5) 0%,
+                    transparent 50%
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            pointer-events: none;
         }
 
         /* 설명 */
