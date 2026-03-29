@@ -147,7 +147,7 @@ const USER_LIST = [
   // { id: "mydoggae", label: "하늘하늘쿼카3" },
   // { id: "mydoggae", label: "하늘하늘쿼카4" },
   // { id: "mydoggae", label: "하늘하늘쿼카5" },
-  // { id: "mydoggae", label: "하늘하늘쿼카6" },카
+  // { id: "mydoggae", label: "하늘하늘쿼카6" },
   // { id: "mydoggae", label: "하늘하늘쿼카7" },
   // { id: "mydoggae", label: "하늘하늘쿼카8" },
   // { id: "mydoggae", label: "하늘하늘쿼카9" },
