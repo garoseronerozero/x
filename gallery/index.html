@@ -118,12 +118,27 @@
             border-bottom-right-radius: 20px;
         }
 
+        .text-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .display_name {
             font-size: 22px;
             font-weight: 900;
             letter-spacing: .4px;
             color: #fff;
             text-shadow: 0 3px 8px rgba(0, 0, 0, .8);
+        }
+
+        .created_at {
+            font-size: 18px;
+            /*color: #9f6bff;   !* ← 더 진하고 선명한 보라 *!*/
+            color: #a78bfa; /* ← 더 진하고 선명한 보라 */
+            opacity: 0.95;
+            margin-top: 2px;
+            letter-spacing: 0.3px;
         }
 
         .icon {
@@ -278,10 +293,24 @@
 <div class="board">
     <div class="grid">
 
+        <a class="card" href="https://x.com/i/user/1922552762136772608" target="_blank">
+            <img src="../images/1922552762136772608.jpg">
+            <div class="overlay">
+                <div class="text-group">
+                    <span class="display_name">AtheistFeminist</span>
+                    <span class="created_at">2025-05-14</span>
+                </div>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
         <a class="card" href="https://x.com/i/user/1055852155070898178" target="_blank">
             <img src="../images/1055852155070898178.jpg">
             <div class="overlay">
-                <span class="display_name">이름짓기귀찮음</span>
+                <div class="text-group">
+                    <span class="display_name">이름짓기귀찮음</span>
+                    <span class="created_at">2018-10-26</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -289,15 +318,22 @@
         <a class="card" href="https://x.com/i/user/1315724147041894400" target="_blank">
             <img src="../images/1315724147041894400.jpg">
             <div class="overlay">
-                <span class="display_name">Koo_chim 💜 (REST)</span>
+                <div class="text-group">
+                    <span class="display_name">Koo_chim 💜 (REST)</span>
+                    <span class="created_at">2020-10-12</span>
+                </div>
                 <span class="icon">↗</span>
+
             </div>
         </a>
 
         <a class="card" href="https://x.com/i/user/1930766995898941440" target="_blank">
             <img src="../images/1930766995898941440.jpg">
             <div class="overlay">
-                <span class="display_name">Nah 🖤 → Missya 🖤</span>
+                <div class="text-group">
+                    <span class="display_name">Nah 🖤 → Missya 🖤</span>
+                    <span class="created_at">2025-06-05</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -305,7 +341,10 @@
         <a class="card" href="https://x.com/i/user/1994617244555644938" target="_blank">
             <img src="../images/1994617244555644938.jpg">
             <div class="overlay">
-                <span class="display_name">yuine b</span>
+                <div class="text-group">
+                    <span class="display_name">yuine b</span>
+                    <span class="created_at">2025-11-29</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -313,7 +352,10 @@
         <a class="card" href="https://x.com/i/user/1198985255765590019" target="_blank">
             <img src="../images/1198985255765590019.jpg">
             <div class="overlay">
-                <span class="display_name">옌🧋 → 🔴👖y</span>
+                <div class="text-group">
+                    <span class="display_name">옌🧋 → 🔴👖y</span>
+                    <span class="created_at">2019-11-25</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -321,7 +363,10 @@
         <a class="card" href="https://x.com/i/user/795525178205696000" target="_blank">
             <img src="../images/795525178205696000.jpg">
             <div class="overlay">
-                <span class="display_name">lerainnedoure</span>
+                <div class="text-group">
+                    <span class="display_name">lerainnedoure</span>
+                    <span class="created_at">2016-11-07</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -329,7 +374,10 @@
         <a class="card" href="https://x.com/i/user/1205562093564350464" target="_blank">
             <img src="../images/1205562093564350464.jpg">
             <div class="overlay">
-                <span class="display_name">anni</span>
+                <div class="text-group">
+                    <span class="display_name">anni</span>
+                    <span class="created_at">2019-12-13</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -337,7 +385,10 @@
         <a class="card" href="https://x.com/i/user/1999067169494360064" target="_blank">
             <img src="../images/1999067169494360064.jpg">
             <div class="overlay">
-                <span class="display_name">remember_sae</span>
+                <div class="text-group">
+                    <span class="display_name">remember_sae</span>
+                    <span class="created_at">2025-12-11</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -345,7 +396,10 @@
         <a class="card" href="https://x.com/i/user/804667650630529024" target="_blank">
             <img src="../images/804667650630529024.jpg">
             <div class="overlay">
-                <span class="display_name">nini</span>
+                <div class="text-group">
+                    <span class="display_name">nini</span>
+                    <span class="created_at">2016-12-02</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -353,15 +407,20 @@
         <a class="card" href="https://x.com/i/user/1863474610039037952" target="_blank">
             <img src="../images/1863474610039037952.jpg">
             <div class="overlay">
-                <span class="display_name">❤️geewonii</span>
-                <span class="icon">↗</span>
+                <div class="text-group">
+                    <span class="display_name">❤️geewonii</span>
+                    <span class="created_at">2024-12-02</span>
+                </div>
             </div>
         </a>
 
         <a class="card" href="https://x.com/i/user/443524372" target="_blank">
             <img src="../images/443524372.jpg">
             <div class="overlay">
-                <span class="display_name">🙃過激パスニ🙃</span>
+                <div class="text-group">
+                    <span class="display_name">🙃過激パスニ🙃</span>
+                    <span class="created_at">2011-11-22</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -369,7 +428,10 @@
         <a class="card" href="https://x.com/i/user/1781886552815095809" target="_blank">
             <img src="../images/1781886552815095809.jpg">
             <div class="overlay">
-                <span class="display_name">Army 💜💜💜😉</span>
+                <div class="text-group">
+                    <span class="display_name">Army 💜💜💜😉</span>
+                    <span class="created_at">2024-04-21</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
@@ -377,42 +439,44 @@
         <a class="card" href="https://x.com/i/user/1675223277680353280" target="_blank">
             <img src="../images/1675223277680353280.jpg">
             <div class="overlay">
-                <span class="display_name">미나문🌙 🇰🇷🇹🇼</span>
+                <div class="text-group">
+                    <span class="display_name">미나문🌙 🇰🇷🇹🇼</span>
+                    <span class="created_at">2023-07-01</span>
+                </div>
                 <span class="icon">↗</span>
-            </div>
+            </div>나
         </a>
 
         <a class="card" href="https://x.com/i/user/1800820612736360448" target="_blank">
             <img src="../images/1800820612736360448.jpg">
             <div class="overlay">
-                <span class="display_name">𓍯𓂃𓏧♡</span>
+                <div class="text-group">
+                    <span class="display_name">𓍯𓂃𓏧♡</span>
+                    <span class="created_at">2024-06-12</span>
+                </div>
                 <span class="icon">↗</span>
             </div>
         </a>
 
-<!--        <a class="card" href="https://x.com/i/user/1473417765901983751" target="_blank">-->
-<!--            <img src="../images/1473417765901983751.jpg">-->
-<!--            <div class="overlay">-->
-<!--                <span class="display_name">Geeks Calls</span>-->
-<!--                <span class="icon">↗</span>-->
-<!--            </div>-->
-<!--        </a>-->
+        <!--        <a class="card" href="https://x.com/i/user/1473417765901983751" target="_blank">-->
+        <!--            <img src="../images/1473417765901983751.jpg">-->
+        <!--            <div class="overlay">-->
+        <!--                <span class="display_name">Geeks Calls</span>-->
+        <!--                <span class="icon">↗</span>-->
+        <!--            </div>-->
+        <!--        </a>-->
 
-<!--        <a class="card" href="https://x.com/i/user/1287504703358722050" target="_blank">-->
-<!--            <img src="../images/1287504703358722050.jpg">-->
-<!--            <div class="overlay">-->
-<!--                <span class="display_name">BLUE BUNNY</span>-->
-<!--                <span class="icon">↗</span>-->
-<!--            </div>-->
-<!--        </a>-->
-
+        <!--        <a class="card" href="https://x.com/i/user/1287504703358722050" target="_blank">-->
+        <!--            <img src="../images/1287504703358722050.jpg">-->
+        <!--            <div class="overlay">-->
+        <!--                <span class="display_name">BLUE BUNNY</span>-->
+        <!--                <span class="icon">↗</span>-->
+        <!--            </div>-->
+        <!--        </a>-->
 
 
     </div>
 </div>
-
-
-
 
 
 <footer>
