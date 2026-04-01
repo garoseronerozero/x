@@ -144,29 +144,29 @@
         }
 
         td {
-            transition: background 0.15s, transform 0.12s;
+            transition: background 0.12s ease;
+            min-width: 0;
         }
 
         td:hover {
-            transform: scale(1.12);
+            filter: brightness(1.06);
         }
+
 
         td.active-cell {
             outline: 2px solid #1a73e8;
         }
 
-        th, td {
+        .grid-container table td {
             width: 28px;
             height: 28px;
-            text-align: center;
         }
 
-        /*.grid-container table th,*/
-        /*.grid-container table td {*/
-        /*    width: 28px;*/
-        /*    height: 28px;*/
-        /*    text-align: center;*/
-        /*}*/
+        .grid-container table th:not(.row-header) {
+            width: 28px;
+            height: 28px;
+        }
+
 
         th {
             position: sticky;
@@ -181,7 +181,9 @@
         .row-header {
             height: 28px; /* ← 핵심 */
             max-height: 28px;
-            width: 280px;
+            width: 280px !important;
+            min-width: 280px;
+            max-width: 280px;
 
             font-size: 12px;
             text-align: left;
@@ -275,6 +277,23 @@
             background: #fff;
         }
 
+        .article-table {
+            width: 600px;
+            max-width: 100%;
+        }
+
+        .article-table th,
+        .article-table td {
+            padding: 3px 4px;
+            font-size: 12px;
+        }
+
+        .article-table td:nth-child(1),
+        .article-table td:nth-child(2),
+        .article-table th:nth-child(1),
+        .article-table th:nth-child(2) {
+            text-align: center;
+        }
 
         @media (prefers-color-scheme: dark) {
             :root {
@@ -496,7 +515,9 @@
             dataset[event].media[media].push({
                 url,
                 title: cols[7]?.trim(),   // ← 제목 (TSV 컬럼 맞게 수정)
-                reporter: cols[3]?.trim() // ← 기자 (없으면 빈값)
+                reporter: cols[3]?.trim(), // ← 기자 (없으면 빈값)
+                section: cols[5]?.trim(), // ← 섹션 (없으면 빈값)
+                published_at: cols[6]?.trim() // ← 발행시각 (없으면 빈값)
             });
         });
 
@@ -561,9 +582,9 @@
             ].join('-');
 
             th.innerHTML = `
-    <div class="event-title">${event}</div>
-    <div class="event-date">${dateStr}</div>
-`;
+                <div class="event-title">${event}</div>
+                <div class="event-date">${dateStr}</div>
+            `;
             tr.appendChild(th);
 
 
@@ -587,9 +608,9 @@
                     else if (count >= 2) level = 2;
                     else level = 1;
 
-                    if (count >= 2) {
-                        td.textContent = count;
-                    }
+                    // if (count >= 2) {
+                    //     td.textContent = count;
+                    // }
 
                     // td.onclick = () => window.open(urls[0], "_blank");
                     td.onclick = () => renderArticleList(event, media, urls);
@@ -632,11 +653,16 @@
             ${event} / ${media} (${articles.length})
         </h3>
 
-        <table style="width:100%; border-collapse: collapse; border-spacing: 0; font-size:13px; table-layout: auto;">
+        <table class=article-table style= border-collapse: collapse; border-spacing: 0; font-size:13px; table-layout: fixed;">
+            <colgroup>
+                <col style="width:100px;">
+                <col style="width:100px;">
+                <col>
+            </colgroup>
             <thead>
                 <tr style="border-bottom:1px solid #d0d7de;">
-                    <th style="padding:4px; width:70px;">언론사</th>
-                    <th style="padding:4px; width:80px;">기자</th>
+                    <th style="padding:4px;">기자</th>
+                    <th style="padding:4px;">발행시간</th>
                     <th style="padding:4px;">제목</th>
                 </tr>
             </thead>
@@ -646,27 +672,23 @@
         articles.forEach(a => {
             html += `
             <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:4px 6px;">
-                    <div style="width:70px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        ${media}
-                    </div>
+                <td style="padding:4px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ${a.reporter}
                 </td>
 
-                <td style="padding:4px 6px;">
-                    <div style="width:80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        ${a.reporter || '-'}
-                    </div>
+                <td style="padding:4px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ${a.published_at || '-'}
                 </td>
 
-                <td style="padding:4px 6px;">
-                    <a href="${a.url}" target="_blank" style="display:block;">
-                        ${a.title}
+                <td style="padding:4px 6px; overflow:hidden;">
+                    <a href="${a.url}" target="_blank"
+                       style="display:block; width:100%; padding-left: 14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                       ${a.title}
                     </a>
                 </td>
             </tr>
         `;
         });
-
 
         html += `</tbody></table>`;
         container.innerHTML = html;
