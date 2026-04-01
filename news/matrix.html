@@ -503,25 +503,25 @@
                 const td = document.createElement("td");
                 const urls = dataset[event].media[media];
 
-                if (urls && urls.length > 0) {
-                    td.className = "cell-on";
-                    td.onclick = () => window.open(urls[0], "_blank");
-                } else {
-                    td.className = "cell-off";
-                }
-
-                // let level = 0;
                 // if (urls && urls.length > 0) {
-                //     const count = urls.length;
-                //
-                //     if (count >= 5) level = 4;
-                //     else if (count >= 3) level = 3;
-                //     else if (count >= 2) level = 2;
-                //     else level = 1;
-                //
+                //     td.className = "cell-on";
                 //     td.onclick = () => window.open(urls[0], "_blank");
+                // } else {
+                //     td.className = "cell-off";
                 // }
-                // td.className = `cell-${level}`;
+
+                let level = 0;
+                if (urls && urls.length > 0) {
+                    const count = urls.length;
+
+                    if (count >= 5) level = 4;
+                    else if (count >= 3) level = 3;
+                    else if (count >= 2) level = 2;
+                    else level = 1;
+
+                    td.onclick = () => window.open(urls[0], "_blank");
+                }
+                td.className = `cell-${level}`;
 
                 tr.appendChild(td);
             });
