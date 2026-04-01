@@ -123,25 +123,11 @@
             border-spacing: 4px;
         }
 
-        .cell-0 {
-            background: var(--lv0);
-        }
-
-        .cell-1 {
-            background: var(--lv1);
-        }
-
-        .cell-2 {
-            background: var(--lv2);
-        }
-
-        .cell-3 {
-            background: var(--lv3);
-        }
-
-        .cell-4 {
-            background: var(--lv4);
-        }
+        .cell-0 { background: var(--lv0); }
+        .cell-1 { background: var(--lv1); }
+        .cell-2 { background: var(--lv2); }
+        .cell-3 { background: var(--lv3); }
+        .cell-4 { background: var(--lv4); }
 
         td {
             transition: background 0.15s, transform 0.12s;
@@ -160,13 +146,6 @@
             height: 28px;
             text-align: center;
         }
-
-        /*.grid-container table th,*/
-        /*.grid-container table td {*/
-        /*    width: 28px;*/
-        /*    height: 28px;*/
-        /*    text-align: center;*/
-        /*}*/
 
         th {
             position: sticky;
@@ -373,89 +352,20 @@
         "연합뉴스", "뉴스1", "뉴시스", "조선일보", "중앙일보", "동아일보", "국민일보", "한국일보", "세계일보",
         "이데일리", "매일경제", "한국경제", "머니투데이", "헤럴드경제",
         "KBS", "MBC", "SBS", "JTBC", "YTN", "연합뉴스TV",
-
     ];
 
     const extraMedia = [
-        "마이데일리", "일간스포츠", "스포츠경향", "MBC연예", "뉴스엔", "OSEN", "스타뉴스", "엑스포츠뉴스", "MK스포츠", "헤럴드뮤즈",
-        "스포츠서울", "스포츠조선", "스포츠동아", "스포츠월드", "SBS연예뉴스", "디스패치",
-        "MHN스포츠", "텐아시아", "스포티비뉴스", "아이즈", "경기일보",
-        "아이뉴스24", "서울신문", "디지털데일리", "디지털타임스",
-        "부산일보", "매일신문",
-        "채널A", "TV조선", "조선비즈", "시사저널", "전자신문",
+        "마이데일리", "일간스포츠", "스포츠경향", "MBC연예", "뉴스엔", "OSEN", "스타뉴스", "엑스포츠뉴스","MK스포츠","헤럴드뮤즈",
+        "스포츠서울","스포츠조선", "스포츠동아", "스포츠월드", "SBS연예뉴스", "디스패치",
+        "MHN스포츠", "텐아시아", "스포티비뉴스", "아이즈","경기일보",
+        "아이뉴스24","서울신문","디지털데일리","디지털타임스",
+        "부산일보","매일신문",
+        "채널A", "TV조선","조선비즈","시사저널","전자신문",
         "여성신문",
         "한국경제TV"
-        // "OBS경인TV", "시사IN", "국제신문","이코노미스트","지디넷코리아"
     ];
 
     let showAll = false;
-
-    const mediaLogos = {
-        "연합뉴스": "logos/yna.png",
-        "디지털데일리": "logos/ddaily.jpg",
-        "디지털타임스": "logos/dt.png",
-        "전자신문": "logos/etnews.png",
-        "지디넷코리아": "logos/zdnet.png",
-        "조선비즈": "logos/biz.chosun.png",
-        "시사저널": "logos/sisajournal.png",
-        "아이뉴스24": "logos/inews24.png",
-        "서울신문": "logos/seoul.png",
-        "여성신문": "logos/womennews.png",
-        "뉴스1": "logos/news1.png",
-        "뉴시스": "logos/newsis.png",
-        "조선일보": "logos/chosun.png",
-        "중앙일보": "logos/joongang.png",
-        "동아일보": "logos/donga.png",
-        "국민일보": "logos/kmib.png",
-        "이데일리": "logos/edaily.png",
-        "매일경제": "logos/mk.png",
-        "한국경제": "logos/hankyung.png",
-        "KBS": "logos/kbs.png",
-        "MBC": "logos/mbc.png",
-        "SBS": "logos/sbs.png",
-        "JTBC": "logos/jtbc.png",
-        "YTN": "logos/ytn.png",
-        "연합뉴스TV": "logos/yonhapnewstv.png",
-        "TV조선": "logos/tvchosun.png",
-        "채널A": "logos/ichannela.png",
-        "머니투데이": "logos/mt.png",
-        "동행미디어 시대": "logos/sidae.jpg",
-        "한국일보": "logos/hankookilbo.png",
-        "세계일보": "logos/segye.png",
-        "문화일보": "logos/munhwa.png",
-        "경기일보": "logos/kyeonggi.png",
-        "부산일보": "logos/busan.jpg",
-        "매일신문": "logos/imaeil.png",
-        "헤럴드경제": "logos/biz.heraldcorp.png",
-        "아시아경제": "logos/asiae.png",
-        "경향신문": "logos/khan.png",
-        "한겨레": "logos/hani.png",
-        "노컷뉴스": "logos/nocutnews.png",
-        "더팩트": "logos/tf.png",
-        "데일리안": "logos/dailian.png",
-        "서울경제": "logos/sedaily.png",
-        "파이낸셜뉴스": "logos/fnnews.png",
-        "마이데일리": "logos/mydaily.png",
-        "일간스포츠": "logos/isplus.jpg",
-        "MBC연예": "logos/enews.imbc.png",
-        "SBS연예뉴스": "logos/ent.sbs.png",
-        "디스패치": "logos/dispatch.jpg",
-        "뉴스엔": "logos/newsen.png",
-        "스포츠서울": "logos/sportsseoul.jpg",
-        "스포츠경향": "logos/sports.khan.png",
-        "스포츠조선": "logos/sportschosun.png",
-        "스포츠동아": "logos/sports.donga.jpg",
-        "스포츠월드": "logos/sportsworldi.png",
-        "OSEN": "logos/osen.png",
-        "엑스포츠뉴스": "logos/xportsnews.png",
-        "MHN스포츠": "logos/mhnse.jpg",
-        "텐아시아": "logos/tenasia.png",
-        "MK스포츠": "logos/mksports.png",
-        "헤럴드뮤즈": "logos/heraldmuse.png",
-        "스타뉴스": "logos/starnewskorea.png",
-        "스포티비뉴스": "logos/spotvnews.jpg",
-        "아이즈": "logos/ize.png"
-    };
 
     function normalize(str) {
         return str
@@ -477,8 +387,11 @@
 
             const event = normalize(cols[1]);
             const media = normalize(cols[2]);
-            const dateStr = cols[6]?.trim();
+
+            const title = cols[7]?.trim();
+            const reporter = cols[3]?.trim();
             const url = cols[8]?.trim();
+            const dateStr = cols[6]?.trim();
 
             const date = new Date(dateStr);
 
@@ -490,17 +403,83 @@
                 dataset[event].latestDate = date;
             }
 
-            if (!dataset[event].media[media]) dataset[event].media[media] = [];
-            // if (url) dataset[event].media[media].push(url);
+            if (!dataset[event].media[media]) {
+                dataset[event].media[media] = [];
+            }
 
-            dataset[event].media[media].push({
-                url,
-                title: cols[7]?.trim(),   // ← 제목 (TSV 컬럼 맞게 수정)
-                reporter: cols[3]?.trim() // ← 기자 (없으면 빈값)
-            });
+            if (url) {
+                dataset[event].media[media].push({
+                    title,
+                    reporter,
+                    url,
+                    date,
+                    media
+                });
+            }
         });
 
         return dataset;
+    }
+
+    function renderArticleList(event, media, articles) {
+        const container = document.getElementById("article-list");
+
+        if (!articles || articles.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        // 🔹 dedupe
+        const seen = new Set();
+        articles = articles.filter(a => {
+            const key = a.title?.replace(/\s+/g, '');
+            if (!key || seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+
+        // 🔹 최신순 정렬
+        articles.sort((a, b) => b.date - a.date);
+
+        let html = `
+        <h3 style="margin-bottom:10px;">
+            ${event} / ${media} (${articles.length})
+        </h3>
+
+        <table style="width:100%; border-collapse: collapse; font-size:13px;">
+            <thead>
+                <tr style="border-bottom:1px solid #d0d7de;">
+                    <th style="padding:6px;">언론사</th>
+                    <th style="padding:6px;">날짜</th>
+                    <th style="padding:6px;">기자</th>
+                    <th style="padding:6px;">제목</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+        articles.forEach(a => {
+            const d = new Date(a.date);
+            const dateStr = `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;
+
+            html += `
+            <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:6px;">${a.media}</td>
+                <td style="padding:6px; color:#8b949e;">${dateStr}</td>
+                <td style="padding:6px;">${a.reporter || '-'}</td>
+                <td style="padding:6px;">
+                    <a href="${a.url}" target="_blank" style="text-decoration:none; color:inherit;">
+                        ${a.title}
+                    </a>
+                </td>
+            </tr>
+        `;
+        });
+
+        html += `</tbody></table>`;
+        container.innerHTML = html;
+
+        container.scrollIntoView({ behavior: "smooth" });
     }
 
     function buildTable(dataset) {
@@ -514,25 +493,7 @@
 
         mediaList.forEach(media => {
             const th = document.createElement("th");
-
-            const img = document.createElement("img");
-            img.src = mediaLogos[media];
-            img.className = "logo";
-
-            th.appendChild(img);
-
-            const mediaLabel = document.getElementById("media-label");
-
-            th.onmouseenter = () => {
-                mediaLabel.textContent = media;
-                mediaLabel.classList.add("active");
-            };
-
-            th.onmouseleave = () => {
-                mediaLabel.textContent = '';
-                mediaLabel.classList.remove("active");
-            };
-
+            th.textContent = media;
             headerRow.appendChild(th);
         });
 
@@ -542,17 +503,6 @@
             const th = document.createElement("th");
             th.className = "row-header";
 
-            const mediaLabel = document.getElementById("media-label");
-            th.onmouseenter = () => {
-                mediaLabel.textContent = event;
-                mediaLabel.classList.add("active");
-            };
-
-            th.onmouseleave = () => {
-                mediaLabel.textContent = '';
-                mediaLabel.classList.remove("active");
-            };
-
             const d = dataset[event].latestDate;
             const dateStr = [
                 d.getFullYear(),
@@ -561,41 +511,55 @@
             ].join('-');
 
             th.innerHTML = `
-    <div class="event-title">${event}</div>
-    <div class="event-date">${dateStr}</div>
-`;
-            tr.appendChild(th);
+            <div>${event}</div>
+            <div style="font-size:11px; color:#8b949e;">${dateStr}</div>
+        `;
 
+            // 👉 전체 보기 클릭
+            th.onclick = () => {
+                const allArticles = [];
+
+                Object.keys(dataset[event].media).forEach(m => {
+                    dataset[event].media[m].forEach(a => {
+                        allArticles.push(a);
+                    });
+                });
+
+                renderArticleList(event, "전체", allArticles);
+            };
+
+            tr.appendChild(th);
 
             mediaList.forEach(media => {
                 const td = document.createElement("td");
-                const urls = dataset[event].media[media];
-
-                // if (urls && urls.length > 0) {
-                //     td.className = "cell-on";
-                //     td.onclick = () => window.open(urls[0], "_blank");
-                // } else {
-                //     td.className = "cell-off";
-                // }
+                const articles = dataset[event].media[media];
 
                 let level = 0;
-                if (urls && urls.length > 0) {
-                    const count = urls.length;
+                let count = 0;
+
+                if (articles && articles.length > 0) {
+                    count = articles.length;
 
                     if (count >= 5) level = 4;
                     else if (count >= 3) level = 3;
                     else if (count >= 2) level = 2;
                     else level = 1;
-
-                    if (count >= 2) {
-                        td.textContent = count;
-                    }
-
-                    // td.onclick = () => window.open(urls[0], "_blank");
-                    td.onclick = () => renderArticleList(event, media, urls);
                 }
+
                 td.className = `cell-${level}`;
 
+                // 👉 숫자 표시 (2개 이상만)
+                if (count >= 2) {
+                    td.textContent = count;
+                }
+
+                // 👉 클릭
+                td.onclick = () => {
+                    document.querySelectorAll("td").forEach(td => td.classList.remove("active-cell"));
+                    td.classList.add("active-cell");
+
+                    renderArticleList(event, media, articles);
+                };
 
                 tr.appendChild(td);
             });
@@ -619,58 +583,6 @@
         buildTable(globalData);
     };
 
-    function renderArticleList(event, media, articles) {
-        const container = document.getElementById("article-list");
-
-        if (!articles || articles.length === 0) {
-            container.innerHTML = '';
-            return;
-        }
-
-        let html = `
-        <h3 style="margin-bottom:10px;">
-            ${event} / ${media} (${articles.length})
-        </h3>
-
-        <table style="width:100%; border-collapse: collapse; border-spacing: 0; font-size:13px; table-layout: auto;">
-            <thead>
-                <tr style="border-bottom:1px solid #d0d7de;">
-                    <th style="padding:4px; width:70px;">언론사</th>
-                    <th style="padding:4px; width:80px;">기자</th>
-                    <th style="padding:4px;">제목</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-
-        articles.forEach(a => {
-            html += `
-            <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:4px 6px;">
-                    <div style="width:70px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        ${media}
-                    </div>
-                </td>
-
-                <td style="padding:4px 6px;">
-                    <div style="width:80px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        ${a.reporter || '-'}
-                    </div>
-                </td>
-
-                <td style="padding:4px 6px;">
-                    <a href="${a.url}" target="_blank" style="display:block;">
-                        ${a.title}
-                    </a>
-                </td>
-            </tr>
-        `;
-        });
-
-
-        html += `</tbody></table>`;
-        container.innerHTML = html;
-    }
 </script>
 
 </body>
