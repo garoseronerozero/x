@@ -176,6 +176,32 @@
             background: var(--bg);
         }
 
+        .media-label {
+            /*margin-left: auto;*/
+
+            font-size: 24px;
+            font-weight: 500;
+
+            padding: 2px 0;
+            border-radius: 0;
+
+            border: none;
+            background: none;
+
+            color: #57606a;
+            font-weight: 600;
+
+            letter-spacing: 0.02em;
+
+            margin-left: 2px;
+
+            transition: color 0.15s ease;
+        }
+
+        .media-label.active {
+            color: #1f2328;
+        }
+
         .event-title {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -225,25 +251,6 @@
         }
 
 
-        /*.tooltip {*/
-        /*    position: fixed;*/
-        /*    top: 12px;*/
-        /*    left: 50%;*/
-        /*    transform: translateX(-50%);*/
-        /*    background: #000;*/
-        /*    padding: 6px 10px;*/
-        /*    border-radius: 6px;*/
-        /*    font-size: 12px;*/
-        /*    opacity: 0;*/
-        /*    pointer-events: none;*/
-        /*}*/
-
-        .tooltip {
-            background: #ffffff;
-            color: #24292f;
-            border: 1px solid #d0d7de;
-        }
-
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg: #0d1117;
@@ -263,6 +270,14 @@
 
             .cell-off {
                 background: #161b22;
+            }
+
+            .media-label {
+                color: #c9d1d9;
+            }
+
+            .media-label.active {
+                color: #ffffff;
             }
 
             button {
@@ -290,12 +305,6 @@
                 border-color: #2f4f7f;
                 color: #7fb3ff;
             }
-
-            .tooltip {
-                background: #000;
-                color: #c9d1d9;
-                border: none;
-            }
         }
     </style>
 </head>
@@ -316,6 +325,8 @@
     <div class="nav">
         <a href="../index.html">홈으로</a>
     </div>
+    <div id="media-label" class="media-label"></div>
+
 </div>
 
 <div class="grid-container">
@@ -330,9 +341,6 @@
         </table>
     </div>
 </div>
-
-<div id="tooltip" class="tooltip"></div>
-
 <script>
 
     const coreMedia = [
@@ -452,7 +460,6 @@
     function buildTable(dataset) {
         const headerRow = document.getElementById("header-row");
         const tbody = document.getElementById("body");
-        const tooltip = document.getElementById("tooltip");
 
         headerRow.innerHTML = '<th class="row-header"></th>';
         tbody.innerHTML = '';
@@ -468,13 +475,16 @@
 
             th.appendChild(img);
 
+            const mediaLabel = document.getElementById("media-label");
+
             th.onmouseenter = () => {
-                tooltip.textContent = media;
-                tooltip.style.opacity = 1;
+                mediaLabel.textContent = media;
+                mediaLabel.classList.add("active");
             };
 
             th.onmouseleave = () => {
-                tooltip.style.opacity = 0;
+                mediaLabel.textContent = '';
+                mediaLabel.classList.remove("active");
             };
 
             headerRow.appendChild(th);
@@ -485,6 +495,17 @@
 
             const th = document.createElement("th");
             th.className = "row-header";
+
+            const mediaLabel = document.getElementById("media-label");
+            th.onmouseenter = () => {
+                mediaLabel.textContent = event;
+                mediaLabel.classList.add("active");
+            };
+
+            th.onmouseleave = () => {
+                mediaLabel.textContent = '';
+                mediaLabel.classList.remove("active");
+            };
 
             const d = dataset[event].latestDate;
             const dateStr = [
@@ -498,6 +519,7 @@
     <div class="event-date">${dateStr}</div>
 `;
             tr.appendChild(th);
+
 
             mediaList.forEach(media => {
                 const td = document.createElement("td");
