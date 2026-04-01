@@ -8,15 +8,31 @@
     <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
         <style>
         :root {
-            --bg: #0d1117;
-            --text: #c9d1d9;
-            --lv0: #161b22;
-            --lv3: #26a641;
-            --lv4: #39d353;
+            --bg: #ffffff;
+            --text: #24292f;
+            --lv0: #ebedf0;
+            --lv1: #c6e48b;
+            --lv2: #7bc96f;
+            --lv3: #239a3b;
+            --lv4: #196127;
+        }
+
+        .cell-on {
+            background: #c6e48b;
+            /*border-radius: 6px;*/
+        }
+
+        .cell-off {
+            /*background: #f2f4f6;*/
+            background: #f1f3f5;
+        }
+
+        .cell-on:hover {
+            filter: brightness(1.08);
+            transform: scale(1.05);
+            transition: 0.12s;
         }
 
         body {
@@ -59,7 +75,7 @@
 
         .top-bar h1 {
             margin: 2px;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .nav {
@@ -83,16 +99,13 @@
         }
 
         button {
-            background: #21262d;
-            color: var(--text);
-            border: 1px solid #30363d;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d0d7de;
         }
 
         button:hover {
-            background: #30363d;
+            background: #eef1f4;
         }
 
         .grid-container {
@@ -108,6 +121,20 @@
         table {
             border-collapse: separate;
             border-spacing: 4px;
+        }
+
+        .cell-0 { background: var(--lv0); }
+        .cell-1 { background: var(--lv1); }
+        .cell-2 { background: var(--lv2); }
+        .cell-3 { background: var(--lv3); }
+        .cell-4 { background: var(--lv4); }
+
+        td {
+            transition: background 0.15s, transform 0.12s;
+        }
+
+        td:hover {
+            transform: scale(1.12);
         }
 
         th, td {
@@ -189,7 +216,6 @@
             color: #1a73e8;
         }
 
-
         .logo {
             width: 32px;
             height: 32px;
@@ -198,34 +224,57 @@
             background: #fff;
         }
 
-        .cell-off {
-            background: var(--lv0);
-        }
 
-        .cell-on {
-            background: var(--lv3);
-            transition: 0.15s;
-        }
-
-        .cell-on:hover {
-            background: var(--lv4);
-            transform: scale(1.15);
-        }
+        /*.tooltip {*/
+        /*    position: fixed;*/
+        /*    top: 12px;*/
+        /*    left: 50%;*/
+        /*    transform: translateX(-50%);*/
+        /*    background: #000;*/
+        /*    padding: 6px 10px;*/
+        /*    border-radius: 6px;*/
+        /*    font-size: 12px;*/
+        /*    opacity: 0;*/
+        /*    pointer-events: none;*/
+        /*}*/
 
         .tooltip {
-            position: fixed;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #000;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            opacity: 0;
-            pointer-events: none;
+            background: #ffffff;
+            color: #24292f;
+            border: 1px solid #d0d7de;
         }
 
         @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --text: #c9d1d9;
+                --lv0: #161b22;
+                --lv1: #0e4429;
+                --lv2: #006d32;
+                --lv3: #26a641;
+                --lv4: #39d353;
+            }
+
+            .cell-on {
+                /*background: #3fb950;*/
+                background: #006d32;
+                /*border-radius: 6px;*/
+            }
+
+            .cell-off {
+                background: #161b22;
+            }
+
+            button {
+                background: #21262d;
+                color: #c9d1d9;
+                border: 1px solid #30363d;
+            }
+
+            button:hover {
+                background: #30363d;
+            }
+
             .toggle-button {
                 background: #1f2428;
                 border-color: #30363d;
@@ -240,6 +289,12 @@
                 background: #1b2a3a;
                 border-color: #2f4f7f;
                 color: #7fb3ff;
+            }
+
+            .tooltip {
+                background: #000;
+                color: #c9d1d9;
+                border: none;
             }
         }
     </style>
@@ -448,6 +503,19 @@
                 } else {
                     td.className = "cell-off";
                 }
+
+                // let level = 0;
+                // if (urls && urls.length > 0) {
+                //     const count = urls.length;
+                //
+                //     if (count >= 5) level = 4;
+                //     else if (count >= 3) level = 3;
+                //     else if (count >= 2) level = 2;
+                //     else level = 1;
+                //
+                //     td.onclick = () => window.open(urls[0], "_blank");
+                // }
+                // td.className = `cell-${level}`;
 
                 tr.appendChild(td);
             });
