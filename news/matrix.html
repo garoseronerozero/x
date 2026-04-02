@@ -170,7 +170,13 @@
         th {
             position: sticky;
             top: 0;
-            z-index: 3;
+            z-index: 5;
+
+            background: var(--bg);
+
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         tr {
@@ -198,8 +204,17 @@
 
             position: sticky;
             left: 0;
-            z-index: 4; /* ← header보다 높게 */
+            z-index: 10; /* ← header보다 높게 */
             background: var(--bg);
+            background-clip: padding-box;
+
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        thead th.row-header {
+            z-index: 20; /* 최고 우선순위 */
         }
 
         .media-label {
@@ -435,12 +450,10 @@
         "마이데일리", "일간스포츠", "스포츠경향", "MBC연예", "뉴스엔", "OSEN", "스타뉴스", "엑스포츠뉴스", "MK스포츠", "헤럴드뮤즈",
         "스포츠서울", "스포츠조선", "스포츠동아", "스포츠월드", "SBS연예뉴스", "디스패치",
         "MHN스포츠", "텐아시아", "스포티비뉴스", "아이즈", "경기일보",
-        "아이뉴스24", "서울신문", "디지털데일리", "디지털타임스",
-        "부산일보", "매일신문",
-        "채널A", "TV조선", "조선비즈", "시사저널", "전자신문",
-        "여성신문",
-        "한국경제TV"
-        // "OBS경인TV", "시사IN", "국제신문","이코노미스트","지디넷코리아","주간조선",
+        "아이뉴스24", "서울신문", "디지털타임스",
+        "채널A", "TV조선", "조선비즈", "한국경제TV", "부산일보", "매일신문", "시사저널", "전자신문", "여성신문",
+
+        // "OBS경인TV", "시사IN", "국제신문","이코노미스트","지디넷코리아","주간조선","디지털데일리",
     ];
 
     let showAll = false;
