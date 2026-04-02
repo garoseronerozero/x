@@ -214,6 +214,39 @@
             transform: translateY(1px);
         }
 
+        /* ===== Geo Badge ===== */
+        .geo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 600;
+
+            color: #fff;
+            background: rgba(0, 0, 0, 0.55);
+
+            border-radius: 999px;
+            backdrop-filter: blur(6px);
+
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .platform {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .location {
+            opacity: 0.95;
+            letter-spacing: 0.2px;
+        }
 
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
@@ -247,6 +280,20 @@
 
             .disclaimer {
                 border-top: 1px solid #30363d;
+            }
+
+            .geo-badge {
+                background: rgba(20, 20, 22, 0.75);
+                color: #f1f1f1;
+                backdrop-filter: blur(8px);
+            }
+
+            .platform {
+                opacity: 0.75;
+            }
+
+            .location {
+                opacity: 0.92;
             }
         }
 
@@ -293,6 +340,7 @@
 
         <a class="card" href="https://x.com/i/user/2033537608521834496" target="_blank">
             <img src="../images/2033537608521834496.jpg">
+            <span class="geo-badge"><span class="platform"></span><span class="location">?</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Boba</span>
@@ -304,6 +352,7 @@
 
         <a class="card" href="https://x.com/i/user/1198985255765590019" target="_blank">
             <img src="../images/1198985255765590019.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">North America </span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">옌🧋 → 🔴👖y</span>
@@ -315,6 +364,7 @@
 
         <a class="card" href="https://x.com/i/user/795525178205696000" target="_blank">
             <img src="../images/795525178205696000.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Japan</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">lerainnedoure</span>
@@ -326,6 +376,7 @@
 
         <a class="card" href="https://x.com/i/user/1994617244555644938" target="_blank">
             <img src="../images/1994617244555644938.jpg">
+            <span class="geo-badge"><span class="platform">🌐</span><span class="location">Japan</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">yuine b</span>
@@ -337,6 +388,7 @@
 
         <a class="card" href="https://x.com/i/user/1205562093564350464" target="_blank">
             <img src="../images/1205562093564350464.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">India</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">anni</span>
@@ -348,6 +400,7 @@
 
         <a class="card" href="https://x.com/i/user/1922552762136772608" target="_blank">
             <img src="../images/1922552762136772608.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">AtheistFeminist</span>
@@ -358,6 +411,7 @@
 
         <a class="card" href="https://x.com/i/user/2027489459638571008" target="_blank">
             <img src="../images/2027489459638571008.png">
+            <span class="geo-badge"><span class="platform">🌐</span><span class="location">Africa</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">NaN</span>
@@ -367,8 +421,21 @@
             </div>
         </a>
 
+        <a class="card" href="https://x.com/i/user/1949792299803627522" target="_blank">
+            <img src="../images/1949792299803627522.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Europe</span></span>
+            <div class="overlay">
+                <div class="text-group">
+                    <span class="display_name">jk8998</span>
+                    <span class="created_at">2025-07-28</span>
+                </div>
+                <span class="icon">↗</span>
+            </div>
+        </a>
+
         <a class="card" href="https://x.com/i/user/2006906158951624706" target="_blank">
             <img src="../images/2006906158951624706.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Europe </span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">jk8998</span>
@@ -380,6 +447,7 @@
 
         <a class="card" href="https://x.com/i/user/1999067169494360064" target="_blank">
             <img src="../images/1999067169494360064.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">remember_sae</span>
@@ -391,6 +459,7 @@
 
         <a class="card" href="https://x.com/i/user/1807413320556986368" target="_blank">
             <img src="../images/1807413320556986368.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Malka</span>
@@ -402,6 +471,7 @@
 
         <a class="card" href="https://x.com/i/user/1930766995898941440" target="_blank">
             <img src="../images/1930766995898941440.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Nah 🖤 → Missya 🖤</span>
@@ -413,6 +483,7 @@
 
         <a class="card" href="https://x.com/i/user/959078970363846657" target="_blank">
             <img src="../images/959078970363846657.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Philippines</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">glaiza sonia</span>
@@ -422,19 +493,9 @@
             </div>
         </a>
 
-        <a class="card" href="https://x.com/i/user/1949792299803627522" target="_blank">
-            <img src="../images/1949792299803627522.jpg">
-            <div class="overlay">
-                <div class="text-group">
-                    <span class="display_name">jk8998</span>
-                    <span class="created_at">2025-07-28</span>
-                </div>
-                <span class="icon">↗</span>
-            </div>
-        </a>
-
         <a class="card" href="https://x.com/i/user/1847971487678156800" target="_blank">
             <img src="../images/1847971487678156800.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">asdfghidgaf</span>
@@ -446,6 +507,7 @@
 
         <a class="card" href="https://x.com/i/user/2719501339" target="_blank">
             <img src="../images/2719501339.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">East Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">John Bone</span>
@@ -457,6 +519,7 @@
 
         <a class="card" href="https://x.com/i/user/420539559" target="_blank">
             <img src="../images/420539559.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">North America </span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Tunafish007</span>
@@ -468,6 +531,7 @@
 
         <a class="card" href="https://x.com/i/user/2009464284997455872" target="_blank">
             <img src="../images/2009464284997455872.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">FanofKimSaeron</span>
@@ -479,6 +543,7 @@
 
         <a class="card" href="https://x.com/i/user/2026683707638394881" target="_blank">
             <img src="../images/2026683707638394881.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">North America</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Dara</span>
@@ -490,6 +555,7 @@
 
         <a class="card" href="https://x.com/i/user/1983923954843811840" target="_blank">
             <img src="../images/1983923954843811840.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South America</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">hourly saeron || 시간제새론 (REST)</span>
@@ -501,6 +567,7 @@
 
         <a class="card" href="https://x.com/i/user/1917282615825973248" target="_blank">
             <img src="../images/1917282615825973248.jpg">
+            <span class="geo-badge"><span class="platform">🌐</span><span class="location">Germany</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Lila🧸</span>
@@ -512,6 +579,7 @@
 
         <a class="card" href="https://x.com/i/user/1554151039636422657" target="_blank">
             <img src="../images/1554151039636422657.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">India</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">vic</span>
@@ -523,6 +591,7 @@
 
         <a class="card" href="https://x.com/i/user/1626970113437220866" target="_blank">
             <img src="../images/1626970113437220866.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">🤭</span>
@@ -534,6 +603,7 @@
 
         <a class="card" href="https://x.com/i/user/1315724147041894400" target="_blank">
             <img src="../images/1315724147041894400.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Africa</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Koo_chim 💜 (REST)</span>
@@ -545,6 +615,7 @@
 
         <a class="card" href="https://x.com/i/user/1886714162778357760" target="_blank">
             <img src="../images/1886714162778357760.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Africa</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">mcSteamy</span>
@@ -556,6 +627,7 @@
 
         <a class="card" href="https://x.com/i/user/3693622752" target="_blank">
             <img src="../images/3693622752.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Japan</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">絆咲く</span>
@@ -573,8 +645,10 @@
 
 <footer>
     <p class="disclaimer">
-        Profiles displayed reflect publicly visible information at the time of archival.<br>
+        ⓘ Profiles displayed reflect publicly visible information at the time of archival.
         This site is maintained for archival purposes only and is not intended to target or defame any individual.
+
+        Location labels are based on X data at the time of archival and may be inaccurate or subject to change.
     </p>
 </footer>
 </body>

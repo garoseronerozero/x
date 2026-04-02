@@ -214,6 +214,39 @@
             transform: translateY(1px);
         }
 
+        /* ===== Geo Badge ===== */
+        .geo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 600;
+
+            color: #fff;
+            background: rgba(0, 0, 0, 0.55);
+
+            border-radius: 999px;
+            backdrop-filter: blur(6px);
+
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .platform {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .location {
+            opacity: 0.95;
+            letter-spacing: 0.2px;
+        }
 
         /* Dark mode */
         @media (prefers-color-scheme: dark) {
@@ -247,6 +280,20 @@
 
             .disclaimer {
                 border-top: 1px solid #30363d;
+            }
+
+            .geo-badge {
+                background: rgba(20, 20, 22, 0.75);
+                color: #f1f1f1;
+                backdrop-filter: blur(8px);
+            }
+
+            .platform {
+                opacity: 0.75;
+            }
+
+            .location {
+                opacity: 0.92;
             }
         }
 
@@ -293,6 +340,7 @@
 
         <a class="card" href="https://x.com/i/user/1055852155070898178" target="_blank">
             <img src="../images/1055852155070898178.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">이름짓기귀찮음</span>
@@ -304,6 +352,7 @@
 
         <a class="card" href="https://x.com/i/user/3822783373" target="_blank">
             <img src="../images/3822783373.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Southeast Asia </span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">GUJASABMUNG</span>
@@ -315,6 +364,7 @@
 
         <a class="card" href="https://x.com/i/user/1029015576658628609" target="_blank">
             <img src="../images/1029015576658628609.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Thailand</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">🐰</span>
@@ -326,6 +376,7 @@
 
         <a class="card" href="https://x.com/i/user/1048876194026872832" target="_blank">
             <img src="../images/1048876194026872832.jpg">
+            <span class="geo-badge"><span class="platform">🌐</span><span class="location">Thailand</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">🤍🤍🤍🤍</span>
@@ -337,6 +388,7 @@
 
         <a class="card" href="https://x.com/i/user/1200768731506302976" target="_blank">
             <img src="../images/1200768731506302976.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Thailand</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">🍰🍭TWICE🍭🍰</span>
@@ -348,6 +400,7 @@
 
         <a class="card" href="https://x.com/i/user/1565580281205358593" target="_blank">
             <img src="../images/1565580281205358593.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Thailand</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Badguy Ver.01</span>
@@ -359,6 +412,7 @@
 
         <a class="card" href="https://x.com/i/user/1398128157283303424" target="_blank">
             <img src="../images/1398128157283303424.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South America</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">olly 🌘🌑🌒</span>
@@ -370,6 +424,7 @@
 
         <a class="card" href="https://x.com/i/user/1205562093564350464" target="_blank">
             <img src="../images/1205562093564350464.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">India</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">anni</span>
@@ -381,6 +436,7 @@
 
         <a class="card" href="https://x.com/i/user/1999067169494360064" target="_blank">
             <img src="../images/1999067169494360064.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">remember_sae</span>
@@ -392,6 +448,7 @@
 
         <a class="card" href="https://x.com/i/user/1827646919285600257" target="_blank">
             <img src="../images/1827646919285600257.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">South Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">T</span>
@@ -403,6 +460,7 @@
 
         <a class="card" href="https://x.com/i/user/1988977649910435840" target="_blank">
             <img src="../images/1988977649910435840.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">kai</span>
@@ -414,6 +472,7 @@
 
         <a class="card" href="https://x.com/i/user/1969780147177005056" target="_blank">
             <img src="../images/1969780147177005056.jpg">
+            <span class="geo-badge"><span class="platform">🤖</span><span class="location">Southeast Asia</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">λουλούδι</span>
@@ -425,6 +484,7 @@
 
         <a class="card" href="https://x.com/i/user/1434447676158906368" target="_blank">
             <img src="../images/1434447676158906368.jpg">
+            <span class="geo-badge"><span class="platform">🍎</span><span class="location">Korea</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">k.ll</span>
@@ -436,6 +496,7 @@
 
         <a class="card" href="https://x.com/i/user/2033537608521834496" target="_blank">
             <img src="../images/2033537608521834496.jpg">
+            <span class="geo-badge"><span class="platform"></span><span class="location">?</span></span>
             <div class="overlay">
                 <div class="text-group">
                     <span class="display_name">Boba</span>
@@ -451,8 +512,10 @@
 
 <footer>
     <p class="disclaimer">
-        Profiles displayed reflect publicly visible information at the time of archival.<br>
+        ⓘ Profiles displayed reflect publicly visible information at the time of archival.
         This site is maintained for archival purposes only and is not intended to target or defame any individual.
+
+        Location labels are based on X data at the time of archival and may be inaccurate or subject to change.
     </p>
 </footer>
 </body>
