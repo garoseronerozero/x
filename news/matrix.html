@@ -297,8 +297,9 @@
         .case-000 { background: rgba(80,140,255,.16); border-left:3px solid rgba(70,120,255,.55); color:#1c2b4a; }
         .case-000:hover { background: rgba(80,140,255,.26); }
 
-        .case-001 { background: rgba(255,120,150,.18); border-left:3px solid rgba(255,90,120,.6); color:#3a1f25; }
-        .case-001:hover { background: rgba(255,120,150,.28); }
+        .case-001{background:rgba(200,110,180,.20);border-left:3px solid rgba(180,70,160,.65);color:#3a1f33;box-shadow:inset 0 0 0 1px rgba(200,110,180,.25);}
+        .case-001:hover{background:rgba(200,110,180,.32);}
+
 
         .case-002 { background: rgba(255,200,80,.20); border-left:3px solid rgba(240,180,60,.6); color:#4a3b1c; }
         .case-002:hover { background: rgba(255,200,80,.30); }
@@ -370,8 +371,8 @@
             .case-000 { background: rgba(90,150,255,.28); border-left:3px solid rgba(120,170,255,.8); color:#e6eeff; }
             .case-000:hover { background: rgba(90,150,255,.40); }
 
-            .case-001 { background: rgba(255,120,140,.28); border-left:3px solid rgba(255,140,160,.85); color:#ffe3e6; }
-            .case-001:hover { background: rgba(255,120,140,.40); }
+            .case-001{background:rgba(210,120,190,.32);border-left:3px solid rgba(230,150,210,.9);color:#ffe6f7;box-shadow:inset 0 0 0 1px rgba(255,160,220,.12);}
+            .case-001:hover{background:rgba(210,120,190,.45);}
 
             .case-002 { background: rgba(255,190,90,.28); border-left:3px solid rgba(255,210,120,.85); color:#fff4d6; }
             .case-002:hover { background: rgba(255,190,90,.42); }
@@ -623,16 +624,16 @@
                 th.classList.add('case-005');
             }
 
-            const mediaLabel = document.getElementById("media-label");
-            th.onmouseenter = () => {
-                mediaLabel.textContent = event;
-                mediaLabel.classList.add("active");
-            };
-
-            th.onmouseleave = () => {
-                mediaLabel.textContent = '';
-                mediaLabel.classList.remove("active");
-            };
+            // const mediaLabel = document.getElementById("media-label");
+            // th.onmouseenter = () => {
+            //     mediaLabel.textContent = event;
+            //     mediaLabel.classList.add("active");
+            // };
+            //
+            // th.onmouseleave = () => {
+            //     mediaLabel.textContent = '';
+            //     mediaLabel.classList.remove("active");
+            // };
 
             const d = dataset[event].latestDate;
             const dateStr = [
