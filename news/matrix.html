@@ -167,7 +167,6 @@
             height: 28px;
         }
 
-
         th {
             position: sticky;
             top: 0;
@@ -295,6 +294,24 @@
             text-align: center;
         }
 
+        .case-000 { background: rgba(80,140,255,.16); border-left:3px solid rgba(70,120,255,.55); color:#1c2b4a; }
+        .case-000:hover { background: rgba(80,140,255,.26); }
+
+        .case-001 { background: rgba(255,120,150,.18); border-left:3px solid rgba(255,90,120,.6); color:#3a1f25; }
+        .case-001:hover { background: rgba(255,120,150,.28); }
+
+        .case-002 { background: rgba(255,200,80,.20); border-left:3px solid rgba(240,180,60,.6); color:#4a3b1c; }
+        .case-002:hover { background: rgba(255,200,80,.30); }
+
+        .case-003 { background: rgba(80,200,180,.18); border-left:3px solid rgba(60,170,150,.55); color:#1b3a36; }
+        .case-003:hover { background: rgba(80,200,180,.28); }
+
+        .case-004 { background: rgba(160,120,255,.18); border-left:3px solid rgba(140,100,255,.55); color:#2a224a; }
+        .case-004:hover { background: rgba(160,120,255,.28); }
+
+        .case-005 { background: rgba(120,130,150,.18); border-left:3px solid rgba(90,100,120,.55); color:#1f2328; }
+        .case-005:hover { background: rgba(120,130,150,.28); }
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg: #0d1117;
@@ -349,6 +366,24 @@
                 border-color: #2f4f7f;
                 color: #7fb3ff;
             }
+
+            .case-000 { background: rgba(90,150,255,.28); border-left:3px solid rgba(120,170,255,.8); color:#e6eeff; }
+            .case-000:hover { background: rgba(90,150,255,.40); }
+
+            .case-001 { background: rgba(255,120,140,.28); border-left:3px solid rgba(255,140,160,.85); color:#ffe3e6; }
+            .case-001:hover { background: rgba(255,120,140,.40); }
+
+            .case-002 { background: rgba(255,190,90,.28); border-left:3px solid rgba(255,210,120,.85); color:#fff4d6; }
+            .case-002:hover { background: rgba(255,190,90,.42); }
+
+            .case-003 { background: rgba(80,210,190,.28); border-left:3px solid rgba(120,230,210,.8); color:#d9fffb; }
+            .case-003:hover { background: rgba(80,210,190,.40); }
+
+            .case-004 { background: rgba(170,130,255,.28); border-left:3px solid rgba(200,160,255,.85); color:#f0eaff; }
+            .case-004:hover { background: rgba(170,130,255,.40); }
+
+            .case-005 { background: rgba(160,170,190,.22); border-left:3px solid rgba(200,210,230,.75); color:#e6edf3; }
+            .case-005:hover { background: rgba(160,170,190,.34); }
         }
     </style>
 </head>
@@ -564,6 +599,30 @@
             const th = document.createElement("th");
             th.className = "row-header";
 
+            const case000 = ['김수현 측'];
+
+            if (case000.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-000');
+            }
+
+            const case001 = ['김새론 유족', '가세연', '김새론 절친 폭로', '청원 1', '청원 2'];
+
+            if (case001.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-001');
+            }
+
+            const case002 = ['디즈니플러스', '원빈', '이진호', '청원 3'];
+
+            if (case002.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-002');
+            }
+
+            const case005 = ['경찰', '검찰'];
+
+            if (case005.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-005');
+            }
+
             const mediaLabel = document.getElementById("media-label");
             th.onmouseenter = () => {
                 mediaLabel.textContent = event;
@@ -694,6 +753,7 @@
         html += `</tbody></table>`;
         container.innerHTML = html;
     }
+</script>
 </script>
 
 </body>
