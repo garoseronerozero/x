@@ -211,6 +211,10 @@
             transform: translateZ(0);
             will-change: transform;
             backface-visibility: hidden;
+
+            isolation: isolate;
+            transform: translateZ(0);
+            background-clip: padding-box;
         }
 
         thead th.row-header {
