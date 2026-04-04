@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <title>X Archive</title>
+
+    <link rel="icon" href="../favicon.ico">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .header {
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        h1 .sub {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.7;
+            margin-top: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display:flex;
+            gap:8px;
+        }
+
+        .nav a {
+            font-size: 13px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+            background: #f6f8fa;
+            color: #57606a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav a:hover {
+            background: #eef1f4;
+        }
+
+        /* 설명 */
+        .description {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .quicklinks {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .quicklinks a {
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: #f3f6fb;
+            border: 1px solid #e2e6ee;
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .quicklinks a:hover {
+            background: #e9f1ff;
+        }
+
+        .grid {
+            column-count: 2;
+            column-gap: 18px;
+        }
+
+        .card {
+            break-inside: avoid;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 10px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        /* embed 안정화 */
+        .card iframe {
+            width: 100% !important;
+        }
+
+
+        .disclaimer {
+            margin-top: 40px;
+            padding-top: 16px;
+
+            /*border-top: 1px solid #eaeef2;*/
+
+            font-size: 12px;
+            color: #8b949e;
+
+            text-align: center;
+        }
+
+        /* 모바일 */
+        @media (max-width: 700px) {
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h1 .sub {
+                font-size: 14px;
+            }
+
+            .grid {
+                column-count: unset;   /* column 끄기 */
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .card {
+                break-inside: unset;   /* 안전하게 제거 */
+            }
+        }
+
+        /* 다크모드 */
+        @media (prefers-color-scheme: dark) {
+
+            h1 .sub {
+                opacity: 0.85;
+                color: #e6edf3;
+
+                text-shadow:
+                        0 0 6px rgba(255,255,255,0.15),
+                        0 0 12px rgba(255,255,255,0.08);
+            }
+
+            body {
+                background: #0d1117;
+                color: #e6edf3;
+            }
+
+            .card {
+                background: #161b22;
+                border-color: #30363d;
+            }
+
+            .nav a {
+                background: #1f2428;
+                border-color: #30363d;
+                color: #c9d1d9;
+            }
+
+            .nav a:hover {
+                background: #24292f;
+            }
+
+            .description {
+                color: #9da7b3;
+            }
+
+            .quicklinks a {
+                background: #161b22;
+                border-color: #30363d;
+                color: #7fb3ff;
+            }
+
+            .quicklinks a:hover {
+                background: #1f2630;
+            }
+
+            .disclaimer {
+                border-color: #30363d;
+                color: #6e7681;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>
+        I saw it wrong, then saw it right.
+        <span class="sub">The light came after. 🪄</span>
+    </h1>
+
+    <div class="nav">
+        <a href="./index.html">홈으로</a>
+        <!--        <a href="./gallery/index.html">갤러리</a>-->
+        <!--        <a href="./status.html">게시물 상태</a>-->
+    </div>
+</div>
+
+<div class="description">
+
+</div>
+
+<!-- Link -->
+<!--<div class="quicklinks">-->
+<!--    <a href="https://kimfactwithu.notion.site/" target="_blank" rel="noopener noreferrer">팩트체크-->
+<!--        ↗</a>-->
+<!--    <a href="https://www.google.com/collections/s/list/C48oFuVy6Yb0shEo3rdKqg/SwPE47LAnZ4" target="_blank" rel="noopener noreferrer">논평-->
+<!--        ↗</a>-->
+<!--    <a href="https://www.google.com/collections/s/list/9fmpQKtSSx6hgMW2pYOXPw/GREpU9deZLY" target="_blank" rel="noopener noreferrer">팬덤활동-->
+<!--        ↗</a>-->
+<!--</div>-->
+
+
+
+
+<!--<blockquote class="twitter-tweet">-->
+<!--    <a href="https://twitter.com/Interior/status/463440424141459456"></a>-->
+<!--</blockquote>-->
+
+<div class="grid">
+
+    <div class="card">
+        <blockquote class="twitter-tweet" data-conversation="none">
+            <a href="https://twitter.com/dalchuna/status/2040187832430694819"></a>
+        </blockquote>
+    </div>
+
+
+    <div class="card">
+        <blockquote class="twitter-tweet" data-conversation="none">
+            <a href="https://twitter.com/kshine216/status/1934903749174301042"></a>
+        </blockquote>
+    </div>
+
+</div>
+
+<!-- script는 반드시 한 번 -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+<div class="disclaimer">
+    Content is embedded from external sources and not controlled by this site.
+</div>
+</html>

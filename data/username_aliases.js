@@ -159,7 +159,7 @@ const USER_LIST = [
   { id: "wiqpffls2", label: "도4" },
   { id: "n9_54321", label: "도5" },
   { id: "mi_ro__", label: "도6" },
-  // { id: "wiqpffls2", label: "도7" },
+  { id: "icebluelhj", label: "도7" },
   // { id: "wiqpffls2", label: "도8" },
   // { id: "wiqpffls2", label: "도9" },
   // { id: "wiqpffls2", label: "도10"},
