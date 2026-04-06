@@ -160,13 +160,22 @@ const USER_LIST = [
   { id: "n9_54321", label: "도5" },
   { id: "mi_ro__", label: "도6" },
   { id: "icebluelhj", label: "도7" },
-  // { id: "wiqpffls2", label: "도8" },
-  // { id: "wiqpffls2", label: "도9" },
-  // { id: "wiqpffls2", label: "도10"},
+  { id: "sanggakhae", label: "도8" },
+  { id: "wntjdwntjdgo", label: "도9" },
+  { id: "wnyostummehr", label: "도10"},
   //
-  // { id: "wiqpffls2", label: "레1"},
+  { id: "sunshine_mong", label: "레1"},
   // { id: "wiqpffls2", label: "레2"},
   // { id: "wiqpffls2", label: "레3"},
+  // { id: "wiqpffls2", label: "레4"},
+  // { id: "wiqpffls2", label: "레5"},
+  // { id: "wiqpffls2", label: "레6"},
+  // { id: "wiqpffls2", label: "레7"},
+  // { id: "wiqpffls2", label: "레8"},
+  // { id: "wiqpffls2", label: "레9"},
+  // { id: "wiqpffls2", label: "레10"},
+
+  // { id: "wiqpffls2", label: "미1"},
 
   { id: "temp", label: "TEMP" }
 ]
