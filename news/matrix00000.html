@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Coverage Matrix</title>
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #24292f;
+            --lv0: #ebedf0;
+            --lv1: #c6e48b;
+            --lv2: #7bc96f;
+            --lv3: #239a3b;
+            --lv4: #196127;
+        }
+
+        .cell-on {
+            background: #c6e48b;
+            /*border-radius: 6px;*/
+        }
+
+        .cell-off {
+            /*background: #f2f4f6;*/
+            background: #f1f3f5;
+        }
+
+        .cell-on:hover {
+            filter: brightness(1.08);
+            transform: scale(1.05);
+            transition: 0.12s;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            display: flex;
+            /*justify-content: flex-end;*/
+            /*margin-bottom: 10px;*/
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* ← 이걸로 변경 */
+            gap: 8px; /* 제목과 버튼 사이 간격 */
+            margin-bottom: 18px;
+        }
+
+        .title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .description {
+            font-size: 12px;
+            color: #8b949e;
+            margin-top: 2px;
+            margin-left: 2px;
+        }
+
+        .top-bar h1 {
+            margin: 2px;
+            font-size: 20px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav a {
+            font-size: 13px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+            background: #f6f8fa;
+            color: #57606a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav a:hover {
+            background: #eef1f4;
+        }
+
+        button {
+            background: #f6f8fa;
+            color: #24292f;
+            border: 1px solid #d0d7de;
+        }
+
+        button:hover {
+            background: #eef1f4;
+        }
+
+        .grid-container {
+            overflow: auto;
+            max-height: 60vh;
+            margin-top: 2px;
+        }
+
+        .table-wrap {
+            min-width: max-content;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 4px;
+        }
+
+        .cell-0 {
+            background: var(--lv0);
+        }
+
+        .cell-1 {
+            background: var(--lv1);
+        }
+
+        .cell-2 {
+            background: var(--lv2);
+        }
+
+        .cell-3 {
+            background: var(--lv3);
+        }
+
+        .cell-4 {
+            background: var(--lv4);
+        }
+
+        td {
+            transition: background 0.12s ease;
+            min-width: 0;
+        }
+
+        td:hover {
+            filter: brightness(1.06);
+        }
+
+
+        td.active-cell {
+            outline: 2px solid #1a73e8;
+        }
+
+        .grid-container table td {
+            width: 28px;
+            height: 28px;
+        }
+
+        .grid-container table th:not(.row-header) {
+            width: 28px;
+            height: 28px;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+
+            background: var(--bg);
+
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        tr {
+            height: 28px;
+        }
+
+        .row-header {
+            height: 28px; /* ← 핵심 */
+            max-height: 28px;
+            width: 280px !important;
+            min-width: 280px;
+            max-width: 280px;
+
+            font-size: 12px;
+            text-align: left;
+            /*padding: 4px 6px;*/
+
+            line-height: 1.2;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* ← 핵심 */
+            -webkit-box-orient: vertical;
+
+            overflow: hidden;
+
+            position: sticky;
+            left: 0;
+            z-index: 10; /* ← header보다 높게 */
+            background: var(--bg);
+            background-clip: padding-box;
+
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
+
+            isolation: isolate;
+            transform: translateZ(0);
+            background-clip: padding-box;
+        }
+
+        thead th.row-header {
+            z-index: 20; /* 최고 우선순위 */
+        }
+
+        .media-label {
+            /*margin-left: auto;*/
+
+            font-size: 24px;
+            font-weight: 500;
+
+            padding: 2px 0;
+            border-radius: 0;
+
+            border: none;
+            background: none;
+
+            color: #57606a;
+            font-weight: 600;
+
+            letter-spacing: 0.02em;
+
+            margin-left: 2px;
+
+            transition: color 0.15s ease;
+        }
+
+        .media-label.active {
+            color: #1f2328;
+        }
+
+        .event-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .event-date {
+            font-size: 11px;
+            color: #8b949e;
+            margin-top: 2px;
+        }
+
+        .toggle-button {
+            font-size: 13px;
+            padding: 7px 14px;
+
+            border-radius: 8px;
+            border: 1px solid #d0d7de;
+
+            background: #f6f8fa;
+            color: #57606a;
+
+            text-decoration: none;
+            font-weight: 600;
+
+            transition: background 0.15s, transform 0.05s, border-color 0.15s;
+        }
+
+        .toggle-button:hover {
+            background: #eef1f4;
+        }
+
+        /* 활성 상태 */
+        .toggle-button.active {
+            background: #e9f1ff;
+            border-color: #c7dbff;
+            color: #1a73e8;
+        }
+
+        .logo {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .article-table {
+            width: 600px;
+            max-width: 100%;
+        }
+
+        .article-table th,
+        .article-table td {
+            padding: 3px 4px;
+            font-size: 12px;
+        }
+
+        .article-table td:nth-child(1),
+        .article-table td:nth-child(2),
+        .article-table th:nth-child(1),
+        .article-table th:nth-child(2) {
+            text-align: center;
+        }
+
+        .case-000 { background: rgba(80,140,255,.16); border-left:3px solid rgba(70,120,255,.55); color:#1c2b4a; }
+        .case-000:hover { background: rgba(80,140,255,.26); }
+
+        .case-001{background:rgba(200,110,180,.20);border-left:3px solid rgba(180,70,160,.65);color:#3a1f33;box-shadow:inset 0 0 0 1px rgba(200,110,180,.25);}
+        .case-001:hover{background:rgba(200,110,180,.32);}
+
+
+        .case-002 { background: rgba(255,200,80,.20); border-left:3px solid rgba(240,180,60,.6); color:#4a3b1c; }
+        .case-002:hover { background: rgba(255,200,80,.30); }
+
+        .case-003 { background: rgba(80,200,180,.18); border-left:3px solid rgba(60,170,150,.55); color:#1b3a36; }
+        .case-003:hover { background: rgba(80,200,180,.28); }
+
+        .case-004 { background: rgba(160,120,255,.18); border-left:3px solid rgba(140,100,255,.55); color:#2a224a; }
+        .case-004:hover { background: rgba(160,120,255,.28); }
+
+        .case-005 { background: rgba(120,130,150,.18); border-left:3px solid rgba(90,100,120,.55); color:#1f2328; }
+        .case-005:hover { background: rgba(120,130,150,.28); }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --text: #c9d1d9;
+                --lv0: #161b22;
+                --lv1: #0e4429;
+                --lv2: #006d32;
+                --lv3: #26a641;
+                --lv4: #39d353;
+            }
+
+            .cell-on {
+                /*background: #3fb950;*/
+                background: #006d32;
+                /*border-radius: 6px;*/
+            }
+
+            .cell-off {
+                background: #161b22;
+            }
+
+            .media-label {
+                color: #c9d1d9;
+            }
+
+            .media-label.active {
+                color: #ffffff;
+            }
+
+            button {
+                background: #21262d;
+                color: #c9d1d9;
+                border: 1px solid #30363d;
+            }
+
+            button:hover {
+                background: #30363d;
+            }
+
+            .toggle-button {
+                background: #1f2428;
+                border-color: #30363d;
+                color: #c9d1d9;
+            }
+
+            .toggle-button:hover {
+                background: #24292f;
+            }
+
+            .toggle-button.active {
+                background: #1b2a3a;
+                border-color: #2f4f7f;
+                color: #7fb3ff;
+            }
+
+            .case-000 { background: rgba(90,150,255,.28); border-left:3px solid rgba(120,170,255,.8); color:#e6eeff; }
+            .case-000:hover { background: rgba(90,150,255,.40); }
+
+            .case-001{background:rgba(210,120,190,.32);border-left:3px solid rgba(230,150,210,.9);color:#ffe6f7;box-shadow:inset 0 0 0 1px rgba(255,160,220,.12);}
+            .case-001:hover{background:rgba(210,120,190,.45);}
+
+            .case-002 { background: rgba(255,190,90,.28); border-left:3px solid rgba(255,210,120,.85); color:#fff4d6; }
+            .case-002:hover { background: rgba(255,190,90,.42); }
+
+            .case-003 { background: rgba(80,210,190,.28); border-left:3px solid rgba(120,230,210,.8); color:#d9fffb; }
+            .case-003:hover { background: rgba(80,210,190,.40); }
+
+            .case-004 { background: rgba(170,130,255,.28); border-left:3px solid rgba(200,160,255,.85); color:#f0eaff; }
+            .case-004:hover { background: rgba(170,130,255,.40); }
+
+            .case-005 { background: rgba(160,170,190,.22); border-left:3px solid rgba(200,210,230,.75); color:#e6edf3; }
+            .case-005:hover { background: rgba(160,170,190,.34); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="title-wrap">
+        <h1>언론사 보도 매트릭스 🚧 실험중 🚧</h1>
+        <div class="description">
+            네이버 뉴스를 기준으로 합니다. 누락 가능성 있습니다.
+        </div>
+    </div>
+
+    <button id="toggleBtn" class="toggle-button">
+        펼쳐 보기 (언론사 확대)
+    </button>
+    <div class="nav">
+        <a href="../index.html">홈으로</a>
+    </div>
+    <div id="media-label" class="media-label"></div>
+
+</div>
+
+<div class="grid-container">
+    <div class="table-wrap">
+        <table>
+            <thead>
+            <tr id="header-row">
+                <th class="row-header"></th>
+            </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
+    </div>
+</div>
+<div id="article-list" style="margin-top:20px;"></div>
+<script>
+
+    const coreMedia = [
+        "연합뉴스", "뉴스1", "뉴시스", "조선일보", "중앙일보", "동아일보",
+        "국민일보", "한국일보", "세계일보", "경향신문", "한겨레","문화일보",
+        "이데일리", "매일경제", "한국경제", "머니투데이", "헤럴드경제",
+        "KBS", "MBC", "SBS", "JTBC", "YTN", "연합뉴스TV",
+
+    ];
+
+    const extraMedia = [
+        "더팩트", "데일리안", "파이낸셜뉴스", "동행미디어 시대", "아시아경제", "서울경제",
+        "마이데일리", "일간스포츠", "스포츠경향", "MBC연예", "뉴스엔", "OSEN", "스타뉴스", "엑스포츠뉴스", "MK스포츠", "헤럴드뮤즈",
+        "스포츠서울", "스포츠조선", "스포츠동아", "스포츠월드", "SBS연예뉴스", "디스패치",
+        "MHN스포츠", "텐아시아", "스포티비뉴스", "아이즈", "경기일보",
+        "아이뉴스24", "서울신문", "디지털타임스",
+        "채널A", "TV조선", "조선비즈", "한국경제TV", "부산일보", "매일신문", "시사저널", "전자신문", "여성신문","코리아중앙데일리"
+
+        // "OBS경인TV", "시사IN", "국제신문","이코노미스트","지디넷코리아","주간조선","디지털데일리",
+    ];
+
+    let showAll = false;
+
+    const mediaLogos = {
+        "연합뉴스": "logos/yna.png",
+        "뉴스1": "logos/news1.png",
+        "뉴시스": "logos/newsis.png",
+        "조선일보": "logos/chosun.png",
+        "중앙일보": "logos/joongang.png",
+        "동아일보": "logos/donga.png",
+        "국민일보": "logos/kmib.png",
+        "이데일리": "logos/edaily.png",
+        "매일경제": "logos/mk.png",
+        "한국경제": "logos/hankyung.png",
+        "KBS": "logos/kbs.png",
+        "MBC": "logos/mbc.png",
+        "SBS": "logos/sbs.png",
+        "JTBC": "logos/jtbc.png",
+        "YTN": "logos/ytn.png",
+        "연합뉴스TV": "logos/yonhapnewstv.png",
+        "TV조선": "logos/tvchosun.png",
+        "채널A": "logos/ichannela.png",
+        "머니투데이": "logos/mt.png",
+        "동행미디어 시대": "logos/sidae.jpg",
+        "한국일보": "logos/hankookilbo.png",
+        "세계일보": "logos/segye.png",
+        "문화일보": "logos/munhwa.png",
+        "경기일보": "logos/kyeonggi.png",
+        "부산일보": "logos/busan.jpg",
+        "매일신문": "logos/imaeil.png",
+        "디지털데일리": "logos/ddaily.jpg",
+        "디지털타임스": "logos/dt.png",
+        "전자신문": "logos/etnews.png",
+        "지디넷코리아": "logos/zdnet.png",
+        "조선비즈": "logos/biz.chosun.png",
+        "시사저널": "logos/sisajournal.png",
+        "아이뉴스24": "logos/inews24.png",
+        "서울신문": "logos/seoul.png",
+        "여성신문": "logos/womennews.png",
+        "한국경제TV": "logos/wowtv.png",
+        "헤럴드경제": "logos/biz.heraldcorp.png",
+        "아시아경제": "logos/asiae.png",
+        "경향신문": "logos/khan.png",
+        "한겨레": "logos/hani.png",
+        "노컷뉴스": "logos/nocutnews.png",
+        "더팩트": "logos/tf.png",
+        "데일리안": "logos/dailian.png",
+        "서울경제": "logos/sedaily.png",
+        "파이낸셜뉴스": "logos/fnnews.png",
+        "마이데일리": "logos/mydaily.png",
+        "일간스포츠": "logos/isplus.jpg",
+        "MBC연예": "logos/enews.imbc.png",
+        "SBS연예뉴스": "logos/ent.sbs.png",
+        "디스패치": "logos/dispatch.jpg",
+        "뉴스엔": "logos/newsen.png",
+        "스포츠서울": "logos/sportsseoul.jpg",
+        "스포츠경향": "logos/sports.khan.png",
+        "스포츠조선": "logos/sportschosun.png",
+        "스포츠동아": "logos/sports.donga.jpg",
+        "스포츠월드": "logos/sportsworldi.png",
+        "OSEN": "logos/osen.png",
+        "엑스포츠뉴스": "logos/xportsnews.png",
+        "MHN스포츠": "logos/mhnse.jpg",
+        "텐아시아": "logos/tenasia.png",
+        "MK스포츠": "logos/mksports.png",
+        "헤럴드뮤즈": "logos/heraldmuse.png",
+        "스타뉴스": "logos/starnewskorea.png",
+        "스포티비뉴스": "logos/spotvnews.jpg",
+        "아이즈": "logos/ize.png"
+    };
+
+    function normalize(str) {
+        return str
+            .replace(/[\u200B-\u200D\uFEFF]/g, "")
+            .replace(/["']/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    async function loadData() {
+        const res = await fetch("./data/raw.tsv");
+        const text = await res.text();
+
+        const rows = text.trim().split("\n");
+        const dataset = {};
+
+        rows.forEach(line => {
+            const cols = line.split("\t");
+
+            const event = normalize(cols[1]);
+            const media = normalize(cols[2]);
+            const dateStr = cols[6]?.trim();
+            const url = cols[8]?.trim();
+
+            const date = new Date(dateStr);
+
+            if (!dataset[event]) {
+                dataset[event] = {media: {}, latestDate: date};
+            }
+
+            if (date < dataset[event].latestDate) {
+                dataset[event].latestDate = date;
+            }
+
+            if (!dataset[event].media[media]) dataset[event].media[media] = [];
+            // if (url) dataset[event].media[media].push(url);
+
+            dataset[event].media[media].push({
+                url,
+                title: cols[7]?.trim(),   // ← 제목 (TSV 컬럼 맞게 수정)
+                reporter: cols[3]?.trim(), // ← 기자 (없으면 빈값)
+                section: cols[5]?.trim(), // ← 섹션 (없으면 빈값)
+                published_at: cols[6]?.trim() // ← 발행시각 (없으면 빈값)
+            });
+        });
+
+        return dataset;
+    }
+
+    function buildTable(dataset) {
+        const headerRow = document.getElementById("header-row");
+        const tbody = document.getElementById("body");
+
+        headerRow.innerHTML = '<th class="row-header"></th>';
+        tbody.innerHTML = '';
+
+        const mediaList = showAll ? [...coreMedia, ...extraMedia] : coreMedia;
+
+        mediaList.forEach(media => {
+            const th = document.createElement("th");
+
+            const img = document.createElement("img");
+            img.src = mediaLogos[media];
+            img.className = "logo";
+
+            th.appendChild(img);
+
+            const mediaLabel = document.getElementById("media-label");
+
+            th.onmouseenter = () => {
+                mediaLabel.textContent = media;
+                mediaLabel.classList.add("active");
+            };
+
+            th.onmouseleave = () => {
+                mediaLabel.textContent = '';
+                mediaLabel.classList.remove("active");
+            };
+
+            headerRow.appendChild(th);
+        });
+
+        Object.keys(dataset).forEach(event => {
+            const tr = document.createElement("tr");
+
+            const th = document.createElement("th");
+            th.className = "row-header";
+
+            const case000 = ['김수현 측', '김수현'];
+
+            if (case000.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-000');
+            }
+
+            const case001 = ['김새론 유족', '가세연', '김새론 절친 폭로', '청원 1', '청원 2', '영화 리얼', '김새론 남편'];
+
+            if (case001.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-001');
+            }
+
+            const case002 = ['디즈니플러스', '김수현 소송비', '김수현, 광고주', '쿠쿠', '딘토',  '넉오프', '굿데이', '원빈', '추성훈', '이진호', '청원 3',
+                '김새론 전남친', '김새론 장례'];
+
+            if (case002.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-002');
+            }
+
+            const case005 = ['경찰', '검찰'];
+
+            if (case005.some(k => event.trim().startsWith(k))) {
+                th.classList.add('case-005');
+            }
+
+            // const mediaLabel = document.getElementById("media-label");
+            // th.onmouseenter = () => {
+            //     mediaLabel.textContent = event;
+            //     mediaLabel.classList.add("active");
+            // };
+            //
+            // th.onmouseleave = () => {
+            //     mediaLabel.textContent = '';
+            //     mediaLabel.classList.remove("active");
+            // };
+
+            const d = dataset[event].latestDate;
+            const dateStr = [
+                d.getFullYear(),
+                String(d.getMonth() + 1).padStart(2, '0'),
+                String(d.getDate()).padStart(2, '0')
+            ].join('-');
+
+            th.innerHTML = `
+                <div class="event-title">${event}</div>
+                <div class="event-date">${dateStr}</div>
+            `;
+            tr.appendChild(th);
+
+
+            mediaList.forEach(media => {
+                const td = document.createElement("td");
+                const urls = dataset[event].media[media];
+
+                // if (urls && urls.length > 0) {
+                //     td.className = "cell-on";
+                //     td.onclick = () => window.open(urls[0], "_blank");
+                // } else {
+                //     td.className = "cell-off";
+                // }
+
+                let level = 0;
+                if (urls && urls.length > 0) {
+                    const count = urls.length;
+
+                    if (count >= 5) level = 4;
+                    else if (count >= 3) level = 3;
+                    else if (count >= 2) level = 2;
+                    else level = 1;
+
+                    // if (count >= 2) {
+                    //     td.textContent = count;
+                    // }
+
+                    // td.onclick = () => window.open(urls[0], "_blank");
+                    td.onclick = () => renderArticleList(event, media, urls);
+                }
+                td.className = `cell-${level}`;
+
+
+                tr.appendChild(td);
+            });
+
+            tbody.appendChild(tr);
+        });
+    }
+
+    let globalData;
+
+    loadData().then(data => {
+        globalData = data;
+        buildTable(globalData);
+    });
+
+    const btn = document.getElementById("toggleBtn");
+    btn.onclick = () => {
+        showAll = !showAll;
+        btn.classList.toggle("active", showAll);
+        btn.textContent = showAll ? "기본 보기" : "펼쳐 보기 (언론사 확대)";
+        buildTable(globalData);
+    };
+
+    function renderArticleList(event, media, articles) {
+        const container = document.getElementById("article-list");
+
+        if (!articles || articles.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        let html = `
+        <h3 style="margin-bottom:10px;">
+            ${event} / ${media} (${articles.length})
+        </h3>
+
+        <table class=article-table style= border-collapse: collapse; border-spacing: 0; font-size:13px; table-layout: fixed;">
+            <colgroup>
+                <col style="width:100px;">
+                <col style="width:100px;">
+                <col>
+            </colgroup>
+            <thead>
+                <tr style="border-bottom:1px solid #d0d7de;">
+                    <th style="padding:4px;">기자</th>
+                    <th style="padding:4px;">발행시간</th>
+                    <th style="padding:4px;">제목</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+        articles.forEach(a => {
+            html += `
+            <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:4px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ${a.reporter}
+                </td>
+
+                <td style="padding:4px 6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ${a.published_at || '-'}
+                </td>
+
+                <td style="padding:4px 6px; overflow:hidden;">
+                    <a href="${a.url}" target="_blank"
+                       style="display:block; width:100%; padding-left: 14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                       ${a.title}
+                    </a>
+                </td>
+            </tr>
+        `;
+        });
+
+        html += `</tbody></table>`;
+        container.innerHTML = html;
+    }
+</script>
+</script>
+
+</body>
+</html>
