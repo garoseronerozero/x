@@ -184,9 +184,21 @@ const USER_LIST = [
   { id: "rareebbang", label: "미7"},
   { id: "pamdoz1", label: "미8"},
   { id: "inging_angang1", label: "미9"},
-  // { id: "wiqpffls2", label: "미10"},
+  { id: "nannan_ing", label: "미10"},
 
-  // { id: "wiqpffls2", label: "파1"},
+  { id: "BCAmati", label: "파1"},
+  { id: "wonla23", label: "파2"},
+  // { id: "wiqpffls2", label: "파3"},
+  // { id: "wiqpffls2", label: "파4"},
+  // { id: "wiqpffls2", label: "파5"},
+  // { id: "wiqpffls2", label: "파6"},
+  // { id: "wiqpffls2", label: "파7"},
+  // { id: "wiqpffls2", label: "파8"},
+  // { id: "wiqpffls2", label: "파9"},
+  // { id: "wiqpffls2", label: "파10"},
+
+  // { id: "wiqpffls2", label: "솔1"},
+  // { id: "wiqpffls2", label: "솔1"},
 
   { id: "temp", label: "TEMP" }
 ]
