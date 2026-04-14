@@ -171,8 +171,8 @@ const USER_LIST = [
   { id: "luuuuuvforwhat", label: "레5"},
   { id: "matchasuki2S2", label: "레6"},
   { id: "Yo4Gk", label: "레7"},
-  // { id: "wiqpffls2", label: "레8"},
-  // { id: "wiqpffls2", label: "레9"},
+  { id: "Emirusm", label: "레8"},
+  { id: "die_in_YOU", label: "레9"},
   // { id: "wiqpffls2", label: "레10"},
 
   // { id: "wiqpffls2", label: "미1"},
