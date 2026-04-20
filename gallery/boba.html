@@ -118,6 +118,19 @@
             border-bottom-right-radius: 20px;
         }
 
+        /* 카드 전체를 어둡게 */
+        .card.is-private {
+            filter: grayscale(100%) brightness(0.45) contrast(0.85);
+            opacity: 0.6;
+            transition: .25s ease;
+        }
+
+        /* hover 거의 변화 없음 */
+        .card.is-private:hover {
+            filter: grayscale(90%) brightness(0.55) contrast(0.9);
+            transform: none;
+        }
+
         .text-group {
             display: flex;
             flex-direction: column;
@@ -629,7 +642,7 @@
             </div>
         </a>
 
-        <a class="card" href="https://x.com/i/user/3693622752" target="_blank">
+        <a class="card is-private" href="https://x.com/i/user/3693622752" target="_blank">
             <img src="../images/3693622752.jpg">
             <span class="geo-badge"><span class="platform">🍎</span><span class="location">Japan</span></span>
             <div class="overlay">
@@ -641,7 +654,7 @@
             </div>
         </a>
 
-        <a class="card" href="https://x.com/i/user/2026683707638394881" target="_blank">
+        <a class="card is-private" href="https://x.com/i/user/2026683707638394881" target="_blank">
             <img src="../images/2026683707638394881.jpg">
             <span class="geo-badge"><span class="platform">🍎</span><span class="location">North America</span></span>
             <div class="overlay">
