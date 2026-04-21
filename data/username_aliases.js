@@ -226,8 +226,9 @@ const USER_LIST = [
   { id: "SilverSurfre", label: "시5" },
   { id: "txebuuk", label: "시6" },
   { id: "space_tuna_rice", label: "시7" },
-
-
+  { id: "lucky4star_725", label: "시8" },
+  // { id: "lucky4star_725", label: "시9" },
+  // { id: "lucky4star_725", label: "시10" },
 
 
   { id: "temp", label: "TEMP" }
