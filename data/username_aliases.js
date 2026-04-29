@@ -242,7 +242,7 @@ const USER_LIST = [
   { id: "kihynbml0524", label: "햇빛10" },
 
   { id: "evenTheQueen2", label: "진달래1" },
-  // { id: "aaaaa", label: "진달래2" },
+  { id: "whale__master", label: "진달래2" },
   // { id: "aaaaa", label: "진달래3" },
   // { id: "aaaaa", label: "진달래4" },
   // { id: "aaaaa", label: "진달래5" },
