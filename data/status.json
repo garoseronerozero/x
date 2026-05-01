@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-01 19:22",
+  "lastUpdate": "2026-05-02 05:32",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -639,7 +639,7 @@
     "https://x.com/mi_ro__/status/2039207396908904496": "OK",
     "https://x.com/mi_ro__/status/2039209182004678809": "OK",
     "https://x.com/mi_ro__/status/2039209221586395497": "OK",
-    "https://x.com/mi_ro__/status/2039209444983353732": "OK",
+    "https://x.com/mi_ro__/status/2039209444983353732": "RESTRICTED",
     "https://x.com/mi_ro__/status/2039209845816283158": "OK",
     "https://x.com/mi_ro__/status/2039209936127992152": "OK",
     "https://x.com/mi_ro__/status/2039219393373356252": "OK",
@@ -927,6 +927,8 @@
     "https://x.com/ehoooouyui/status/1900107248799801781": "OK",
     "https://x.com/ehoooouyui/status/1906614495729893668": "OK",
     "https://x.com/BeopHakhomoLim2/status/1899819240020156853": "OK",
-    "https://x.com/BeopHakhomoLim2/status/1906629672336789852": "OK"
+    "https://x.com/BeopHakhomoLim2/status/1906629672336789852": "OK",
+    "https://x.com/ch_blossom_tea/status/1900709048812773810": "OK",
+    "https://x.com/ch_blossom_tea/status/2050303986348241197": "OK"
   }
 }

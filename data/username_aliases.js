@@ -248,7 +248,7 @@ const USER_LIST = [
   { id: "sxckyourass", label: "진달래5" },
   { id: "ehoooouyui", label: "진달래6" },
   { id: "BeopHakhomoLim2", label: "진달래7" },
-  // { id: "aaaaa", label: "진달래8" },
+  { id: "ch_blossom_tea", label: "진달래8" },
   // { id: "aaaaa", label: "진달래9" },
   // { id: "aaaaa", label: "진달래10" },
   //
