@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-02 05:32",
+  "lastUpdate": "2026-05-03 08:27",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -231,7 +231,7 @@
     "https://x.com/man9oou/status/1902733895654903858": "OK",
     "https://x.com/man9oou/status/1905589260344066202": "OK",
     "https://x.com/man9oou/status/1905590191777067361": "OK",
-    "https://x.com/peddler_sb/status/2030890651311902906": "OK",
+    "https://x.com/peddler_sb/status/2030890651311902906": "RESTRICTED",
     "https://x.com/nec00n_nim/status/1899250270233870803": "RESTRICTED",
     "https://x.com/nec00n_nim/status/1905390412858331447": "RESTRICTED",
     "https://x.com/nec00n_nim/status/1905410488495898811": "RESTRICTED",
@@ -692,7 +692,7 @@
     "https://x.com/Emirusm/status/2043982042107654525": "OK",
     "https://x.com/die_in_YOU/status/1902790288495755580": "OK",
     "https://x.com/die_in_YOU/status/1906599360273719533": "OK",
-    "https://x.com/iwantasaphoca/status/2043943364513738833": "RESTRICTED",
+    "https://x.com/iwantasaphoca/status/2043943364513738833": "OK",
     "https://x.com/wgpxj6/status/2043966873545658631": "OK",
     "https://x.com/wgpxj6/status/2043994593222635955": "OK",
     "https://x.com/wgpxj6/status/2044051778451456224": "OK",
@@ -745,7 +745,7 @@
     "https://x.com/tfq5bo32822/status/2044206535367373147": "OK",
     "https://x.com/ouwnooo/status/2044114565848588340": "OK",
     "https://x.com/byeongsinhyeomo/status/2044016197197607348": "DELETED",
-    "https://x.com/lllalllalllllll/status/1900547717765767581": "OK",
+    "https://x.com/lllalllalllllll/status/1900547717765767581": "RESTRICTED",
     "https://x.com/RitihiEvho/status/1899513161063231602": "OK",
     "https://x.com/RitihiEvho/status/1902658899637137730": "OK",
     "https://x.com/RitihiEvho/status/1910147678782247178": "OK",
@@ -929,6 +929,12 @@
     "https://x.com/BeopHakhomoLim2/status/1899819240020156853": "OK",
     "https://x.com/BeopHakhomoLim2/status/1906629672336789852": "OK",
     "https://x.com/ch_blossom_tea/status/1900709048812773810": "OK",
-    "https://x.com/ch_blossom_tea/status/2050303986348241197": "OK"
+    "https://x.com/ch_blossom_tea/status/2050303986348241197": "DELETED",
+    "https://x.com/jen_o_lee_23/status/1905264267001311425": "OK",
+    "https://x.com/jen_o_lee_23/status/1900756088167034974": "OK",
+    "https://x.com/fucker_logic/status/1906905490875093176": "OK",
+    "https://x.com/djA00mh9956moon/status/1906654951905878337": "OK",
+    "https://x.com/busylion814/status/1920007998694629435": "OK",
+    "https://x.com/busylion814/status/1905556256049561639": "OK"
   }
 }
