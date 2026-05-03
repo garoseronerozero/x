@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-03 08:27",
+  "lastUpdate": "2026-05-03 14:04",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -201,8 +201,8 @@
     "https://x.com/guny1283731/status/1922479063601434887": "OK",
     "https://x.com/guny1283731/status/1922477751790944270": "OK",
     "https://x.com/wuhighup/status/2027729429137658082": "OK",
-    "https://x.com/n_adora2021/status/1899926291962617912": "OK",
-    "https://x.com/n_adora2021/status/2027957766095311088": "OK",
+    "https://x.com/n_adora2021/status/1899926291962617912": "RESTRICTED",
+    "https://x.com/n_adora2021/status/2027957766095311088": "RESTRICTED",
     "https://x.com/HeungrokCho/status/1906169360999428582": "OK",
     "https://x.com/HeungrokCho/status/1906539530993488178": "OK",
     "https://x.com/HeungrokCho/status/1906679680327094654": "OK",
@@ -273,7 +273,7 @@
     "https://x.com/jkjkjkls27/status/1921639220608692246": "OK",
     "https://x.com/jkjkjkls27/status/1921527155244109825": "OK",
     "https://x.com/jkjkjkls27/status/1920422617070067827": "OK",
-    "https://x.com/jkjkjkls27/status/1920335608037453976": "OK",
+    "https://x.com/jkjkjkls27/status/1920335608037453976": "PENDING",
     "https://x.com/jkjkjkls27/status/1920334968191951193": "OK",
     "https://x.com/jkjkjkls27/status/1920310739199312237": "OK",
     "https://x.com/jkjkjkls27/status/1920142579381006819": "OK",
@@ -935,6 +935,19 @@
     "https://x.com/fucker_logic/status/1906905490875093176": "OK",
     "https://x.com/djA00mh9956moon/status/1906654951905878337": "OK",
     "https://x.com/busylion814/status/1920007998694629435": "OK",
-    "https://x.com/busylion814/status/1905556256049561639": "OK"
+    "https://x.com/busylion814/status/1905556256049561639": "OK",
+    "https://x.com/9utenacht/status/1900240951416861079": "OK",
+    "https://x.com/9utenacht/status/1901647228684386503": "DELETED",
+    "https://x.com/9utenacht/status/1902827835846430838": "OK",
+    "https://x.com/9utenacht/status/1905407619017441530": "OK",
+    "https://x.com/ecirtlucirga/status/1900128490017669132": "OK",
+    "https://x.com/ecirtlucirga/status/1905147422822584567": "OK",
+    "https://x.com/ecirtlucirga/status/1906746970473123857": "OK",
+    "https://x.com/gourmet_bosal/status/1899846093787242555": "OK",
+    "https://x.com/gourmet_bosal/status/1900425153734934823": "OK",
+    "https://x.com/gourmet_bosal/status/1900918393248903248": "OK",
+    "https://x.com/chfhrdldpdy/status/1899444342319890609": "OK",
+    "https://x.com/chfhrdldpdy/status/1906631859272143339": "OK",
+    "https://x.com/lumos__y/status/1902562665060532587": "OK"
   }
 }
