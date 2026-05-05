@@ -261,9 +261,9 @@ const USER_LIST = [
   { id: "affective_neuro", label: "이슬7" },
   { id: "mmeelloonnaa", label: "이슬8" },
   { id: "rock_ouo", label: "이슬9" },
-  // { id: "aaaaa", label: "이슬10" },
+  { id: "MARTIN_No5_ss", label: "이슬10" },
 
-  // { id: "aaa", label: "양털구름1" },
+  { id: "imugidesu", label: "양털구름1" },
   // { id: "aaaaa", label: "양털구름2" },
   // { id: "aaaaa", label: "양털구름3" },
   // { id: "aaaaa", label: "양털구름4" },
