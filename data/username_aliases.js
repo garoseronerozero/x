@@ -275,17 +275,30 @@ const USER_LIST = [
   { id: "cecilia09012", label: "양털구름10" },
 
   { id: "bamb11bam", label: "삼색고양이1" },
-  // { id: "aaaaa", label: "삼색고양이2" },
-  // { id: "aaaaa", label: "삼색고양이3" },
-  // { id: "aaaaa", label: "삼색고양이4" },
-  // { id: "aaaaa", label: "삼색고양이5" },
-  // { id: "aaaaa", label: "삼색고양이6" },
-  // { id: "aaaaa", label: "삼색고양이7" },
-  // { id: "aaaaa", label: "삼색고양이8" },
-  // { id: "aaaaa", label: "삼색고양이9" },
-  // { id: "aaaaa", label: "삼색고양이10" },
+  { id: "eookoe_", label: "삼색고양이2" },
+  { id: "everyock2", label: "삼색고양이3" },
+  { id: "p______g", label: "삼색고양이4" },
+  { id: "djsiwxz", label: "삼색고양이5" },
+  { id: "Zoaui7_1", label: "삼색고양이6" },
+  { id: "soongeii", label: "삼색고양이7" },
+  { id: "im_mame_", label: "삼색고양이8" },
+  { id: "skrrrhan", label: "삼색고양이9" },
+  { id: "snwoffeo", label: "삼색고양이10" },
 
-  // 장미, 산들바람, 첫눈, 피아노
+  { id: "77X1661", label: "장미1" },
+  { id: "pongpongi_0209", label: "장미2" },
+  { id: "gin1988659", label: "장미3" },
+  { id: "puppycuteg", label: "장미4" },
+
+
+  // { id: "aaaaa", label: "장미5" },
+  // { id: "aaaaa", label: "장미6" },
+  // { id: "aaaaa", label: "장미7" },
+  // { id: "aaaaa", label: "장미8" },
+  // { id: "aaaaa", label: "장미9" },
+  // { id: "aaaaa", label: "장미10" },
+
+  // 산들바람, 첫눈, 피아노
 
 
   { id: "temp", label: "TEMP" }
