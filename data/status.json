@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-07 11:38",
+  "lastUpdate": "2026-05-07 21:53",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -487,7 +487,7 @@
     "https://x.com/53627349_/status/2034162872700571732": "OK",
     "https://x.com/shoegirlim/status/1899640110796476541": "OK",
     "https://x.com/shoegirlim/status/2034204711042384116": "DELETED",
-    "https://x.com/blucheck333/status/2034154690355794254": "OK",
+    "https://x.com/blucheck333/status/2034154690355794254": "RESTRICTED",
     "https://x.com/k29838/status/2034182658381779179": "OK",
     "https://x.com/k29838/status/1983415453675598290": "OK",
     "https://x.com/uhksg0_07/status/2034233976358068246": "OK",
@@ -644,7 +644,7 @@
     "https://x.com/mi_ro__/status/2039209845816283158": "OK",
     "https://x.com/mi_ro__/status/2039209936127992152": "OK",
     "https://x.com/mi_ro__/status/2039219393373356252": "OK",
-    "https://x.com/mi_ro__/status/2039228254767522163": "OK",
+    "https://x.com/mi_ro__/status/2039228254767522163": "RESTRICTED",
     "https://x.com/mi_ro__/status/2039261948370677787": "OK",
     "https://x.com/mi_ro__/status/2039266912811839849": "OK",
     "https://x.com/mi_ro__/status/2039273416877122000": "OK",
@@ -991,7 +991,7 @@
     "https://x.com/djsiwxz/status/2051327638049013870": "OK",
     "https://x.com/Zoaui7_1/status/2051491212344094729": "OK",
     "https://x.com/soongeii/status/2051520418549477696": "OK",
-    "https://x.com/im_mame_/status/2051521073548808485": "OK",
+    "https://x.com/im_mame_/status/2051521073548808485": "DELETED",
     "https://x.com/skrrrhan/status/2051548970951057780": "OK",
     "https://x.com/snwoffeo/status/2051316660087488841": "OK",
     "https://x.com/77X1661/status/2051560616905822325": "OK",
@@ -1000,6 +1000,23 @@
     "https://x.com/gin1988659/status/1900101866031325357": "OK",
     "https://x.com/gin1988659/status/1906680655385350628": "OK",
     "https://x.com/gin1988659/status/2051331943787335935": "OK",
-    "https://x.com/puppycuteg/status/2051323563806998987": "OK"
+    "https://x.com/puppycuteg/status/2051323563806998987": "OK",
+    "https://x.com/D_T_Monitoring/status/1899605024457777165": "OK",
+    "https://x.com/D_T_Monitoring/status/1899605786256630208": "OK",
+    "https://x.com/D_T_Monitoring/status/1899610142624432300": "OK",
+    "https://x.com/D_T_Monitoring/status/1900163390712275400": "OK",
+    "https://x.com/D_T_Monitoring/status/1900164119233519775": "OK",
+    "https://x.com/D_T_Monitoring/status/1900165163279327318": "OK",
+    "https://x.com/D_T_Monitoring/status/1900165849224487372": "OK",
+    "https://x.com/D_T_Monitoring/status/1900167221219061897": "OK",
+    "https://x.com/D_T_Monitoring/status/1900168245090673108": "OK",
+    "https://x.com/D_T_Monitoring/status/1900169055954493657": "OK",
+    "https://x.com/D_T_Monitoring/status/1905217149683306957": "OK",
+    "https://x.com/D_T_Monitoring/status/1905763815670890601": "OK",
+    "https://x.com/D_T_Monitoring/status/1905765318540333487": "OK",
+    "https://x.com/D_T_Monitoring/status/1905766293686599958": "OK",
+    "https://x.com/D_T_Monitoring/status/1905767176461783197": "OK",
+    "https://x.com/D_T_Monitoring/status/1905768473114108181": "OK",
+    "https://x.com/D_T_Monitoring/status/1905769170383564954": "OK"
   }
 }
