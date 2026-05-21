@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-21 04:10",
+  "lastUpdate": "2026-05-21 18:05",
   "data": {
     "https://x.com/Happipupper/status/1904039868633923775": "OK",
     "https://x.com/Happipupper/status/2027934857834491951": "OK",
@@ -149,7 +149,7 @@
     "https://x.com/iamminuco/status/1902576258355241089": "OK",
     "https://x.com/iamminuco/status/1905176199116271720": "OK",
     "https://x.com/iamminuco/status/1905451231335907609": "OK",
-    "https://x.com/luvTrong/status/1905418592176185411": "OK",
+    "https://x.com/luvTrong/status/1905418592176185411": "DELETED",
     "https://x.com/oioi237800/status/1906622051344847283": "OK",
     "https://x.com/Westanirem/status/1906924228370391544": "OK",
     "https://x.com/Bds_VegetaShop/status/1900395412558623074": "OK",
@@ -330,7 +330,7 @@
     "https://x.com/jjintta350234/status/2028130126509363220": "OK",
     "https://x.com/naatu21769/status/2027760135750488280": "OK",
     "https://x.com/naatu21769/status/2028114192004444450": "OK",
-    "https://x.com/eodnjekske/status/2023783863269683559": "OK",
+    "https://x.com/eodnjekske/status/2023783863269683559": "RESTRICTED",
     "https://x.com/861026/status/2015222720997560622": "OK",
     "https://x.com/861026/status/1903031832385556904": "OK",
     "https://x.com/861026/status/2044398914665934926": "OK",
@@ -474,11 +474,11 @@
     "https://x.com/Parann789_re/status/2033952630020706355": "OK",
     "https://x.com/BIRDKID_TT/status/1899078563778761191": "OK",
     "https://x.com/BIRDKID_TT/status/2034069568449351804": "DELETED",
-    "https://x.com/bts_love0503/status/2027715491754872980": "OK",
+    "https://x.com/bts_love0503/status/2027715491754872980": "DELETED",
     "https://x.com/bts_love0503/status/2027716446391046537": "OK",
     "https://x.com/bts_love0503/status/2034131448681402575": "OK",
     "https://x.com/bts_love0503/status/2034207308578971942": "DELETED",
-    "https://x.com/bts_love0503/status/2034224151049937221": "OK",
+    "https://x.com/bts_love0503/status/2034224151049937221": "DELETED",
     "https://x.com/bts_love0503/status/2051308234200555658": "OK",
     "https://x.com/iyuublue/status/2034136275595452919": "DELETED",
     "https://x.com/bbdjd__/status/2034188372336656714": "DELETED",
@@ -645,7 +645,7 @@
     "https://x.com/mi_ro__/status/2039209936127992152": "OK",
     "https://x.com/mi_ro__/status/2039219393373356252": "OK",
     "https://x.com/mi_ro__/status/2039228254767522163": "OK",
-    "https://x.com/mi_ro__/status/2039261948370677787": "OK",
+    "https://x.com/mi_ro__/status/2039261948370677787": "RESTRICTED",
     "https://x.com/mi_ro__/status/2039266912811839849": "OK",
     "https://x.com/mi_ro__/status/2039273416877122000": "OK",
     "https://x.com/mi_ro__/status/2039308762419490894": "OK",
@@ -1024,6 +1024,8 @@
     "https://x.com/StdStdts/status/1906786069179433287": "OK",
     "https://x.com/Reumi___/status/1899322389022044170": "RESTRICTED",
     "https://x.com/Reumi___/status/1920134798779224236": "RESTRICTED",
-    "https://x.com/Reumi___/status/1920720964708413569": "RESTRICTED"
+    "https://x.com/Reumi___/status/1920720964708413569": "RESTRICTED",
+    "https://x.com/muyomuyoyum/status/2055434883783344224": "OK",
+    "https://x.com/muyomuyoyum/status/2057264969285333458": "OK"
   }
 }
